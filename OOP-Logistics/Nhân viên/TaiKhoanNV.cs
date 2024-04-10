@@ -6,12 +6,12 @@
         public string? Username { get; set; }
         public string? Password { get; set; }
 
-        public bool Register(string tênĐăngNhập, string mậtKhẩu)
+        public bool Register(string tenDangNhap, string matKhau)
         {
             return true;
         }
 
-        public bool Login(string tênĐăngNhập, string mậtKhẩu)
+        public bool Login(string tenDangNhap, string matKhau)
         {
             return true;
         }
@@ -21,21 +21,9 @@
 
         }
 
-        public bool DeleteAccount(string tênĐăngNhập)
+        public bool DeleteAccount(string tenDangNhap)
         {
             return true;
-        }
-    }
-
-    internal class MainClass
-    {
-        private static void Main()
-        {
-            TaiKhoanNV taiKhoan = new();
-            taiKhoan.Register("user1", "password1");
-            taiKhoan.Login("user1", "password1");
-            taiKhoan.Logout();
-            taiKhoan.DeleteAccount("user1");
         }
     }
 }

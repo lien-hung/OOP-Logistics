@@ -25,19 +25,4 @@
             return true;
         }
     }
-    internal class MainClass
-    {
-        private static void Main()
-        {
-            TaiKhoan taiKhoan = new();
-
-            // Tạo tài khoản mặc định cho quản trị viên
-            taiKhoan.Register("admin", "123");
-
-            // Đăng nhập và thực hiện các hoạt động khác
-            taiKhoan.Login("admin", "123");
-            taiKhoan.Logout();
-            taiKhoan.DeleteAccount("admin");
-        }
-    }
 }

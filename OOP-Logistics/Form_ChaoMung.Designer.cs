@@ -30,94 +30,80 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_ChaoMung));
             panelChaoMung = new Panel();
-            pictureBox1 = new PictureBox();
-            btnKhachHang = new Button();
-            btnNhanVien = new Button();
-            btnQuanTriVien = new Button();
+            btnDangKy = new Button();
+            btnDangNhap = new Button();
+            lblDisclaimer = new Label();
+            ptbLogo = new PictureBox();
             lblMoTa = new Label();
             panelChaoMung.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)ptbLogo).BeginInit();
             SuspendLayout();
             // 
             // panelChaoMung
             // 
             panelChaoMung.BackColor = Color.White;
-            panelChaoMung.Controls.Add(pictureBox1);
-            panelChaoMung.Controls.Add(btnKhachHang);
-            panelChaoMung.Controls.Add(btnNhanVien);
-            panelChaoMung.Controls.Add(btnQuanTriVien);
+            panelChaoMung.Controls.Add(btnDangKy);
+            panelChaoMung.Controls.Add(btnDangNhap);
+            panelChaoMung.Controls.Add(lblDisclaimer);
+            panelChaoMung.Controls.Add(ptbLogo);
             panelChaoMung.Controls.Add(lblMoTa);
             panelChaoMung.Location = new Point(338, 0);
             panelChaoMung.Name = "panelChaoMung";
             panelChaoMung.Size = new Size(336, 431);
             panelChaoMung.TabIndex = 0;
             // 
-            // pictureBox1
+            // btnDangKy
             // 
-            pictureBox1.Image = Properties.Resources.X_Delivery;
-            pictureBox1.Location = new Point(72, 34);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(189, 72);
-            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBox1.TabIndex = 5;
-            pictureBox1.TabStop = false;
+            btnDangKy.BackColor = Color.White;
+            btnDangKy.FlatStyle = FlatStyle.Flat;
+            btnDangKy.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnDangKy.ForeColor = Color.FromArgb(255, 128, 0);
+            btnDangKy.Location = new Point(86, 271);
+            btnDangKy.Name = "btnDangKy";
+            btnDangKy.Size = new Size(161, 46);
+            btnDangKy.TabIndex = 7;
+            btnDangKy.Text = "Đăng ký";
+            btnDangKy.UseVisualStyleBackColor = false;
+            btnDangKy.Click += btnDangKy_Click;
+            btnDangKy.MouseEnter += btnDangKy_MouseEnter;
+            btnDangKy.MouseLeave += btnDangKy_MouseLeave;
             // 
-            // btnKhachHang
+            // btnDangNhap
             // 
-            btnKhachHang.BackColor = Color.FromArgb(255, 128, 0);
-            btnKhachHang.FlatAppearance.BorderSize = 0;
-            btnKhachHang.FlatStyle = FlatStyle.Flat;
-            btnKhachHang.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnKhachHang.ForeColor = Color.White;
-            btnKhachHang.Image = Properties.Resources.icons8_person_96;
-            btnKhachHang.ImageAlign = ContentAlignment.MiddleLeft;
-            btnKhachHang.Location = new Point(40, 197);
-            btnKhachHang.Name = "btnKhachHang";
-            btnKhachHang.Size = new Size(256, 67);
-            btnKhachHang.TabIndex = 2;
-            btnKhachHang.Text = "Dành cho\r\nKHÁCH HÀNG";
-            btnKhachHang.TextAlign = ContentAlignment.MiddleRight;
-            btnKhachHang.UseVisualStyleBackColor = false;
-            btnKhachHang.MouseEnter += btnKhachHang_MouseEnter;
-            btnKhachHang.MouseLeave += btnKhachHang_MouseLeave;
+            btnDangNhap.BackColor = Color.FromArgb(255, 128, 0);
+            btnDangNhap.FlatAppearance.BorderColor = Color.FromArgb(255, 128, 0);
+            btnDangNhap.FlatStyle = FlatStyle.Flat;
+            btnDangNhap.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnDangNhap.ForeColor = Color.White;
+            btnDangNhap.Location = new Point(86, 219);
+            btnDangNhap.Name = "btnDangNhap";
+            btnDangNhap.Size = new Size(161, 46);
+            btnDangNhap.TabIndex = 6;
+            btnDangNhap.Text = "Đăng nhập";
+            btnDangNhap.UseVisualStyleBackColor = false;
+            btnDangNhap.Click += btnDangNhap_Click;
+            btnDangNhap.MouseEnter += btnDangNhap_MouseEnter;
+            btnDangNhap.MouseLeave += btnDangNhap_MouseLeave;
             // 
-            // btnNhanVien
+            // lblDisclaimer
             // 
-            btnNhanVien.BackColor = Color.FromArgb(255, 128, 0);
-            btnNhanVien.FlatAppearance.BorderSize = 0;
-            btnNhanVien.FlatStyle = FlatStyle.Flat;
-            btnNhanVien.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnNhanVien.ForeColor = Color.White;
-            btnNhanVien.Image = Properties.Resources.icons8_worker_96;
-            btnNhanVien.ImageAlign = ContentAlignment.MiddleLeft;
-            btnNhanVien.Location = new Point(40, 270);
-            btnNhanVien.Name = "btnNhanVien";
-            btnNhanVien.Size = new Size(256, 67);
-            btnNhanVien.TabIndex = 3;
-            btnNhanVien.Text = "Dành cho\r\nNHÂN VIÊN";
-            btnNhanVien.TextAlign = ContentAlignment.MiddleRight;
-            btnNhanVien.UseVisualStyleBackColor = false;
-            btnNhanVien.MouseEnter += btnNhanVien_MouseEnter;
-            btnNhanVien.MouseLeave += btnNhanVien_MouseLeave;
+            lblDisclaimer.BackColor = Color.Transparent;
+            lblDisclaimer.Location = new Point(53, 368);
+            lblDisclaimer.Name = "lblDisclaimer";
+            lblDisclaimer.Size = new Size(230, 38);
+            lblDisclaimer.TabIndex = 1;
+            lblDisclaimer.Text = "Lưu ý: Phần mềm chỉ phục vụ môn học, không có giá trị giao nhận trên thực tế";
+            lblDisclaimer.TextAlign = ContentAlignment.MiddleCenter;
             // 
-            // btnQuanTriVien
+            // ptbLogo
             // 
-            btnQuanTriVien.BackColor = Color.FromArgb(255, 128, 0);
-            btnQuanTriVien.FlatAppearance.BorderSize = 0;
-            btnQuanTriVien.FlatStyle = FlatStyle.Flat;
-            btnQuanTriVien.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnQuanTriVien.ForeColor = Color.White;
-            btnQuanTriVien.Image = Properties.Resources.icons8_admin_96;
-            btnQuanTriVien.ImageAlign = ContentAlignment.MiddleLeft;
-            btnQuanTriVien.Location = new Point(40, 343);
-            btnQuanTriVien.Name = "btnQuanTriVien";
-            btnQuanTriVien.Size = new Size(256, 67);
-            btnQuanTriVien.TabIndex = 4;
-            btnQuanTriVien.Text = "Dành cho\r\nQUẢN TRỊ VIÊN";
-            btnQuanTriVien.TextAlign = ContentAlignment.MiddleRight;
-            btnQuanTriVien.UseVisualStyleBackColor = false;
-            btnQuanTriVien.MouseEnter += btnQuanTriVien_MouseEnter;
-            btnQuanTriVien.MouseLeave += btnQuanTriVien_MouseLeave;
+            ptbLogo.Image = Properties.Resources.X_Delivery;
+            ptbLogo.Location = new Point(72, 34);
+            ptbLogo.Name = "ptbLogo";
+            ptbLogo.Size = new Size(189, 72);
+            ptbLogo.SizeMode = PictureBoxSizeMode.StretchImage;
+            ptbLogo.TabIndex = 5;
+            ptbLogo.TabStop = false;
             // 
             // lblMoTa
             // 
@@ -144,9 +130,8 @@
             MinimizeBox = false;
             Name = "Form_ChaoMung";
             Text = "Chào mừng";
-            Load += Form_ChaoMung_Load;
             panelChaoMung.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)ptbLogo).EndInit();
             ResumeLayout(false);
         }
 
@@ -154,9 +139,9 @@
 
         private Panel panelChaoMung;
         private Label lblMoTa;
-        private Button btnQuanTriVien;
-        private Button btnKhachHang;
-        private Button btnNhanVien;
-        private PictureBox pictureBox1;
+        private PictureBox ptbLogo;
+        private Label lblDisclaimer;
+        private Button btnDangNhap;
+        private Button btnDangKy;
     }
 }

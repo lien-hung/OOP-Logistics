@@ -4,14 +4,12 @@
     {
         public string? ID { get; set; }
         public string? Name { get; set; }
-        public string? Address { get; set; }
         public string? PhoneNumber { get; set; }
         public string? CitizenID { get; set; }
-        public void ThongTin(string MaKhachHang, string HoTen, string DiaChi, string SoDienThoai, string SoCCCD)
+        public void ThongTin(string MaKhachHang, string HoTen, string SoDienThoai, string SoCCCD)
         {
             ID = MaKhachHang;
             Name = HoTen;
-            Address = DiaChi;
             PhoneNumber = SoDienThoai;
             CitizenID = SoCCCD;
         }
@@ -19,7 +17,6 @@
         public void XemThongTin()
         {
             Console.WriteLine($"Thông tin khách hàng: {Name}");
-            Console.WriteLine($"Địa chỉ: {Address}");
             Console.WriteLine($"Số điện thoại: {PhoneNumber}");
             Console.WriteLine($"Mã khách hàng: {ID}");
             Console.WriteLine($"Số căn cước: {CitizenID}");

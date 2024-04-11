@@ -73,9 +73,9 @@ namespace OOP_Logistics.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap icons8_admin_96 {
+        internal static System.Drawing.Bitmap DangKy_background {
             get {
-                object obj = ResourceManager.GetObject("icons8_admin_96", resourceCulture);
+                object obj = ResourceManager.GetObject("DangKy_background", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

@@ -3,6 +3,6 @@
     class KhachHangCaNhan : KhachHang
     {
         public string? EmailCaNhan { get; set; }
-        public string? SoCCCD { get; set; }
+        public string? DiaChiLienLac { get; set; }
     }
 }

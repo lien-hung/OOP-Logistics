@@ -1,10 +1,15 @@
 ﻿namespace OOP_Logistics
 {
-    public partial class Form_ChaoMung : Form
+    public partial class Form_DangNhap : Form
     {
-        public Form_ChaoMung()
+        public Form_DangNhap()
         {
             InitializeComponent();
+        }
+
+        private void Form_DangNhap_Load(object sender, EventArgs e)
+        {
+            cboLoaiTaiKhoan.SelectedIndex = 0;
         }
 
         private void btnDangNhap_MouseEnter(object sender, EventArgs e)
@@ -27,9 +32,9 @@
             Util.NormalizeButtonColor(sender as Button);
         }
 
-        private void btnDangNhap_Click(object sender, EventArgs e)
+        private void lblVeTrangChu_Click(object sender, EventArgs e)
         {
-            new Form_DangNhap().Show();
+            new Form_ChaoMung().Show();
             Close();
         }
 

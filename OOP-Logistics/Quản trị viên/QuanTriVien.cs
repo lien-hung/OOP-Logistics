@@ -1,6 +1,6 @@
 ﻿namespace OOP_Logistics.Quản_Trị_Viên
 {
-    public class Admin
+    public class QuanTriVien
     {
         public void XemThongTin()
         {
@@ -15,7 +15,7 @@
         public string? Password { get; set; }
 
         // Constructor mặc định
-        public Admin()
+        public QuanTriVien()
         {
             // Thiết lập tài khoản quản trị viên mặc định
             TenTaiKhoan = "admin";

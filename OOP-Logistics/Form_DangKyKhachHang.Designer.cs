@@ -249,6 +249,7 @@
             txtMatKhau.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             txtMatKhau.Location = new Point(33, 378);
             txtMatKhau.Name = "txtMatKhau";
+            txtMatKhau.PasswordChar = '●';
             txtMatKhau.Size = new Size(212, 29);
             txtMatKhau.TabIndex = 28;
             // 
@@ -267,6 +268,7 @@
             txtXacNhanMatKhau.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             txtXacNhanMatKhau.Location = new Point(249, 378);
             txtXacNhanMatKhau.Name = "txtXacNhanMatKhau";
+            txtXacNhanMatKhau.PasswordChar = '●';
             txtXacNhanMatKhau.Size = new Size(212, 29);
             txtXacNhanMatKhau.TabIndex = 30;
             // 

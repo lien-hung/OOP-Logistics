@@ -1,31 +1,45 @@
 ﻿namespace OOP_Logistics.Quản_Trị_Viên
 {
-    public class QuanTriVien
+    public class QuanTriVien : IHuman
     {
+        public string? ID { get; set; }
+        public string? Name { get; set; }
+        public string? PhoneNumber { get; set; }
+        public string? CitizenID { get; set; }
+
+        public void ThongTin(string id, string name, string phoneNumber, string citizenID)
+        {
+            ID = id;
+            Name = name;
+            PhoneNumber = phoneNumber;
+            CitizenID = citizenID;
+        }
+
         public void XemThongTin()
         {
             // Logic để xem thông tin quản trị viên
         }
 
-        public void SuaThongTin()
+        public void ChinhSuaThongTin()
         {
             // Logic để sửa thông tin quản trị viên
         }
-        public string? TenTaiKhoan { get; set; }
+
+        public string? Username { get; set; }
         public string? Password { get; set; }
 
         // Constructor mặc định
         public QuanTriVien()
         {
             // Thiết lập tài khoản quản trị viên mặc định
-            TenTaiKhoan = "admin";
+            Username = "admin";
             Password = "123";
         }
 
         // Phương thức đăng nhập
         public bool Login(string username, string password)
         {
-            if (TenTaiKhoan == username && Password == password)
+            if (Username == username && Password == password)
             {
                 return true;
             }
@@ -38,11 +52,6 @@
         public void Logout()
         {
             // Logic để đăng xuất
-        }
-
-        public void DeleteAccount()
-        {
-            // Logic để xóa tài khoản quản trị viên
         }
 
         // Các phương thức hoặc tính năng khác cho quản trị viên

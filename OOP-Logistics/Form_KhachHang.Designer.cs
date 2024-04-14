@@ -49,6 +49,7 @@
             panelThongTin = new Panel();
             panelDatHang = new Panel();
             panelLichSuDatHang = new Panel();
+            btnDanhGia = new Button();
             dgvLichSuDatHang = new DataGridView();
             btnHuyDon = new Button();
             btnSuaDonHang = new Button();
@@ -97,7 +98,6 @@
             lblTieuDeThongTin = new Label();
             panelKhachHang = new Panel();
             lblTenKhachHang = new Label();
-            btnDanhGia = new Button();
             grpCuocPhiDon = new GroupBox();
             grpCuocPhiDon.SuspendLayout();
             navbarKhachHang.SuspendLayout();
@@ -357,6 +357,21 @@
             panelLichSuDatHang.Size = new Size(681, 566);
             panelLichSuDatHang.TabIndex = 42;
             // 
+            // btnDanhGia
+            // 
+            btnDanhGia.BackColor = Color.Black;
+            btnDanhGia.FlatAppearance.BorderColor = Color.Black;
+            btnDanhGia.FlatStyle = FlatStyle.Flat;
+            btnDanhGia.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnDanhGia.ForeColor = Color.White;
+            btnDanhGia.Location = new Point(32, 494);
+            btnDanhGia.Margin = new Padding(0);
+            btnDanhGia.Name = "btnDanhGia";
+            btnDanhGia.Size = new Size(93, 43);
+            btnDanhGia.TabIndex = 21;
+            btnDanhGia.Text = "Đánh giá";
+            btnDanhGia.UseVisualStyleBackColor = false;
+            // 
             // dgvLichSuDatHang
             // 
             dgvLichSuDatHang.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -410,6 +425,7 @@
             // 
             cboLoaiHang.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             cboLoaiHang.FormattingEnabled = true;
+            cboLoaiHang.Items.AddRange(new object[] { "Không có", "Giấy chứng nhận, hồ sơ", "Hàng dễ vỡ", "Hàng nguyên khối, quá khổ", "Chất lỏng", "Hàng đông lạnh" });
             cboLoaiHang.Location = new Point(117, 162);
             cboLoaiHang.Name = "cboLoaiHang";
             cboLoaiHang.Size = new Size(205, 29);
@@ -429,6 +445,7 @@
             // 
             cboLoaiVanChuyen.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             cboLoaiVanChuyen.FormattingEnabled = true;
+            cboLoaiVanChuyen.Items.AddRange(new object[] { "Giao thường", "Giao hỏa tốc", "Giao tiết kiệm" });
             cboLoaiVanChuyen.Location = new Point(409, 162);
             cboLoaiVanChuyen.Name = "cboLoaiVanChuyen";
             cboLoaiVanChuyen.Size = new Size(237, 29);
@@ -864,21 +881,6 @@
             lblTenKhachHang.Size = new Size(134, 78);
             lblTenKhachHang.TabIndex = 1;
             lblTenKhachHang.Text = "NGUYỄN VĂN A";
-            // 
-            // btnDanhGia
-            // 
-            btnDanhGia.BackColor = Color.Black;
-            btnDanhGia.FlatAppearance.BorderColor = Color.Black;
-            btnDanhGia.FlatStyle = FlatStyle.Flat;
-            btnDanhGia.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnDanhGia.ForeColor = Color.White;
-            btnDanhGia.Location = new Point(32, 494);
-            btnDanhGia.Margin = new Padding(0);
-            btnDanhGia.Name = "btnDanhGia";
-            btnDanhGia.Size = new Size(93, 43);
-            btnDanhGia.TabIndex = 21;
-            btnDanhGia.Text = "Đánh giá";
-            btnDanhGia.UseVisualStyleBackColor = false;
             // 
             // Form_KhachHang
             // 

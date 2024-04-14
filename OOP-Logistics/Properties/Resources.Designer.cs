@@ -113,6 +113,26 @@ namespace OOP_Logistics.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icons8_star_100_filled {
+            get {
+                object obj = ResourceManager.GetObject("icons8_star_100_filled", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_star_100_unfilled {
+            get {
+                object obj = ResourceManager.GetObject("icons8_star_100_unfilled", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icons8_worker_96 {
             get {
                 object obj = ResourceManager.GetObject("icons8_worker_96", resourceCulture);

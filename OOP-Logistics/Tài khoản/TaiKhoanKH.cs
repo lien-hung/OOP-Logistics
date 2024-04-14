@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace OOP_Logistics.Khách_Hàng
+﻿namespace OOP_Logistics.Khách_Hàng
 {
     internal class TaiKhoanKH
     {

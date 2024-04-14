@@ -49,6 +49,7 @@
             panelThongTin = new Panel();
             panelDatHang = new Panel();
             panelLichSuDatHang = new Panel();
+            btnDanhGia = new Button();
             dgvLichSuDatHang = new DataGridView();
             btnHuyDon = new Button();
             btnSuaDonHang = new Button();
@@ -97,7 +98,8 @@
             lblTieuDeThongTin = new Label();
             panelKhachHang = new Panel();
             lblTenKhachHang = new Label();
-            btnDanhGia = new Button();
+            lblKhoLuuTam = new Label();
+            lblKhoLuuTamText = new Label();
             grpCuocPhiDon = new GroupBox();
             grpCuocPhiDon.SuspendLayout();
             navbarKhachHang.SuspendLayout();
@@ -112,6 +114,8 @@
             // 
             // grpCuocPhiDon
             // 
+            grpCuocPhiDon.Controls.Add(lblKhoLuuTam);
+            grpCuocPhiDon.Controls.Add(lblKhoLuuTamText);
             grpCuocPhiDon.Controls.Add(lblThanhTien);
             grpCuocPhiDon.Controls.Add(lblThanhTienText);
             grpCuocPhiDon.Controls.Add(lblPhuThuHangDacBiet);
@@ -135,7 +139,7 @@
             // lblThanhTien
             // 
             lblThanhTien.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblThanhTien.Location = new Point(332, 253);
+            lblThanhTien.Location = new Point(332, 229);
             lblThanhTien.Name = "lblThanhTien";
             lblThanhTien.Size = new Size(135, 32);
             lblThanhTien.TabIndex = 47;
@@ -146,7 +150,7 @@
             // 
             lblThanhTienText.AutoSize = true;
             lblThanhTienText.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblThanhTienText.Location = new Point(42, 264);
+            lblThanhTienText.Location = new Point(42, 240);
             lblThanhTienText.Name = "lblThanhTienText";
             lblThanhTienText.Size = new Size(86, 21);
             lblThanhTienText.TabIndex = 46;
@@ -155,7 +159,7 @@
             // lblPhuThuHangDacBiet
             // 
             lblPhuThuHangDacBiet.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblPhuThuHangDacBiet.Location = new Point(332, 207);
+            lblPhuThuHangDacBiet.Location = new Point(332, 196);
             lblPhuThuHangDacBiet.Name = "lblPhuThuHangDacBiet";
             lblPhuThuHangDacBiet.Size = new Size(135, 21);
             lblPhuThuHangDacBiet.TabIndex = 45;
@@ -166,7 +170,7 @@
             // 
             lblPhuThuHangDacBietText.AutoSize = true;
             lblPhuThuHangDacBietText.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblPhuThuHangDacBietText.Location = new Point(42, 207);
+            lblPhuThuHangDacBietText.Location = new Point(42, 196);
             lblPhuThuHangDacBietText.Name = "lblPhuThuHangDacBietText";
             lblPhuThuHangDacBietText.Size = new Size(193, 21);
             lblPhuThuHangDacBietText.TabIndex = 44;
@@ -175,7 +179,7 @@
             // lblKhoangCach
             // 
             lblKhoangCach.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblKhoangCach.Location = new Point(332, 55);
+            lblKhoangCach.Location = new Point(332, 44);
             lblKhoangCach.Name = "lblKhoangCach";
             lblKhoangCach.Size = new Size(135, 21);
             lblKhoangCach.TabIndex = 43;
@@ -186,7 +190,7 @@
             // 
             lblKhoangCachText.AutoSize = true;
             lblKhoangCachText.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblKhoangCachText.Location = new Point(42, 55);
+            lblKhoangCachText.Location = new Point(42, 44);
             lblKhoangCachText.Name = "lblKhoangCachText";
             lblKhoangCachText.Size = new Size(174, 21);
             lblKhoangCachText.TabIndex = 42;
@@ -195,7 +199,7 @@
             // lblPhuThuGiaTriCao
             // 
             lblPhuThuGiaTriCao.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblPhuThuGiaTriCao.Location = new Point(332, 170);
+            lblPhuThuGiaTriCao.Location = new Point(332, 159);
             lblPhuThuGiaTriCao.Name = "lblPhuThuGiaTriCao";
             lblPhuThuGiaTriCao.Size = new Size(135, 21);
             lblPhuThuGiaTriCao.TabIndex = 41;
@@ -206,7 +210,7 @@
             // 
             lblPhuThuGiaTriCaoText.AutoSize = true;
             lblPhuThuGiaTriCaoText.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblPhuThuGiaTriCaoText.Location = new Point(42, 170);
+            lblPhuThuGiaTriCaoText.Location = new Point(42, 159);
             lblPhuThuGiaTriCaoText.Name = "lblPhuThuGiaTriCaoText";
             lblPhuThuGiaTriCaoText.Size = new Size(178, 21);
             lblPhuThuGiaTriCaoText.TabIndex = 40;
@@ -215,7 +219,7 @@
             // lblPhuThuVanChuyen
             // 
             lblPhuThuVanChuyen.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblPhuThuVanChuyen.Location = new Point(332, 131);
+            lblPhuThuVanChuyen.Location = new Point(332, 120);
             lblPhuThuVanChuyen.Name = "lblPhuThuVanChuyen";
             lblPhuThuVanChuyen.Size = new Size(135, 21);
             lblPhuThuVanChuyen.TabIndex = 39;
@@ -226,7 +230,7 @@
             // 
             lblPhuThuVanChuyenText.AutoSize = true;
             lblPhuThuVanChuyenText.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblPhuThuVanChuyenText.Location = new Point(42, 131);
+            lblPhuThuVanChuyenText.Location = new Point(42, 120);
             lblPhuThuVanChuyenText.Name = "lblPhuThuVanChuyenText";
             lblPhuThuVanChuyenText.Size = new Size(179, 21);
             lblPhuThuVanChuyenText.TabIndex = 38;
@@ -235,7 +239,7 @@
             // lblCuocCoSo
             // 
             lblCuocCoSo.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblCuocCoSo.Location = new Point(332, 92);
+            lblCuocCoSo.Location = new Point(332, 81);
             lblCuocCoSo.Name = "lblCuocCoSo";
             lblCuocCoSo.Size = new Size(135, 21);
             lblCuocCoSo.TabIndex = 37;
@@ -246,7 +250,7 @@
             // 
             lblCuocCoSoText.AutoSize = true;
             lblCuocCoSoText.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblCuocCoSoText.Location = new Point(42, 92);
+            lblCuocCoSoText.Location = new Point(42, 81);
             lblCuocCoSoText.Name = "lblCuocCoSoText";
             lblCuocCoSoText.Size = new Size(115, 21);
             lblCuocCoSoText.TabIndex = 36;
@@ -357,6 +361,21 @@
             panelLichSuDatHang.Size = new Size(681, 566);
             panelLichSuDatHang.TabIndex = 42;
             // 
+            // btnDanhGia
+            // 
+            btnDanhGia.BackColor = Color.Black;
+            btnDanhGia.FlatAppearance.BorderColor = Color.Black;
+            btnDanhGia.FlatStyle = FlatStyle.Flat;
+            btnDanhGia.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnDanhGia.ForeColor = Color.White;
+            btnDanhGia.Location = new Point(32, 494);
+            btnDanhGia.Margin = new Padding(0);
+            btnDanhGia.Name = "btnDanhGia";
+            btnDanhGia.Size = new Size(93, 43);
+            btnDanhGia.TabIndex = 21;
+            btnDanhGia.Text = "Đánh giá";
+            btnDanhGia.UseVisualStyleBackColor = false;
+            // 
             // dgvLichSuDatHang
             // 
             dgvLichSuDatHang.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -410,6 +429,7 @@
             // 
             cboLoaiHang.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             cboLoaiHang.FormattingEnabled = true;
+            cboLoaiHang.Items.AddRange(new object[] { "Không có", "Giấy chứng nhận, hồ sơ", "Hàng dễ vỡ", "Hàng nguyên khối, quá khổ", "Chất lỏng", "Hàng đông lạnh" });
             cboLoaiHang.Location = new Point(117, 162);
             cboLoaiHang.Name = "cboLoaiHang";
             cboLoaiHang.Size = new Size(205, 29);
@@ -429,6 +449,7 @@
             // 
             cboLoaiVanChuyen.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             cboLoaiVanChuyen.FormattingEnabled = true;
+            cboLoaiVanChuyen.Items.AddRange(new object[] { "Giao thường", "Giao hỏa tốc", "Giao tiết kiệm" });
             cboLoaiVanChuyen.Location = new Point(409, 162);
             cboLoaiVanChuyen.Name = "cboLoaiVanChuyen";
             cboLoaiVanChuyen.Size = new Size(237, 29);
@@ -865,20 +886,25 @@
             lblTenKhachHang.TabIndex = 1;
             lblTenKhachHang.Text = "NGUYỄN VĂN A";
             // 
-            // btnDanhGia
+            // lblKhoLuuTam
             // 
-            btnDanhGia.BackColor = Color.Black;
-            btnDanhGia.FlatAppearance.BorderColor = Color.Black;
-            btnDanhGia.FlatStyle = FlatStyle.Flat;
-            btnDanhGia.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnDanhGia.ForeColor = Color.White;
-            btnDanhGia.Location = new Point(32, 494);
-            btnDanhGia.Margin = new Padding(0);
-            btnDanhGia.Name = "btnDanhGia";
-            btnDanhGia.Size = new Size(93, 43);
-            btnDanhGia.TabIndex = 21;
-            btnDanhGia.Text = "Đánh giá";
-            btnDanhGia.UseVisualStyleBackColor = false;
+            lblKhoLuuTam.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblKhoLuuTam.Location = new Point(142, 277);
+            lblKhoLuuTam.Name = "lblKhoLuuTam";
+            lblKhoLuuTam.Size = new Size(325, 21);
+            lblKhoLuuTam.TabIndex = 49;
+            lblKhoLuuTam.Text = "Kho 1 (59C Nguyễn Đình Chiểu, Q3)";
+            lblKhoLuuTam.TextAlign = ContentAlignment.MiddleRight;
+            // 
+            // lblKhoLuuTamText
+            // 
+            lblKhoLuuTamText.AutoSize = true;
+            lblKhoLuuTamText.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblKhoLuuTamText.Location = new Point(42, 277);
+            lblKhoLuuTamText.Name = "lblKhoLuuTamText";
+            lblKhoLuuTamText.Size = new Size(91, 21);
+            lblKhoLuuTamText.TabIndex = 48;
+            lblKhoLuuTamText.Text = "Lưu tạm tại:";
             // 
             // Form_KhachHang
             // 
@@ -983,5 +1009,7 @@
         private Button btnHuyDon;
         private DataGridView dgvLichSuDatHang;
         private Button btnDanhGia;
+        private Label lblKhoLuuTam;
+        private Label lblKhoLuuTamText;
     }
 }

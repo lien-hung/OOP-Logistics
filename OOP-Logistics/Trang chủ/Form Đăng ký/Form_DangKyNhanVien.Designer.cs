@@ -48,7 +48,7 @@
             txtHoVaTen = new TextBox();
             lblHoVaTen = new Label();
             cboLoaiNhanVien = new ComboBox();
-            lblLoaiKhachHang = new Label();
+            lblLoaiNhanVien = new Label();
             lblTieuDe = new Label();
             ptbLogo = new PictureBox();
             cboNoiLamViec = new ComboBox();
@@ -247,15 +247,15 @@
             cboLoaiNhanVien.TabIndex = 36;
             cboLoaiNhanVien.SelectedIndexChanged += cboLoaiNhanVien_SelectedIndexChanged;
             // 
-            // lblLoaiKhachHang
+            // lblLoaiNhanVien
             // 
-            lblLoaiKhachHang.AutoSize = true;
-            lblLoaiKhachHang.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblLoaiKhachHang.Location = new Point(33, 99);
-            lblLoaiKhachHang.Name = "lblLoaiKhachHang";
-            lblLoaiKhachHang.Size = new Size(155, 21);
-            lblLoaiKhachHang.TabIndex = 35;
-            lblLoaiKhachHang.Text = "Chọn loại nhân viên:";
+            lblLoaiNhanVien.AutoSize = true;
+            lblLoaiNhanVien.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblLoaiNhanVien.Location = new Point(33, 99);
+            lblLoaiNhanVien.Name = "lblLoaiNhanVien";
+            lblLoaiNhanVien.Size = new Size(155, 21);
+            lblLoaiNhanVien.TabIndex = 35;
+            lblLoaiNhanVien.Text = "Chọn loại nhân viên:";
             // 
             // lblTieuDe
             // 
@@ -325,7 +325,7 @@
             Controls.Add(txtHoVaTen);
             Controls.Add(lblHoVaTen);
             Controls.Add(cboLoaiNhanVien);
-            Controls.Add(lblLoaiKhachHang);
+            Controls.Add(lblLoaiNhanVien);
             Controls.Add(lblTieuDe);
             Controls.Add(ptbLogo);
             FormBorderStyle = FormBorderStyle.FixedSingle;
@@ -361,7 +361,7 @@
         private TextBox txtHoVaTen;
         private Label lblHoVaTen;
         private ComboBox cboLoaiNhanVien;
-        private Label lblLoaiKhachHang;
+        private Label lblLoaiNhanVien;
         private Label lblTieuDe;
         private PictureBox ptbLogo;
         private ComboBox cboNoiLamViec;

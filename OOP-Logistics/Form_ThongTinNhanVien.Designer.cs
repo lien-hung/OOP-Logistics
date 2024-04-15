@@ -30,10 +30,6 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_ThongTinNhanVien));
             btnThoat = new Button();
-            txtBienSo = new TextBox();
-            lblBienSo = new Label();
-            txtLoaiPhuongTien = new TextBox();
-            lblLoaiPhuongTien = new Label();
             txtSoCCCD = new TextBox();
             lblSoCCCD = new Label();
             txtNoiLamViec = new TextBox();
@@ -53,48 +49,12 @@
             btnThoat.FlatStyle = FlatStyle.Flat;
             btnThoat.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnThoat.ForeColor = Color.FromArgb(255, 128, 0);
-            btnThoat.Location = new Point(126, 316);
+            btnThoat.Location = new Point(126, 245);
             btnThoat.Name = "btnThoat";
             btnThoat.Size = new Size(212, 40);
             btnThoat.TabIndex = 73;
             btnThoat.Text = "Thoát";
             btnThoat.UseVisualStyleBackColor = false;
-            // 
-            // txtBienSo
-            // 
-            txtBienSo.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            txtBienSo.Location = new Point(235, 256);
-            txtBienSo.Name = "txtBienSo";
-            txtBienSo.Size = new Size(212, 29);
-            txtBienSo.TabIndex = 69;
-            // 
-            // lblBienSo
-            // 
-            lblBienSo.AutoSize = true;
-            lblBienSo.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblBienSo.Location = new Point(234, 232);
-            lblBienSo.Name = "lblBienSo";
-            lblBienSo.Size = new Size(60, 21);
-            lblBienSo.TabIndex = 68;
-            lblBienSo.Text = "Biển số";
-            // 
-            // txtLoaiPhuongTien
-            // 
-            txtLoaiPhuongTien.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            txtLoaiPhuongTien.Location = new Point(19, 256);
-            txtLoaiPhuongTien.Name = "txtLoaiPhuongTien";
-            txtLoaiPhuongTien.Size = new Size(212, 29);
-            txtLoaiPhuongTien.TabIndex = 67;
-            // 
-            // lblLoaiPhuongTien
-            // 
-            lblLoaiPhuongTien.AutoSize = true;
-            lblLoaiPhuongTien.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblLoaiPhuongTien.Location = new Point(19, 232);
-            lblLoaiPhuongTien.Name = "lblLoaiPhuongTien";
-            lblLoaiPhuongTien.Size = new Size(128, 21);
-            lblLoaiPhuongTien.TabIndex = 66;
-            lblLoaiPhuongTien.Text = "Loại phương tiện";
             // 
             // txtSoCCCD
             // 
@@ -204,12 +164,8 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
-            ClientSize = new Size(467, 368);
+            ClientSize = new Size(467, 301);
             Controls.Add(btnThoat);
-            Controls.Add(txtBienSo);
-            Controls.Add(lblBienSo);
-            Controls.Add(txtLoaiPhuongTien);
-            Controls.Add(lblLoaiPhuongTien);
             Controls.Add(txtSoCCCD);
             Controls.Add(lblSoCCCD);
             Controls.Add(txtNoiLamViec);
@@ -231,10 +187,6 @@
         #endregion
 
         private Button btnThoat;
-        private TextBox txtBienSo;
-        private Label lblBienSo;
-        private TextBox txtLoaiPhuongTien;
-        private Label lblLoaiPhuongTien;
         private TextBox txtSoCCCD;
         private Label lblSoCCCD;
         private TextBox txtNoiLamViec;

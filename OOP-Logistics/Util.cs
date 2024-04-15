@@ -38,10 +38,10 @@
                 return string.Empty;
             }
         }
-        public static void GetCoordinatesFromGoogleMaps(string url, out double latitude, out double longitude)
+        public static void GetDataFromGoogleMaps(string url, out double latitude, out double longitude)
         {
-            string partWithData = url[(url.IndexOf("/@") + 2)..];
-            string coords = partWithData[..partWithData.IndexOf('/')];
+            string partWithCoords = url[(url.IndexOf("/@") + 2)..];
+            string coords = partWithCoords[..partWithCoords.IndexOf('/')];
             latitude = double.Parse(coords.Split(',')[0]);
             longitude = double.Parse(coords.Split(',')[1]);
         }

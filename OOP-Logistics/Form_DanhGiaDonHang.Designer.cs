@@ -30,7 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_DanhGiaDonHang));
             btnHuy = new Button();
-            btnSuaThongTin = new Button();
+            btnDanhGia = new Button();
             ptbStar1 = new PictureBox();
             ptbStar2 = new PictureBox();
             ptbStar3 = new PictureBox();
@@ -57,19 +57,19 @@
             btnHuy.Text = "Hủy";
             btnHuy.UseVisualStyleBackColor = false;
             // 
-            // btnSuaThongTin
+            // btnDanhGia
             // 
-            btnSuaThongTin.BackColor = Color.FromArgb(255, 128, 0);
-            btnSuaThongTin.FlatAppearance.BorderColor = Color.FromArgb(255, 128, 0);
-            btnSuaThongTin.FlatStyle = FlatStyle.Flat;
-            btnSuaThongTin.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnSuaThongTin.ForeColor = Color.White;
-            btnSuaThongTin.Location = new Point(241, 178);
-            btnSuaThongTin.Name = "btnSuaThongTin";
-            btnSuaThongTin.Size = new Size(130, 40);
-            btnSuaThongTin.TabIndex = 52;
-            btnSuaThongTin.Text = "Đánh giá";
-            btnSuaThongTin.UseVisualStyleBackColor = false;
+            btnDanhGia.BackColor = Color.FromArgb(255, 128, 0);
+            btnDanhGia.FlatAppearance.BorderColor = Color.FromArgb(255, 128, 0);
+            btnDanhGia.FlatStyle = FlatStyle.Flat;
+            btnDanhGia.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnDanhGia.ForeColor = Color.White;
+            btnDanhGia.Location = new Point(241, 178);
+            btnDanhGia.Name = "btnDanhGia";
+            btnDanhGia.Size = new Size(130, 40);
+            btnDanhGia.TabIndex = 52;
+            btnDanhGia.Text = "Đánh giá";
+            btnDanhGia.UseVisualStyleBackColor = false;
             // 
             // ptbStar1
             // 
@@ -143,7 +143,7 @@
             Controls.Add(ptbStar2);
             Controls.Add(ptbStar1);
             Controls.Add(btnHuy);
-            Controls.Add(btnSuaThongTin);
+            Controls.Add(btnDanhGia);
             Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "Form_DanhGiaDonHang";
             Text = "Đánh giá";
@@ -158,7 +158,7 @@
         #endregion
 
         private Button btnHuy;
-        private Button btnSuaThongTin;
+        private Button btnDanhGia;
         private PictureBox ptbStar1;
         private PictureBox ptbStar2;
         private PictureBox ptbStar3;

@@ -22,6 +22,27 @@ namespace OOP_Logistics
                 new KhoGiaoNhan(3, new DiaDiem("Đại lộ Nguyễn Văn Linh, HBC", 10.7060233, 106.637554))
             ];
         }
+        private static void CreateOrderDetails()
+        {
+            // Tạo danh sách chi tiết đơn hàng
+            List<ChiTietDonHang> orderDetailsList = new List<ChiTietDonHang>
+            {
+                new ChiTietDonHang("Mã 1", "Mô tả 1", 100.0, true),
+                new ChiTietDonHang("Mã 2", "Mô tả 2", 200.0, false),
+                new ChiTietDonHang("Mã 3", "Mô tả 3", 150.0, true),
+            };
+
+            // Gán danh sách chi tiết đơn hàng cho một đơn hàng cụ thể
+            // Ví dụ: Đơn hàng có mã là "DH001"
+            DonHang? donHang1 = DanhSachDonHang?.Find(donHang => donHang.MaDonHang == "DH001");
+            if (donHang1 != null)
+            {
+                foreach (ChiTietDonHang chiTietDonHang in orderDetailsList)
+                {
+                    donHang1.ThemChiTietDonHang(chiTietDonHang);
+                }
+            }
+        }
         public static void Initialize()
         {
             List<KhachHang>? serializedKhachHang = Serializer.DeserializeJsonFromFile<List<KhachHang>>("KhachHang.json");
@@ -38,6 +59,7 @@ namespace OOP_Logistics
             DanhSachTaiKhoan = serializedTaiKhoan != default ? serializedTaiKhoan : [new TaiKhoanQuanTriVien("admin", "123")];
 
             CreateWarehouse();
+            CreateOrderDetails();
         }
         public static void Serialize()
         {

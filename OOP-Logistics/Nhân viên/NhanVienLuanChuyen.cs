@@ -1,10 +1,18 @@
-﻿namespace OOP_Logistics.Nhân_Viên
+﻿using OOP_Logistics.Quản_Trị_Viên;
+
+namespace OOP_Logistics.Nhân_Viên
 {
-    internal class NhanVienLuanChuyen_Kho : NhanVien
+    public enum ChucVu
     {
-        public string? ChucVu { get; set; }
-        public string? KhoLamViec { get; set; }
-        public double HeSoLuong { get; set; }
+        TruongKho,
+        QuanLy,
+        NhanVienThuong
+    }
+    public class NhanVienLuanChuyen(int MaNhanVien, string HoTen, string SoDienThoai, string SoCCCD, ChucVu chucVu, KhoGiaoNhan khoLamViec, double heSoLuong) : NhanVien(MaNhanVien, HoTen, SoDienThoai, SoCCCD)
+    {
+        public ChucVu ChucVu { get; set; } = chucVu;
+        public KhoGiaoNhan KhoLamViec { get; set; } = khoLamViec;
+        public double HeSoLuong { get; set; } = heSoLuong;
 
         //Phương thức tính lương cố định dựa vào hệ số lương
         public decimal TinhLuongCoDinh()

@@ -1,9 +1,12 @@
-﻿namespace OOP_Logistics.Nhân_Viên
+﻿using OOP_Logistics.Quản_Trị_Viên;
+
+namespace OOP_Logistics.Nhân_Viên
 {
-    internal class TaiXeCoHuu : NhanVien
+    public class TaiXeCoHuu(int MaNhanVien, string HoTen, string SoDienThoai, string SoCCCD, PhuongTien phuongTien) : NhanVien(MaNhanVien, HoTen, SoDienThoai, SoCCCD)
     {
-        public string? PhuongTienGiaoHang { get; set; }
-        public int DiemDanhGia { get; set; }
+        public PhuongTien? PhuongTienGiaoHang { get; set; } = phuongTien;
+        public int DiemDanhGia { get; set; } = 0;
+
         public void NhanDon(BuuKien buuKien)
         {
             Console.WriteLine($"Đã nhận đơn {buuKien}. Đang vận chuyển...");

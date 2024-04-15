@@ -30,8 +30,6 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_DatLaiMatKhau));
             lblTieuDe = new Label();
-            cboLoaiTaiKhoan = new ComboBox();
-            lblLoaiTaiKhoan = new Label();
             txtTenDangNhap = new TextBox();
             lblTenDangNhap = new Label();
             txtMatKhauMoi = new TextBox();
@@ -53,30 +51,10 @@
             lblTieuDe.TabIndex = 8;
             lblTieuDe.Text = "ĐẶT LẠI MẬT KHẨU";
             // 
-            // cboLoaiTaiKhoan
-            // 
-            cboLoaiTaiKhoan.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            cboLoaiTaiKhoan.FormattingEnabled = true;
-            cboLoaiTaiKhoan.Items.AddRange(new object[] { "Khách hàng", "Nhân viên", "Quản trị viên" });
-            cboLoaiTaiKhoan.Location = new Point(132, 68);
-            cboLoaiTaiKhoan.Name = "cboLoaiTaiKhoan";
-            cboLoaiTaiKhoan.Size = new Size(150, 29);
-            cboLoaiTaiKhoan.TabIndex = 11;
-            // 
-            // lblLoaiTaiKhoan
-            // 
-            lblLoaiTaiKhoan.AutoSize = true;
-            lblLoaiTaiKhoan.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblLoaiTaiKhoan.Location = new Point(69, 71);
-            lblLoaiTaiKhoan.Name = "lblLoaiTaiKhoan";
-            lblLoaiTaiKhoan.Size = new Size(57, 21);
-            lblLoaiTaiKhoan.TabIndex = 10;
-            lblLoaiTaiKhoan.Text = "Bạn là:";
-            // 
             // txtTenDangNhap
             // 
             txtTenDangNhap.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            txtTenDangNhap.Location = new Point(29, 141);
+            txtTenDangNhap.Location = new Point(29, 94);
             txtTenDangNhap.Name = "txtTenDangNhap";
             txtTenDangNhap.Size = new Size(301, 29);
             txtTenDangNhap.TabIndex = 13;
@@ -85,7 +63,7 @@
             // 
             lblTenDangNhap.AutoSize = true;
             lblTenDangNhap.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblTenDangNhap.Location = new Point(29, 117);
+            lblTenDangNhap.Location = new Point(29, 70);
             lblTenDangNhap.Name = "lblTenDangNhap";
             lblTenDangNhap.Size = new Size(116, 21);
             lblTenDangNhap.TabIndex = 12;
@@ -94,7 +72,7 @@
             // txtMatKhauMoi
             // 
             txtMatKhauMoi.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            txtMatKhauMoi.Location = new Point(29, 201);
+            txtMatKhauMoi.Location = new Point(29, 154);
             txtMatKhauMoi.Name = "txtMatKhauMoi";
             txtMatKhauMoi.PasswordChar = '●';
             txtMatKhauMoi.Size = new Size(301, 29);
@@ -104,7 +82,7 @@
             // 
             lblMatKhauMoi.AutoSize = true;
             lblMatKhauMoi.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblMatKhauMoi.Location = new Point(29, 177);
+            lblMatKhauMoi.Location = new Point(29, 130);
             lblMatKhauMoi.Name = "lblMatKhauMoi";
             lblMatKhauMoi.Size = new Size(109, 21);
             lblMatKhauMoi.TabIndex = 14;
@@ -113,7 +91,7 @@
             // txtXacNhanMatKhau
             // 
             txtXacNhanMatKhau.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            txtXacNhanMatKhau.Location = new Point(29, 261);
+            txtXacNhanMatKhau.Location = new Point(29, 214);
             txtXacNhanMatKhau.Name = "txtXacNhanMatKhau";
             txtXacNhanMatKhau.PasswordChar = '●';
             txtXacNhanMatKhau.Size = new Size(301, 29);
@@ -123,7 +101,7 @@
             // 
             lblXacNhanMatKhau.AutoSize = true;
             lblXacNhanMatKhau.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblXacNhanMatKhau.Location = new Point(29, 237);
+            lblXacNhanMatKhau.Location = new Point(29, 190);
             lblXacNhanMatKhau.Name = "lblXacNhanMatKhau";
             lblXacNhanMatKhau.Size = new Size(145, 21);
             lblXacNhanMatKhau.TabIndex = 16;
@@ -135,12 +113,15 @@
             btnHuy.FlatStyle = FlatStyle.Flat;
             btnHuy.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnHuy.ForeColor = Color.FromArgb(255, 128, 0);
-            btnHuy.Location = new Point(185, 310);
+            btnHuy.Location = new Point(185, 249);
             btnHuy.Name = "btnHuy";
             btnHuy.Size = new Size(145, 40);
             btnHuy.TabIndex = 19;
             btnHuy.Text = "Hủy";
             btnHuy.UseVisualStyleBackColor = false;
+            btnHuy.Click += btnHuy_Click;
+            btnHuy.MouseEnter += btnHuy_MouseEnter;
+            btnHuy.MouseLeave += btnHuy_MouseLeave;
             // 
             // btnDatLai
             // 
@@ -149,19 +130,22 @@
             btnDatLai.FlatStyle = FlatStyle.Flat;
             btnDatLai.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnDatLai.ForeColor = Color.White;
-            btnDatLai.Location = new Point(29, 310);
+            btnDatLai.Location = new Point(29, 249);
             btnDatLai.Name = "btnDatLai";
             btnDatLai.Size = new Size(145, 40);
             btnDatLai.TabIndex = 18;
             btnDatLai.Text = "Đặt lại";
             btnDatLai.UseVisualStyleBackColor = false;
+            btnDatLai.Click += btnDatLai_Click;
+            btnDatLai.MouseEnter += btnDatLai_MouseEnter;
+            btnDatLai.MouseLeave += btnDatLai_MouseLeave;
             // 
             // Form_DatLaiMatKhau
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
-            ClientSize = new Size(360, 372);
+            ClientSize = new Size(360, 306);
             Controls.Add(btnHuy);
             Controls.Add(btnDatLai);
             Controls.Add(txtXacNhanMatKhau);
@@ -170,10 +154,10 @@
             Controls.Add(lblMatKhauMoi);
             Controls.Add(txtTenDangNhap);
             Controls.Add(lblTenDangNhap);
-            Controls.Add(cboLoaiTaiKhoan);
-            Controls.Add(lblLoaiTaiKhoan);
             Controls.Add(lblTieuDe);
             Icon = (Icon)resources.GetObject("$this.Icon");
+            MaximizeBox = false;
+            MinimizeBox = false;
             Name = "Form_DatLaiMatKhau";
             Text = "Đặt lại mật khẩu";
             ResumeLayout(false);
@@ -183,8 +167,6 @@
         #endregion
 
         private Label lblTieuDe;
-        private ComboBox cboLoaiTaiKhoan;
-        private Label lblLoaiTaiKhoan;
         private TextBox txtTenDangNhap;
         private Label lblTenDangNhap;
         private TextBox txtMatKhauMoi;

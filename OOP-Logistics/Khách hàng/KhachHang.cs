@@ -1,18 +1,11 @@
 ﻿namespace OOP_Logistics.Khách_Hàng
 {
-    class KhachHang : IHuman
+    public abstract class KhachHang(int MaKhachHang, string HoTen, string SoDienThoai, string SoCCCD) : IHuman
     {
-        public string? ID { get; set; }
-        public string? Name { get; set; }
-        public string? PhoneNumber { get; set; }
-        public string? CitizenID { get; set; }
-        public void ThongTin(string MaKhachHang, string HoTen, string SoDienThoai, string SoCCCD)
-        {
-            ID = MaKhachHang;
-            Name = HoTen;
-            PhoneNumber = SoDienThoai;
-            CitizenID = SoCCCD;
-        }
+        public int ID { get; set; } = MaKhachHang;
+        public string? Name { get; set; } = HoTen;
+        public string? PhoneNumber { get; set; } = SoDienThoai;
+        public string? CitizenID { get; set; } = SoCCCD;
 
         public void XemThongTin()
         {
@@ -22,9 +15,12 @@
             Console.WriteLine($"Số căn cước: {CitizenID}");
         }
 
-        public void ChinhSuaThongTin()
+        public virtual void ChinhSuaThongTin(int MaDinhDanh, string HoTen, string SoDienThoai, string SoCCCD)
         {
-
+            ID = MaDinhDanh;
+            Name = HoTen;
+            PhoneNumber = SoDienThoai;
+            CitizenID = SoCCCD;
         }
 
         private readonly List<DonHang> lichSuDonHang = [];

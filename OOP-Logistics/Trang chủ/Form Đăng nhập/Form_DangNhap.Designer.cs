@@ -39,8 +39,6 @@
             btnDangKy = new Button();
             lblQuenMatKhau = new Label();
             lblVeTrangChu = new Label();
-            lblLoaiTaiKhoan = new Label();
-            cboLoaiTaiKhoan = new ComboBox();
             ((System.ComponentModel.ISupportInitialize)ptbLogo).BeginInit();
             SuspendLayout();
             // 
@@ -69,7 +67,7 @@
             // 
             lblTenDangNhap.AutoSize = true;
             lblTenDangNhap.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblTenDangNhap.Location = new Point(29, 181);
+            lblTenDangNhap.Location = new Point(28, 147);
             lblTenDangNhap.Name = "lblTenDangNhap";
             lblTenDangNhap.Size = new Size(116, 21);
             lblTenDangNhap.TabIndex = 10;
@@ -78,7 +76,7 @@
             // txtTenDangNhap
             // 
             txtTenDangNhap.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            txtTenDangNhap.Location = new Point(29, 205);
+            txtTenDangNhap.Location = new Point(28, 171);
             txtTenDangNhap.Name = "txtTenDangNhap";
             txtTenDangNhap.Size = new Size(301, 29);
             txtTenDangNhap.TabIndex = 11;
@@ -86,7 +84,7 @@
             // txtMatKhau
             // 
             txtMatKhau.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            txtMatKhau.Location = new Point(29, 265);
+            txtMatKhau.Location = new Point(28, 231);
             txtMatKhau.Name = "txtMatKhau";
             txtMatKhau.PasswordChar = '●';
             txtMatKhau.Size = new Size(301, 29);
@@ -96,7 +94,7 @@
             // 
             lblMatKhau.AutoSize = true;
             lblMatKhau.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblMatKhau.Location = new Point(29, 241);
+            lblMatKhau.Location = new Point(28, 207);
             lblMatKhau.Name = "lblMatKhau";
             lblMatKhau.Size = new Size(77, 21);
             lblMatKhau.TabIndex = 12;
@@ -109,12 +107,13 @@
             btnDangNhap.FlatStyle = FlatStyle.Flat;
             btnDangNhap.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnDangNhap.ForeColor = Color.White;
-            btnDangNhap.Location = new Point(29, 308);
+            btnDangNhap.Location = new Point(28, 274);
             btnDangNhap.Name = "btnDangNhap";
             btnDangNhap.Size = new Size(301, 40);
             btnDangNhap.TabIndex = 15;
             btnDangNhap.Text = "Đăng nhập";
             btnDangNhap.UseVisualStyleBackColor = false;
+            btnDangNhap.Click += btnDangNhap_Click;
             btnDangNhap.MouseEnter += btnDangNhap_MouseEnter;
             btnDangNhap.MouseLeave += btnDangNhap_MouseLeave;
             // 
@@ -124,7 +123,7 @@
             btnDangKy.FlatStyle = FlatStyle.Flat;
             btnDangKy.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnDangKy.ForeColor = Color.FromArgb(255, 128, 0);
-            btnDangKy.Location = new Point(29, 354);
+            btnDangKy.Location = new Point(28, 320);
             btnDangKy.Name = "btnDangKy";
             btnDangKy.Size = new Size(301, 40);
             btnDangKy.TabIndex = 16;
@@ -138,51 +137,30 @@
             // 
             lblQuenMatKhau.AutoSize = true;
             lblQuenMatKhau.ForeColor = Color.Blue;
-            lblQuenMatKhau.Location = new Point(236, 246);
+            lblQuenMatKhau.Location = new Point(235, 212);
             lblQuenMatKhau.Name = "lblQuenMatKhau";
             lblQuenMatKhau.Size = new Size(94, 15);
             lblQuenMatKhau.TabIndex = 13;
             lblQuenMatKhau.Text = "Quên mật khẩu?";
+            lblQuenMatKhau.Click += lblQuenMatKhau_Click;
             // 
             // lblVeTrangChu
             // 
             lblVeTrangChu.AutoSize = true;
             lblVeTrangChu.ForeColor = Color.Blue;
-            lblVeTrangChu.Location = new Point(107, 404);
+            lblVeTrangChu.Location = new Point(106, 370);
             lblVeTrangChu.Name = "lblVeTrangChu";
             lblVeTrangChu.Size = new Size(145, 15);
             lblVeTrangChu.TabIndex = 17;
             lblVeTrangChu.Text = "Quay lại trang chào mừng";
             lblVeTrangChu.Click += lblVeTrangChu_Click;
             // 
-            // lblLoaiTaiKhoan
-            // 
-            lblLoaiTaiKhoan.AutoSize = true;
-            lblLoaiTaiKhoan.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblLoaiTaiKhoan.Location = new Point(69, 147);
-            lblLoaiTaiKhoan.Name = "lblLoaiTaiKhoan";
-            lblLoaiTaiKhoan.Size = new Size(57, 21);
-            lblLoaiTaiKhoan.TabIndex = 8;
-            lblLoaiTaiKhoan.Text = "Bạn là:";
-            // 
-            // cboLoaiTaiKhoan
-            // 
-            cboLoaiTaiKhoan.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            cboLoaiTaiKhoan.FormattingEnabled = true;
-            cboLoaiTaiKhoan.Items.AddRange(new object[] { "Khách hàng", "Nhân viên", "Quản trị viên" });
-            cboLoaiTaiKhoan.Location = new Point(132, 144);
-            cboLoaiTaiKhoan.Name = "cboLoaiTaiKhoan";
-            cboLoaiTaiKhoan.Size = new Size(150, 29);
-            cboLoaiTaiKhoan.TabIndex = 9;
-            // 
             // Form_DangNhap
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
-            ClientSize = new Size(360, 433);
-            Controls.Add(cboLoaiTaiKhoan);
-            Controls.Add(lblLoaiTaiKhoan);
+            ClientSize = new Size(360, 400);
             Controls.Add(lblVeTrangChu);
             Controls.Add(lblQuenMatKhau);
             Controls.Add(btnDangKy);
@@ -199,7 +177,6 @@
             MinimizeBox = false;
             Name = "Form_DangNhap";
             Text = "Đăng nhập";
-            Load += Form_DangNhap_Load;
             ((System.ComponentModel.ISupportInitialize)ptbLogo).EndInit();
             ResumeLayout(false);
             PerformLayout();
@@ -217,7 +194,5 @@
         private Button btnDangKy;
         private Label lblQuenMatKhau;
         private Label lblVeTrangChu;
-        private Label lblLoaiTaiKhoan;
-        private ComboBox cboLoaiTaiKhoan;
     }
 }

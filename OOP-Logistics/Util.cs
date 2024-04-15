@@ -1,4 +1,7 @@
-﻿namespace OOP_Logistics
+﻿using OOP_Logistics.Khách_Hàng;
+using OOP_Logistics.Nhân_Viên;
+
+namespace OOP_Logistics
 {
     public class Util
     {
@@ -17,6 +20,20 @@
             {
                 btn.BackColor = baseColor;
             }
+        }
+        public static bool ExistsEmptyTextbox(Form frm)
+        {
+            foreach (Control ctrl in frm.Controls)
+            {
+                if (ctrl is TextBox)
+                {
+                    if (string.IsNullOrWhiteSpace(ctrl.Text))
+                    {
+                        return true;
+                    }
+                }
+            }
+            return false;
         }
         public static async Task<string> GetRedirectedUrl(string url)
         {
@@ -44,6 +61,61 @@
             string coords = partWithCoords[..partWithCoords.IndexOf('/')];
             latitude = double.Parse(coords.Split(',')[0]);
             longitude = double.Parse(coords.Split(',')[1]);
+        }
+        public static int MaKHTiepTheo()
+        {
+            int i = 1;
+            if (Data.DanhSachKhachHang != null)
+            {
+                foreach (KhachHang kh in Data.DanhSachKhachHang)
+                {
+                    if (kh.ID != i)
+                    {
+                        return i;
+                    }
+                    else
+                    {
+                        i++;
+                    }
+                }
+                return i;
+            }
+            return 1;
+        }
+        public static int MaNVTiepTheo()
+        {
+            int i = 1;
+            if (Data.DanhSachNhanVien != null)
+            {
+                foreach (NhanVien kh in Data.DanhSachNhanVien)
+                {
+                    if (kh.ID != i)
+                    {
+                        return i;
+                    }
+                    else
+                    {
+                        i++;
+                    }
+                }
+                return i;
+            }
+            return 1;
+        }
+        public static TaiKhoan? SearchAccountByUsername(string username)
+        {
+            if (Data.DanhSachTaiKhoan != null)
+            {
+                foreach (TaiKhoan tk in Data.DanhSachTaiKhoan)
+                {
+                    if (tk.Username == username)
+                    {
+                        return tk;
+                    }
+                }
+                return null;
+            }
+            return null;
         }
     }
 }

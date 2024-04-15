@@ -1,6 +1,6 @@
 ﻿namespace OOP_Logistics.Nhân_Viên
 {
-    internal class BuuKien
+    public class BuuKien
     {
         public string? BuuKienID { get; set; }
         public TaiXeCoHuu? ChuyenHang { get; set; }

@@ -10,7 +10,7 @@ namespace OOP_Logistics
             WriteIndented = true
         };
         private static readonly JsonSerializerOptions readOptions = new() { AllowTrailingCommas = true };
-        public static void WriteJsonToFile(string path, object data)
+        public static void WriteJsonToFile(string path, object? data)
         {
             string json = JsonSerializer.Serialize(data, writeOptions);
             File.WriteAllText(path, json);
@@ -22,9 +22,9 @@ namespace OOP_Logistics
                 string newJson = File.ReadAllText(path);
                 return JsonSerializer.Deserialize<T>(newJson, readOptions)!;
             }
-            catch (IOException ex)
+            catch
             {
-                throw new Exception("Error: File not found.", ex);
+                return default;
             }
         }
     }

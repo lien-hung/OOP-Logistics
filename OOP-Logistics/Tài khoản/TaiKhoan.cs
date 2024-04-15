@@ -1,28 +1,27 @@
 ﻿namespace OOP_Logistics
 {
-    internal class TaiKhoan : ITaiKhoan
+    public abstract class TaiKhoan(string username, string password) : ITaiKhoan
     {
-        public string? Username { get; set; }
-        public string? Password { get; set; }
+        public string? Username { get; set; } = username;
+        public string? Password { get; set; } = password;
 
-        public bool Register(string tenDangNhap, string matKhau)
+        public void ChangePassword(string matKhauMoi)
         {
-            return true;
+            Password = matKhauMoi;
         }
 
         public bool Login(string tenDangNhap, string matKhau)
         {
-            return true;
+            if (Username == tenDangNhap && Password == matKhau)
+            {
+                return true;
+            }
+            return false;
         }
 
         public void Logout()
         {
 
-        }
-
-        public bool DeleteAccount(string tenDangNhap)
-        {
-            return true;
         }
     }
 }

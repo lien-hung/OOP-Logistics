@@ -1,20 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+﻿using OOP_Logistics.Khách_Hàng;
 
 namespace OOP_Logistics
 {
     public partial class Form_KhachHang : Form
     {
-        public Form_KhachHang()
+        private TaiKhoanKH? TaiKhoanHienTai;
+        public Form_KhachHang(TaiKhoanKH? tk)
         {
             InitializeComponent();
+            TaiKhoanHienTai = tk;
         }
     }
 }

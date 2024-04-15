@@ -1,25 +1,12 @@
 ﻿namespace OOP_Logistics.Nhân_Viên
 {
-    internal class NhanVien : IHuman
+    public class NhanVien(int MaNhanVien, string HoTen, string SoDienThoai, string SoCCCD) : IHuman
     {
-        public string? ID { get; set; }
-        public string? Name { get; set; }
-        public string? PhoneNumber { get; set; }
-        public string? CitizenID { get; set; }
-        public void ThongTin(string MaNhanVien, string HoTen, string SoDienThoai, string SoCCCD)
-        {
-            ID = MaNhanVien;
-            Name = HoTen;
-            PhoneNumber = SoDienThoai;
-            CitizenID = SoCCCD;
-        }
-
-        public List<decimal> LichSuThuNhap { get; set; }
-
-        public NhanVien()
-        {
-            LichSuThuNhap = [];
-        }
+        public int ID { get; set; } = MaNhanVien;
+        public string? Name { get; set; } = HoTen;
+        public string? PhoneNumber { get; set; } = SoDienThoai;
+        public string? CitizenID { get; set; } = SoCCCD;
+        public List<decimal> LichSuThuNhap { get; set; } = [];
 
         public void XemLichSuThuNhap()
         {
@@ -38,7 +25,7 @@
             XemLichSuThuNhap();
         }
 
-        public void ChinhSuaThongTin()
+        public void ChinhSuaThongTin(int MaNhanVien, string HoTen, string SoDienThoai, string SoCCCD)
         {
             
         }

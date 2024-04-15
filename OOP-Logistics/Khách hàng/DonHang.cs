@@ -1,6 +1,6 @@
 ﻿namespace OOP_Logistics.Khách_Hàng
 {
-    class DonHang
+    public class DonHang
     {
         public string? MaDonHang { get; set; }
         public DateTime NgayDatHang { get; set; }
@@ -70,7 +70,7 @@
         }
     }
 
-    class ChiTietDonHang(string maDonHang, string moTa, double giaTri, bool giaTriCao)
+    public class ChiTietDonHang(string maDonHang, string moTa, double giaTri, bool giaTriCao)
     {
         public string MaDonHang { get; set; } = maDonHang;
         public string MoTa { get; set; } = moTa;

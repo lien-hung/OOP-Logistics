@@ -125,6 +125,7 @@
             txtSoDienThoai.Name = "txtSoDienThoai";
             txtSoDienThoai.Size = new Size(212, 29);
             txtSoDienThoai.TabIndex = 14;
+            txtSoDienThoai.KeyPress += txtSoDienThoai_KeyPress;
             // 
             // lblSoDienThoai
             // 
@@ -161,6 +162,7 @@
             txtSoCCCD.Name = "txtSoCCCD";
             txtSoCCCD.Size = new Size(212, 29);
             txtSoCCCD.TabIndex = 16;
+            txtSoCCCD.KeyPress += txtSoCCCD_KeyPress;
             // 
             // lblSoCCCD
             // 
@@ -295,6 +297,7 @@
             btnDangKy.TabIndex = 31;
             btnDangKy.Text = "Đăng ký";
             btnDangKy.UseVisualStyleBackColor = false;
+            btnDangKy.Click += btnDangKy_Click;
             btnDangKy.MouseEnter += btnDangKy_MouseEnter;
             btnDangKy.MouseLeave += btnDangKy_MouseLeave;
             // 

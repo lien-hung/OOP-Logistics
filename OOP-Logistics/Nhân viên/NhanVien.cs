@@ -27,7 +27,12 @@
 
         public void ChinhSuaThongTin(int MaNhanVien, string HoTen, string SoDienThoai, string SoCCCD)
         {
-            
+            ID = MaNhanVien;
+            Name = HoTen;
+            PhoneNumber = SoDienThoai;
+            CitizenID = SoCCCD;
+
+            Console.WriteLine("Thông tin nhân viên đã được cập nhật.");
         }
     }
 }

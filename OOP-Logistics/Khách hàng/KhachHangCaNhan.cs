@@ -4,5 +4,11 @@
     {
         public string? EmailCaNhan { get; set; } = Email;
         public string? DiaChiLienLac { get; set; } = DiaChi;
+        public void ChinhSuaThongTin(int MaDinhDanh, string HoTen, string SoDienThoai, string SoCCCD, string Email, string DiaChi)
+        {
+            base.ChinhSuaThongTin(MaDinhDanh, HoTen, SoDienThoai, SoCCCD);
+            EmailCaNhan = Email;
+            DiaChiLienLac = DiaChi;
+        }
     }
 }

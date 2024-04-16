@@ -6,45 +6,42 @@
         public string? Name { get; set; } = HoTen;
         public string? PhoneNumber { get; set; } = SoDienThoai;
         public string? CitizenID { get; set; } = SoCCCD;
-
-        public void XemThongTin()
+        public IEnumerable<DonHang> LayLichSuDatHang()
         {
-            Console.WriteLine($"Thông tin khách hàng: {Name}");
-            Console.WriteLine($"Số điện thoại: {PhoneNumber}");
-            Console.WriteLine($"Mã khách hàng: {ID}");
-            Console.WriteLine($"Số căn cước: {CitizenID}");
+            foreach (DonHang dh in Data.DanhSachDonHang!)
+            {
+                if (dh.MaKhachHang == ID)
+                {
+                    yield return dh;
+                }
+            }
         }
-
-        public virtual void ChinhSuaThongTin(int MaDinhDanh, string HoTen, string SoDienThoai, string SoCCCD)
+        public virtual void ChinhSuaThongTin(int MaKhachHang, string HoTen, string SoDienThoai, string SoCCCD)
         {
-            ID = MaDinhDanh;
+            ID = MaKhachHang;
             Name = HoTen;
             PhoneNumber = SoDienThoai;
             CitizenID = SoCCCD;
         }
-
-        private readonly List<DonHang> lichSuDonHang = [];
-
-        // Phương thức để xem lịch sử đơn hàng
-        public void XemLichSuDonHang()
+        public static int MaTiepTheo()
         {
-            Console.WriteLine($"Lịch Sử Đơn Hàng của Khách Hàng: {Name}");
-            foreach (var donHang in lichSuDonHang)
+            int i = 1;
+            if (Data.DanhSachKhachHang!.Count != 0)
             {
-                Console.WriteLine($"ID Đơn Hàng: {donHang.MaDonHang}, Ngày: {donHang.NgayDatHang}");
+                foreach (KhachHang kh in Data.DanhSachKhachHang)
+                {
+                    if (kh.ID != i)
+                    {
+                        return i;
+                    }
+                    else
+                    {
+                        i++;
+                    }
+                }
+                return i;
             }
-        }
-
-        // Phương thức để tính toán thống kê
-        public void TinhToanThongKe()
-        {
-
-        }
-
-        // Phương thức bổ sung để thêm đơn hàng vào lịch sử
-        public void ThemDonHang(DonHang donHang)
-        {
-            lichSuDonHang.Add(donHang);
+            return 1;
         }
     }
 }

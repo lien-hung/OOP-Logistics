@@ -101,9 +101,9 @@ namespace OOP_Logistics
 
         private void btnDangKy_Click(object sender, EventArgs e)
         {
-            if (!Util.ExistsEmptyTextbox(this) && txtMatKhau.Text == txtXacNhanMatKhau.Text && Util.SearchAccountByUsername(txtTenDangNhap.Text) == null)
+            if (!Util.ExistsEmptyTextbox(this) && txtMatKhau.Text == txtXacNhanMatKhau.Text && TaiKhoan.SearchByUsername(txtTenDangNhap.Text) == null)
             {
-                int newEmployeeId = Util.MaNVTiepTheo();
+                int newEmployeeId = NhanVien.MaTiepTheo();
                 if (cboLoaiNhanVien.SelectedIndex == 0)
                 {
                     Data.DanhSachNhanVien?.Add(new NhanVienLuanChuyen(newEmployeeId, txtHoVaTen.Text, txtSoDienThoai.Text, txtSoCCCD.Text, ChucVu.NhanVienThuong, Data.DanhSachKhoGiaoNhan![cboNoiLamViec.SelectedIndex], 2));
@@ -123,7 +123,7 @@ namespace OOP_Logistics
             {
                 MessageBox.Show("Xác nhận mật khẩu không đúng!", "Đăng ký thất bại", MessageBoxButtons.OK, MessageBoxIcon.Stop);
             }
-            else if (Util.SearchAccountByUsername(txtTenDangNhap.Text) != null)
+            else if (TaiKhoan.SearchByUsername(txtTenDangNhap.Text) != null)
             {
                 MessageBox.Show("Tên tài khoản đã được sử dụng. Vui lòng chọn tên khác.", "Đăng ký thất bại", MessageBoxButtons.OK, MessageBoxIcon.Stop);
             }

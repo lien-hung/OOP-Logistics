@@ -46,9 +46,7 @@
             lblCuocCoSoText = new Label();
             lblTieuDe = new Label();
             lblDiemCuoi = new Label();
-            txtDiemCuoi = new TextBox();
             lblDiemDau = new Label();
-            txtDiemDau = new TextBox();
             txtMaDon = new TextBox();
             lblMaDon = new Label();
             txtMoTaDon = new TextBox();
@@ -60,11 +58,13 @@
             cboLoaiVanChuyen = new ComboBox();
             lblLoaiVanChuyen = new Label();
             btnHuy = new Button();
-            btnSuaThongTin = new Button();
-            txtThoiDiemGiaoHang = new TextBox();
-            lblThoiDiemGiaoHang = new Label();
+            btnLuuThongTin = new Button();
+            txtThoiDiemCapNhat = new TextBox();
+            lblThoiDiemCapNhat = new Label();
             txtThoiDiemTaoDon = new TextBox();
             lblThoiDiemTaoDon = new Label();
+            cboDiemDau = new ComboBox();
+            cboDiemCuoi = new ComboBox();
             grpCuocPhiDon = new GroupBox();
             grpCuocPhiDon.SuspendLayout();
             SuspendLayout();
@@ -96,11 +96,10 @@
             // lblKhoLuuTam
             // 
             lblKhoLuuTam.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblKhoLuuTam.Location = new Point(139, 285);
+            lblKhoLuuTam.Location = new Point(213, 285);
             lblKhoLuuTam.Name = "lblKhoLuuTam";
-            lblKhoLuuTam.Size = new Size(292, 21);
+            lblKhoLuuTam.Size = new Size(218, 21);
             lblKhoLuuTam.TabIndex = 51;
-            lblKhoLuuTam.Text = "Kho 1 (59C Nguyễn Đình Chiểu, Q3)";
             lblKhoLuuTam.TextAlign = ContentAlignment.MiddleRight;
             // 
             // lblKhoLuuTamText
@@ -120,7 +119,7 @@
             lblThanhTien.Name = "lblThanhTien";
             lblThanhTien.Size = new Size(135, 32);
             lblThanhTien.TabIndex = 47;
-            lblThanhTien.Text = "40.000đ";
+            lblThanhTien.Text = "0";
             lblThanhTien.TextAlign = ContentAlignment.MiddleRight;
             // 
             // lblThanhTienText
@@ -140,7 +139,7 @@
             lblPhuThuHangDacBiet.Name = "lblPhuThuHangDacBiet";
             lblPhuThuHangDacBiet.Size = new Size(135, 21);
             lblPhuThuHangDacBiet.TabIndex = 45;
-            lblPhuThuHangDacBiet.Text = "10.000đ";
+            lblPhuThuHangDacBiet.Text = "0";
             lblPhuThuHangDacBiet.TextAlign = ContentAlignment.MiddleRight;
             // 
             // lblPhuThuHangDacBietText
@@ -160,7 +159,7 @@
             lblKhoangCach.Name = "lblKhoangCach";
             lblKhoangCach.Size = new Size(135, 21);
             lblKhoangCach.TabIndex = 43;
-            lblKhoangCach.Text = "1km";
+            lblKhoangCach.Text = "0 km";
             lblKhoangCach.TextAlign = ContentAlignment.MiddleRight;
             // 
             // lblKhoangCachText
@@ -180,7 +179,7 @@
             lblPhuThuGiaTriCao.Name = "lblPhuThuGiaTriCao";
             lblPhuThuGiaTriCao.Size = new Size(135, 21);
             lblPhuThuGiaTriCao.TabIndex = 41;
-            lblPhuThuGiaTriCao.Text = "10.000đ";
+            lblPhuThuGiaTriCao.Text = "0";
             lblPhuThuGiaTriCao.TextAlign = ContentAlignment.MiddleRight;
             // 
             // lblPhuThuGiaTriCaoText
@@ -200,7 +199,7 @@
             lblPhuThuVanChuyen.Name = "lblPhuThuVanChuyen";
             lblPhuThuVanChuyen.Size = new Size(135, 21);
             lblPhuThuVanChuyen.TabIndex = 39;
-            lblPhuThuVanChuyen.Text = "10.000đ";
+            lblPhuThuVanChuyen.Text = "0";
             lblPhuThuVanChuyen.TextAlign = ContentAlignment.MiddleRight;
             // 
             // lblPhuThuVanChuyenText
@@ -220,7 +219,7 @@
             lblCuocCoSo.Name = "lblCuocCoSo";
             lblCuocCoSo.Size = new Size(135, 21);
             lblCuocCoSo.TabIndex = 37;
-            lblCuocCoSo.Text = "10.000đ";
+            lblCuocCoSo.Text = "0";
             lblCuocCoSo.TextAlign = ContentAlignment.MiddleRight;
             // 
             // lblCuocCoSoText
@@ -254,15 +253,6 @@
             lblDiemCuoi.TabIndex = 38;
             lblDiemCuoi.Text = "Điểm cuối";
             // 
-            // txtDiemCuoi
-            // 
-            txtDiemCuoi.Enabled = false;
-            txtDiemCuoi.Font = new Font("Segoe UI", 12F);
-            txtDiemCuoi.Location = new Point(281, 129);
-            txtDiemCuoi.Name = "txtDiemCuoi";
-            txtDiemCuoi.Size = new Size(231, 29);
-            txtDiemCuoi.TabIndex = 37;
-            // 
             // lblDiemDau
             // 
             lblDiemDau.AutoSize = true;
@@ -272,15 +262,6 @@
             lblDiemDau.Size = new Size(77, 21);
             lblDiemDau.TabIndex = 36;
             lblDiemDau.Text = "Điểm đầu";
-            // 
-            // txtDiemDau
-            // 
-            txtDiemDau.Enabled = false;
-            txtDiemDau.Font = new Font("Segoe UI", 12F);
-            txtDiemDau.Location = new Point(39, 129);
-            txtDiemDau.Name = "txtDiemDau";
-            txtDiemDau.Size = new Size(230, 29);
-            txtDiemDau.TabIndex = 35;
             // 
             // txtMaDon
             // 
@@ -303,7 +284,6 @@
             // 
             // txtMoTaDon
             // 
-            txtMoTaDon.Enabled = false;
             txtMoTaDon.Font = new Font("Segoe UI", 12F);
             txtMoTaDon.Location = new Point(39, 185);
             txtMoTaDon.Name = "txtMoTaDon";
@@ -322,12 +302,13 @@
             // 
             // txtGiaTriDon
             // 
-            txtGiaTriDon.Enabled = false;
             txtGiaTriDon.Font = new Font("Segoe UI", 12F);
             txtGiaTriDon.Location = new Point(281, 185);
             txtGiaTriDon.Name = "txtGiaTriDon";
             txtGiaTriDon.Size = new Size(231, 29);
             txtGiaTriDon.TabIndex = 44;
+            txtGiaTriDon.TextChanged += txtGiaTriDon_TextChanged;
+            txtGiaTriDon.KeyPress += txtGiaTriDon_KeyPress;
             // 
             // lblGiaTriDon
             // 
@@ -348,6 +329,7 @@
             cboLoaiHang.Name = "cboLoaiHang";
             cboLoaiHang.Size = new Size(231, 29);
             cboLoaiHang.TabIndex = 46;
+            cboLoaiHang.SelectedIndexChanged += cboLoaiHang_SelectedIndexChanged;
             // 
             // lblLoaiHang
             // 
@@ -368,6 +350,7 @@
             cboLoaiVanChuyen.Name = "cboLoaiVanChuyen";
             cboLoaiVanChuyen.Size = new Size(231, 29);
             cboLoaiVanChuyen.TabIndex = 48;
+            cboLoaiVanChuyen.SelectedIndexChanged += cboLoaiVanChuyen_SelectedIndexChanged;
             // 
             // lblLoaiVanChuyen
             // 
@@ -391,39 +374,41 @@
             btnHuy.TabIndex = 51;
             btnHuy.Text = "Hủy";
             btnHuy.UseVisualStyleBackColor = false;
+            btnHuy.Click += btnHuy_Click;
             // 
-            // btnSuaThongTin
+            // btnLuuThongTin
             // 
-            btnSuaThongTin.BackColor = Color.FromArgb(255, 128, 0);
-            btnSuaThongTin.FlatAppearance.BorderColor = Color.FromArgb(255, 128, 0);
-            btnSuaThongTin.FlatStyle = FlatStyle.Flat;
-            btnSuaThongTin.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnSuaThongTin.ForeColor = Color.White;
-            btnSuaThongTin.Location = new Point(281, 663);
-            btnSuaThongTin.Name = "btnSuaThongTin";
-            btnSuaThongTin.Size = new Size(231, 40);
-            btnSuaThongTin.TabIndex = 50;
-            btnSuaThongTin.Text = "Sửa thông tin";
-            btnSuaThongTin.UseVisualStyleBackColor = false;
+            btnLuuThongTin.BackColor = Color.FromArgb(255, 128, 0);
+            btnLuuThongTin.FlatAppearance.BorderColor = Color.FromArgb(255, 128, 0);
+            btnLuuThongTin.FlatStyle = FlatStyle.Flat;
+            btnLuuThongTin.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnLuuThongTin.ForeColor = Color.White;
+            btnLuuThongTin.Location = new Point(281, 663);
+            btnLuuThongTin.Name = "btnLuuThongTin";
+            btnLuuThongTin.Size = new Size(231, 40);
+            btnLuuThongTin.TabIndex = 50;
+            btnLuuThongTin.Text = "Lưu thông tin";
+            btnLuuThongTin.UseVisualStyleBackColor = false;
+            btnLuuThongTin.Click += btnLuuThongTin_Click;
             // 
-            // txtThoiDiemGiaoHang
+            // txtThoiDiemCapNhat
             // 
-            txtThoiDiemGiaoHang.Enabled = false;
-            txtThoiDiemGiaoHang.Font = new Font("Segoe UI", 12F);
-            txtThoiDiemGiaoHang.Location = new Point(281, 297);
-            txtThoiDiemGiaoHang.Name = "txtThoiDiemGiaoHang";
-            txtThoiDiemGiaoHang.Size = new Size(231, 29);
-            txtThoiDiemGiaoHang.TabIndex = 55;
+            txtThoiDiemCapNhat.Enabled = false;
+            txtThoiDiemCapNhat.Font = new Font("Segoe UI", 12F);
+            txtThoiDiemCapNhat.Location = new Point(281, 297);
+            txtThoiDiemCapNhat.Name = "txtThoiDiemCapNhat";
+            txtThoiDiemCapNhat.Size = new Size(231, 29);
+            txtThoiDiemCapNhat.TabIndex = 55;
             // 
-            // lblThoiDiemGiaoHang
+            // lblThoiDiemCapNhat
             // 
-            lblThoiDiemGiaoHang.AutoSize = true;
-            lblThoiDiemGiaoHang.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblThoiDiemGiaoHang.Location = new Point(281, 273);
-            lblThoiDiemGiaoHang.Name = "lblThoiDiemGiaoHang";
-            lblThoiDiemGiaoHang.Size = new Size(153, 21);
-            lblThoiDiemGiaoHang.TabIndex = 54;
-            lblThoiDiemGiaoHang.Text = "Thời điểm giao hàng";
+            lblThoiDiemCapNhat.AutoSize = true;
+            lblThoiDiemCapNhat.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblThoiDiemCapNhat.Location = new Point(281, 273);
+            lblThoiDiemCapNhat.Name = "lblThoiDiemCapNhat";
+            lblThoiDiemCapNhat.Size = new Size(143, 21);
+            lblThoiDiemCapNhat.TabIndex = 54;
+            lblThoiDiemCapNhat.Text = "Thời điểm cập nhật";
             // 
             // txtThoiDiemTaoDon
             // 
@@ -444,18 +429,44 @@
             lblThoiDiemTaoDon.TabIndex = 52;
             lblThoiDiemTaoDon.Text = "Thời điểm tạo đơn";
             // 
+            // cboDiemDau
+            // 
+            cboDiemDau.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+            cboDiemDau.AutoCompleteSource = AutoCompleteSource.ListItems;
+            cboDiemDau.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            cboDiemDau.FormattingEnabled = true;
+            cboDiemDau.Location = new Point(38, 129);
+            cboDiemDau.Name = "cboDiemDau";
+            cboDiemDau.Size = new Size(231, 29);
+            cboDiemDau.TabIndex = 37;
+            cboDiemDau.Leave += cboDiemDau_Leave;
+            // 
+            // cboDiemCuoi
+            // 
+            cboDiemCuoi.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+            cboDiemCuoi.AutoCompleteSource = AutoCompleteSource.ListItems;
+            cboDiemCuoi.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            cboDiemCuoi.FormattingEnabled = true;
+            cboDiemCuoi.Location = new Point(281, 129);
+            cboDiemCuoi.Name = "cboDiemCuoi";
+            cboDiemCuoi.Size = new Size(231, 29);
+            cboDiemCuoi.TabIndex = 39;
+            cboDiemCuoi.Leave += cboDiemCuoi_Leave;
+            // 
             // Form_ThongTinDonHang
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
             ClientSize = new Size(554, 725);
-            Controls.Add(txtThoiDiemGiaoHang);
-            Controls.Add(lblThoiDiemGiaoHang);
+            Controls.Add(cboDiemCuoi);
+            Controls.Add(cboDiemDau);
+            Controls.Add(txtThoiDiemCapNhat);
+            Controls.Add(lblThoiDiemCapNhat);
             Controls.Add(txtThoiDiemTaoDon);
             Controls.Add(lblThoiDiemTaoDon);
             Controls.Add(btnHuy);
-            Controls.Add(btnSuaThongTin);
+            Controls.Add(btnLuuThongTin);
             Controls.Add(grpCuocPhiDon);
             Controls.Add(cboLoaiVanChuyen);
             Controls.Add(lblLoaiVanChuyen);
@@ -468,13 +479,12 @@
             Controls.Add(lblMaDon);
             Controls.Add(txtMaDon);
             Controls.Add(lblDiemCuoi);
-            Controls.Add(txtDiemCuoi);
             Controls.Add(lblDiemDau);
-            Controls.Add(txtDiemDau);
             Controls.Add(lblTieuDe);
             Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "Form_ThongTinDonHang";
             Text = "Thông tin đơn hàng";
+            Load += Form_ThongTinDonHang_Load;
             grpCuocPhiDon.ResumeLayout(false);
             grpCuocPhiDon.PerformLayout();
             ResumeLayout(false);
@@ -485,9 +495,7 @@
 
         private Label lblTieuDe;
         private Label lblDiemCuoi;
-        private TextBox txtDiemCuoi;
         private Label lblDiemDau;
-        private TextBox txtDiemDau;
         private TextBox txtMaDon;
         private Label lblMaDon;
         private TextBox txtMoTaDon;
@@ -511,12 +519,14 @@
         private Label lblCuocCoSo;
         private Label lblCuocCoSoText;
         private Button btnHuy;
-        private Button btnSuaThongTin;
+        private Button btnLuuThongTin;
         private Label lblKhoLuuTam;
         private Label lblKhoLuuTamText;
-        private TextBox txtThoiDiemGiaoHang;
-        private Label lblThoiDiemGiaoHang;
+        private TextBox txtThoiDiemCapNhat;
+        private Label lblThoiDiemCapNhat;
         private TextBox txtThoiDiemTaoDon;
         private Label lblThoiDiemTaoDon;
+        private ComboBox cboDiemDau;
+        private ComboBox cboDiemCuoi;
     }
 }

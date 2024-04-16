@@ -1,5 +1,6 @@
 ﻿using OOP_Logistics.Khách_Hàng;
 using OOP_Logistics.Nhân_Viên;
+using OOP_Logistics.Quản_Trị_Viên;
 
 namespace OOP_Logistics
 {
@@ -35,87 +36,26 @@ namespace OOP_Logistics
             }
             return false;
         }
-        public static async Task<string> GetRedirectedUrl(string url)
+        public static bool ExistsEmptyTextbox(GroupBox grp)
         {
-            HttpClientHandler clientHandler = new() { AllowAutoRedirect = false };
-            HttpClient client = new(clientHandler);
-            HttpResponseMessage response = await client.GetAsync(url);
-            try
+            foreach (Control ctrl in grp.Controls)
             {
-                string? location = response.Headers.GetValues("Location").FirstOrDefault();
-                if (!Uri.IsWellFormedUriString(location, UriKind.Absolute))
+                if (ctrl is TextBox)
                 {
-                    Uri pageUri = new(url);
-                    location = $"{pageUri.Scheme}://{pageUri.Host}{location}";
-                }
-                return location;
-            }
-            catch
-            {
-                return string.Empty;
-            }
-        }
-        public static void GetDataFromGoogleMaps(string url, out double latitude, out double longitude)
-        {
-            string partWithCoords = url[(url.IndexOf("/@") + 2)..];
-            string coords = partWithCoords[..partWithCoords.IndexOf('/')];
-            latitude = double.Parse(coords.Split(',')[0]);
-            longitude = double.Parse(coords.Split(',')[1]);
-        }
-        public static int MaKHTiepTheo()
-        {
-            int i = 1;
-            if (Data.DanhSachKhachHang != null)
-            {
-                foreach (KhachHang kh in Data.DanhSachKhachHang)
-                {
-                    if (kh.ID != i)
+                    if (string.IsNullOrWhiteSpace(ctrl.Text))
                     {
-                        return i;
-                    }
-                    else
-                    {
-                        i++;
+                        return true;
                     }
                 }
-                return i;
             }
-            return 1;
+            return false;
         }
-        public static int MaNVTiepTheo()
+        public static IEnumerable<string> GetAddresses()
         {
-            int i = 1;
-            if (Data.DanhSachNhanVien != null)
+            foreach (DiaDiem loc in Data.DanhSachDiaDiem!)
             {
-                foreach (NhanVien kh in Data.DanhSachNhanVien)
-                {
-                    if (kh.ID != i)
-                    {
-                        return i;
-                    }
-                    else
-                    {
-                        i++;
-                    }
-                }
-                return i;
+                yield return loc.Address!;
             }
-            return 1;
-        }
-        public static TaiKhoan? SearchAccountByUsername(string username)
-        {
-            if (Data.DanhSachTaiKhoan != null)
-            {
-                foreach (TaiKhoan tk in Data.DanhSachTaiKhoan)
-                {
-                    if (tk.Username == username)
-                    {
-                        return tk;
-                    }
-                }
-                return null;
-            }
-            return null;
         }
     }
 }

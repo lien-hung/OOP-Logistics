@@ -1,80 +1,75 @@
-﻿namespace OOP_Logistics.Khách_Hàng
+﻿using OOP_Logistics.Quản_Trị_Viên;
+
+namespace OOP_Logistics.Khách_Hàng
 {
-    public class DonHang
+    public enum LoaiHang
     {
-        public string? MaDonHang { get; set; }
-        public DateTime NgayDatHang { get; set; }
-        public List<ChiTietDonHang> ChiTietDon { get; set; }
-        public KhachHang? KhachHang { get; set; }
-        public string? MaBuuKien { get; set; }
-        public string? TrangThai { get; set; }
-        public DateTime CapNhatCuoiCung { get; set; }
-
-        public enum TrangThaiDonHang
-        {
-            DaTao,
-            DangXuLy,
-            DaHuy,
-            GiaoThanhCong
-        }
-        private TrangThaiDonHang _trangThaiDonHang;
-        public DonHang()
-        {
-            ChiTietDon = new List<ChiTietDonHang>(); // Khởi tạo danh sách chi tiết đơn hàng
-        }
-        public void ThemChiTietDonHang(ChiTietDonHang chiTiet)
-        {
-            if (ChiTietDon != null)
-                ChiTietDon.Add(chiTiet);
-            else
-                ChiTietDon = [chiTiet];
-        }
-
-        public void SuaDonHang(DateTime ngayDatHang, List<ChiTietDonHang> chiTietDonHangs, KhachHang khachHang, string maBuuKien, string trangThai, DateTime capNhatCuoiCung)
-        {
-            if (_trangThaiDonHang == TrangThaiDonHang.DaTao)
-            {
-                NgayDatHang = ngayDatHang;
-                ChiTietDon = chiTietDonHangs;
-                KhachHang = khachHang;
-                MaBuuKien = maBuuKien;
-                TrangThai = trangThai;
-                CapNhatCuoiCung = capNhatCuoiCung;
-            }
-            else
-            {
-                throw new InvalidOperationException("Không thể sửa đơn hàng sau khi đã xác nhận.");
-            }
-        }
-
-        public void HuyDonHang()
-        {
-            if (_trangThaiDonHang == TrangThaiDonHang.DaTao)
-            {
-                TrangThai = "Đã hủy";
-                CapNhatCuoiCung = DateTime.Now;
-                _trangThaiDonHang = TrangThaiDonHang.DaHuy;
-            }
-            else
-            {
-                throw new InvalidOperationException("Không thể hủy đơn hàng sau khi đã xác nhận.");
-            }
-        }
-
-        // Phương thức để xác nhận đơn hàng
-        public void XacNhanDonHang()
-        {
-            TrangThai = "Đang xử lý";
-            CapNhatCuoiCung = DateTime.Now;
-            _trangThaiDonHang = TrangThaiDonHang.DangXuLy;
-        }
+        KhongCo,
+        ChungNhanHoSo,
+        HangDeVo,
+        HangNguyenKhoiQuaKho,
+        ChatLong
     }
-
-    public class ChiTietDonHang(string maDonHang, string moTa, double giaTri, bool giaTriCao)
+    public enum LoaiVanChuyen
     {
-        public string MaDonHang { get; set; } = maDonHang;
-        public string MoTa { get; set; } = moTa;
-        public double GiaTri { get; set; } = giaTri;
-        public bool GiaTriCao { get; set; } = giaTriCao;
+        Thuong,
+        HoaToc,
+        TietKiem
+    }
+    public enum TrangThaiDonHang
+    {
+        DaTao,
+        DangXuLy,
+        GiaoThanhCong
+    }
+    public class DonHang(int maDonHang, int maKhachHang, KhoGiaoNhan? khoLuu)
+    {
+        public int MaDonHang { get; set; } = maDonHang;
+        public DateTime ThoiDiemDatHang { get; set; } = DateTime.Now;
+        public int MaKhachHang { get; set; } = maKhachHang;
+        public KhoGiaoNhan? KhoLuu { get; set; } = khoLuu;
+        public int MaBuuKien { get; set; } = 0;
+        public DateTime CapNhatCuoiCung { get; set; } = DateTime.Now;
+        public TrangThaiDonHang TrangThaiDonHang { get; set; } = TrangThaiDonHang.DaTao;
+        public int DanhGia { get; set; } = 0;
+        public void SuaThongTin(KhoGiaoNhan? khoLuu)
+        {
+            KhoLuu = khoLuu;
+        }
+        public void ChoDanhGia(int diem)
+        {
+            DanhGia = diem;
+        }
+        public ChiTietDonHang LayChiTiet()
+        {
+            foreach (ChiTietDonHang ctdh in Data.DanhSachChiTietDon!)
+            {
+                if (ctdh.MaDonHang == MaDonHang)
+                {
+                    return ctdh;
+                }
+            }
+            return null!;
+        }
+        public static int MaTiepTheo()
+        {
+            int i = 1;
+            if (Data.DanhSachDonHang!.Count != 0)
+            {
+                foreach (DonHang dh in Data.DanhSachDonHang)
+                {
+                    if (dh.MaDonHang != i)
+                    {
+                        return i;
+                    }
+                    else
+                    {
+                        i++;
+                    }
+                }
+                return i;
+            }
+            return 1;
+        }
     }
 }

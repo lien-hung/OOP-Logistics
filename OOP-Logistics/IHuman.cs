@@ -6,7 +6,6 @@
         string? Name { get; set; }
         string? PhoneNumber { get; set; }
         string? CitizenID { get; set; }
-        void XemThongTin();
         void ChinhSuaThongTin(int MaDinhDanh, string HoTen, string SoDienThoai, string SoCCCD);
     }
 }

@@ -29,14 +29,14 @@
 
         private void btnDatLai_Click(object sender, EventArgs e)
         {
-            TaiKhoan? tk = Util.SearchAccountByUsername(txtTenDangNhap.Text);
+            TaiKhoan? tk = TaiKhoan.SearchByUsername(txtTenDangNhap.Text);
             if (tk != null && txtMatKhauMoi.Text == txtXacNhanMatKhau.Text)
             {
                 tk.ChangePassword(txtMatKhauMoi.Text);
             }
             else
             {
-                MessageBox.Show("Tên đăng nhập hoặc mật khẩu không đúng.", "Đăng nhập thất bại", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                MessageBox.Show("Tài khoản không tồn tại hoặc xác nhận mật khẩu không đúng.", "Đặt lại thất bại", MessageBoxButtons.OK, MessageBoxIcon.Stop);
             }
         }
 

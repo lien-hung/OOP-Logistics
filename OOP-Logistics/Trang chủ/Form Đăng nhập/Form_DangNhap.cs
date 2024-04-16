@@ -49,7 +49,7 @@ namespace OOP_Logistics
 
         private void btnDangNhap_Click(object sender, EventArgs e)
         {
-            TaiKhoan? tk = Util.SearchAccountByUsername(txtTenDangNhap.Text);
+            TaiKhoan? tk = TaiKhoan.SearchByUsername(txtTenDangNhap.Text);
             if (tk != null && tk.Login(txtTenDangNhap.Text, txtMatKhau.Text))
             {
                 if (tk is TaiKhoanKH)

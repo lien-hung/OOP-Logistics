@@ -34,5 +34,26 @@
 
             Console.WriteLine("Thông tin nhân viên đã được cập nhật.");
         }
+
+        public static int MaTiepTheo()
+        {
+            int i = 1;
+            if (Data.DanhSachNhanVien!.Count != 0)
+            {
+                foreach (NhanVien nv in Data.DanhSachNhanVien)
+                {
+                    if (nv.ID != i)
+                    {
+                        return i;
+                    }
+                    else
+                    {
+                        i++;
+                    }
+                }
+                return i;
+            }
+            return 1;
+        }
     }
 }

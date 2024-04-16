@@ -8,10 +8,12 @@ namespace OOP_Logistics
     {
         public static List<KhachHang>? DanhSachKhachHang { get; set; }
         public static List<DonHang>? DanhSachDonHang { get; set; }
+        public static List<ChiTietDonHang>? DanhSachChiTietDon { get; set; }
         public static List<NhanVien>? DanhSachNhanVien { get; set; }
         public static List<BuuKien>? DanhSachBuuKien { get; set; }
         public static List<PhuongTien>? DanhSachPhuongTien { get; set; }
         public static List<KhoGiaoNhan>? DanhSachKhoGiaoNhan { get; set; }
+        public static List<DiaDiem>? DanhSachDiaDiem { get; set; }
         public static List<TaiKhoan>? DanhSachTaiKhoan { get; set; }
         private static void CreateWarehouse()
         {
@@ -22,44 +24,25 @@ namespace OOP_Logistics
                 new KhoGiaoNhan(3, new DiaDiem("Đại lộ Nguyễn Văn Linh, HBC", 10.7060233, 106.637554))
             ];
         }
-        private static void CreateOrderDetails()
-        {
-            // Tạo danh sách chi tiết đơn hàng
-            List<ChiTietDonHang> orderDetailsList = new List<ChiTietDonHang>
-            {
-                new ChiTietDonHang("Mã 1", "Mô tả 1", 100.0, true),
-                new ChiTietDonHang("Mã 2", "Mô tả 2", 200.0, false),
-                new ChiTietDonHang("Mã 3", "Mô tả 3", 150.0, true),
-            };
-
-            // Gán danh sách chi tiết đơn hàng cho một đơn hàng cụ thể
-            // Ví dụ: Đơn hàng có mã là "DH001"
-            DonHang? donHang1 = DanhSachDonHang?.Find(donHang => donHang.MaDonHang == "DH001");
-            if (donHang1 != null)
-            {
-                foreach (ChiTietDonHang chiTietDonHang in orderDetailsList)
-                {
-                    donHang1.ThemChiTietDonHang(chiTietDonHang);
-                }
-            }
-        }
         public static void Initialize()
         {
             List<KhachHang>? serializedKhachHang = Serializer.DeserializeJsonFromFile<List<KhachHang>>("KhachHang.json");
             DanhSachKhachHang = serializedKhachHang != default ? serializedKhachHang : [];
             List<DonHang>? serializedDonHang = Serializer.DeserializeJsonFromFile<List<DonHang>>("DonHang.json");
             DanhSachDonHang = serializedDonHang != default ? serializedDonHang : [];
+            List<ChiTietDonHang>? serializedChiTiet = Serializer.DeserializeJsonFromFile<List<ChiTietDonHang>>("ChiTietDonHang.json");
+            DanhSachChiTietDon = serializedChiTiet != default ? serializedChiTiet : [];
             List<NhanVien>? serializedNhanVien = Serializer.DeserializeJsonFromFile<List<NhanVien>>("NhanVien.json");
             DanhSachNhanVien = serializedNhanVien != default ? serializedNhanVien : [];
             List<BuuKien>? serializedBuuKien = Serializer.DeserializeJsonFromFile<List<BuuKien>>("BuuKien.json");
             DanhSachBuuKien = serializedBuuKien != default ? serializedBuuKien : [];
             List<PhuongTien>? serializedPhuongTien = Serializer.DeserializeJsonFromFile<List<PhuongTien>>("PhuongTien.json");
             DanhSachPhuongTien = serializedPhuongTien != default ? serializedPhuongTien : [];
+            List<DiaDiem>? serializedDiaDiem = Serializer.DeserializeJsonFromFile<List<DiaDiem>>("DiaDiem.json");
+            DanhSachDiaDiem = serializedDiaDiem != default ? serializedDiaDiem : [];
             List<TaiKhoan>? serializedTaiKhoan = Serializer.DeserializeJsonFromFile<List<TaiKhoan>>("TaiKhoan.json");
             DanhSachTaiKhoan = serializedTaiKhoan != default ? serializedTaiKhoan : [new TaiKhoanQuanTriVien("admin", "123")];
-
             CreateWarehouse();
-            CreateOrderDetails();
         }
         public static void Serialize()
         {

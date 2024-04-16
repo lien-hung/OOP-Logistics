@@ -84,9 +84,9 @@ namespace OOP_Logistics
 
         private void btnDangKy_Click(object sender, EventArgs e)
         {
-            if (!Util.ExistsEmptyTextbox(this) && txtEmail.Text.Contains('@') && txtMatKhau.Text == txtXacNhanMatKhau.Text && Util.SearchAccountByUsername(txtTenDangNhap.Text) == null)
+            if (!Util.ExistsEmptyTextbox(this) && txtEmail.Text.Contains('@') && txtMatKhau.Text == txtXacNhanMatKhau.Text && TaiKhoan.SearchByUsername(txtTenDangNhap.Text) == null)
             {
-                int newCustomerId = Util.MaKHTiepTheo();
+                int newCustomerId = KhachHang.MaTiepTheo();
                 if (cboLoaiKhachHang.SelectedIndex == 0)
                 {
                     Data.DanhSachKhachHang?.Add(new KhachHangCaNhan(newCustomerId, txtHoVaTen.Text, txtSoDienThoai.Text, txtSoCCCD.Text, txtEmail.Text, txtDiaChi.Text));
@@ -108,7 +108,7 @@ namespace OOP_Logistics
             {
                 MessageBox.Show("Địa chỉ email không hợp lệ!", "Đăng ký thất bại", MessageBoxButtons.OK, MessageBoxIcon.Stop);
             }
-            else if (Util.SearchAccountByUsername(txtTenDangNhap.Text) != null)
+            else if (TaiKhoan.SearchByUsername(txtTenDangNhap.Text) != null)
             {
                 MessageBox.Show("Tên tài khoản đã được sử dụng. Vui lòng chọn tên khác.", "Đăng ký thất bại", MessageBoxButtons.OK, MessageBoxIcon.Stop);
             }

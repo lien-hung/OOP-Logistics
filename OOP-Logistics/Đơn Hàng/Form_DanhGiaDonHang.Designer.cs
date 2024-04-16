@@ -56,6 +56,7 @@
             btnHuy.TabIndex = 53;
             btnHuy.Text = "Hủy";
             btnHuy.UseVisualStyleBackColor = false;
+            btnHuy.Click += btnHuy_Click;
             // 
             // btnDanhGia
             // 
@@ -70,6 +71,7 @@
             btnDanhGia.TabIndex = 52;
             btnDanhGia.Text = "Đánh giá";
             btnDanhGia.UseVisualStyleBackColor = false;
+            btnDanhGia.Click += btnDanhGia_Click;
             // 
             // ptbStar1
             // 
@@ -80,6 +82,7 @@
             ptbStar1.SizeMode = PictureBoxSizeMode.StretchImage;
             ptbStar1.TabIndex = 54;
             ptbStar1.TabStop = false;
+            ptbStar1.Click += ptbStar1_Click;
             // 
             // ptbStar2
             // 
@@ -90,6 +93,7 @@
             ptbStar2.SizeMode = PictureBoxSizeMode.StretchImage;
             ptbStar2.TabIndex = 55;
             ptbStar2.TabStop = false;
+            ptbStar2.Click += ptbStar2_Click;
             // 
             // ptbStar3
             // 
@@ -100,6 +104,7 @@
             ptbStar3.SizeMode = PictureBoxSizeMode.StretchImage;
             ptbStar3.TabIndex = 56;
             ptbStar3.TabStop = false;
+            ptbStar3.Click += ptbStar3_Click;
             // 
             // ptbStar4
             // 
@@ -110,6 +115,7 @@
             ptbStar4.SizeMode = PictureBoxSizeMode.StretchImage;
             ptbStar4.TabIndex = 57;
             ptbStar4.TabStop = false;
+            ptbStar4.Click += ptbStar4_Click;
             // 
             // ptbStar5
             // 
@@ -120,6 +126,7 @@
             ptbStar5.SizeMode = PictureBoxSizeMode.StretchImage;
             ptbStar5.TabIndex = 58;
             ptbStar5.TabStop = false;
+            ptbStar5.Click += ptbStar5_Click;
             // 
             // lblDiemDau
             // 
@@ -147,6 +154,7 @@
             Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "Form_DanhGiaDonHang";
             Text = "Đánh giá";
+            Load += Form_DanhGiaDonHang_Load;
             ((System.ComponentModel.ISupportInitialize)ptbStar1).EndInit();
             ((System.ComponentModel.ISupportInitialize)ptbStar2).EndInit();
             ((System.ComponentModel.ISupportInitialize)ptbStar3).EndInit();

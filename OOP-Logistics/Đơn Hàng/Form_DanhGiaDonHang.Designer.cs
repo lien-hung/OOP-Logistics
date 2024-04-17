@@ -151,7 +151,10 @@
             Controls.Add(ptbStar1);
             Controls.Add(btnHuy);
             Controls.Add(btnDanhGia);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
             Icon = (Icon)resources.GetObject("$this.Icon");
+            MaximizeBox = false;
+            MinimizeBox = false;
             Name = "Form_DanhGiaDonHang";
             Text = "Đánh giá";
             Load += Form_DanhGiaDonHang_Load;

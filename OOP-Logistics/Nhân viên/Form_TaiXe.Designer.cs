@@ -623,10 +623,13 @@
             ClientSize = new Size(909, 566);
             Controls.Add(navbarTaiXe);
             Controls.Add(panelTaiXe);
+            Controls.Add(panelThongTin);
             Controls.Add(panelLichSuGiaoHang);
             Controls.Add(panelNhanDon);
-            Controls.Add(panelThongTin);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
             Icon = (Icon)resources.GetObject("$this.Icon");
+            MaximizeBox = false;
+            MinimizeBox = false;
             Name = "Form_TaiXe";
             Text = "Tài xế";
             Load += Form_TaiXe_Load;

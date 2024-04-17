@@ -183,18 +183,18 @@ namespace OOP_Logistics
             txtHoVaTen.Text = KhachHangHienTai?.Name;
             txtSoDienThoai.Text = KhachHangHienTai?.PhoneNumber;
             txtSoCCCD.Text = KhachHangHienTai?.CitizenID;
-            if (KhachHangHienTai is KhachHangCaNhan)
+            if (KhachHangHienTai is KhachHangCaNhan khcn)
             {
-                txtEmail.Text = (KhachHangHienTai as KhachHangCaNhan)?.EmailCaNhan;
-                txtDiaChi.Text = (KhachHangHienTai as KhachHangCaNhan)?.DiaChiLienLac;
+                txtEmail.Text = khcn.EmailCaNhan;
+                txtDiaChi.Text = khcn.DiaChiLienLac;
                 txtTenCongTy.Text = txtLinhVuc.Text = "N/A";
             }
-            if (KhachHangHienTai is KhachHangDoanhNghiep)
+            if (KhachHangHienTai is KhachHangDoanhNghiep khdn)
             {
-                txtEmail.Text = (KhachHangHienTai as KhachHangDoanhNghiep)?.EmailCongTy;
-                txtDiaChi.Text = (KhachHangHienTai as KhachHangDoanhNghiep)?.NoiDongTruSo;
-                txtTenCongTy.Text = (KhachHangHienTai as KhachHangDoanhNghiep)?.TenCongTy;
-                txtLinhVuc.Text = (KhachHangHienTai as KhachHangDoanhNghiep)?.LinhVucHoatDong;
+                txtEmail.Text = khdn.EmailCongTy;
+                txtDiaChi.Text = khdn.NoiDongTruSo;
+                txtTenCongTy.Text = khdn.TenCongTy;
+                txtLinhVuc.Text = khdn.LinhVucHoatDong;
             }
         }
 
@@ -213,13 +213,13 @@ namespace OOP_Logistics
         {
             if (!Util.ExistsEmptyTextbox(grpThongTinChung) && txtEmail.Text.Contains('@'))
             {
-                if (KhachHangHienTai is KhachHangCaNhan)
+                if (KhachHangHienTai is KhachHangCaNhan khcn)
                 {
-                    (KhachHangHienTai as KhachHangCaNhan)?.ChinhSuaThongTin(Convert.ToInt32(txtMaKhachHang.Text), txtHoVaTen.Text, txtSoDienThoai.Text, txtSoCCCD.Text, txtEmail.Text, txtDiaChi.Text);
+                    khcn.ChinhSuaThongTin(Convert.ToInt32(txtMaKhachHang.Text), txtHoVaTen.Text, txtSoDienThoai.Text, txtSoCCCD.Text, txtEmail.Text, txtDiaChi.Text);
                 }
-                if (KhachHangHienTai is KhachHangDoanhNghiep)
+                if (KhachHangHienTai is KhachHangDoanhNghiep khdn)
                 {
-                    (KhachHangHienTai as KhachHangDoanhNghiep)?.ChinhSuaThongTin(Convert.ToInt32(txtMaKhachHang.Text), txtHoVaTen.Text, txtSoDienThoai.Text, txtSoCCCD.Text, txtTenCongTy.Text, txtLinhVuc.Text, txtDiaChi.Text, txtEmail.Text);
+                    khdn.ChinhSuaThongTin(Convert.ToInt32(txtMaKhachHang.Text), txtHoVaTen.Text, txtSoDienThoai.Text, txtSoCCCD.Text, txtTenCongTy.Text, txtLinhVuc.Text, txtDiaChi.Text, txtEmail.Text);
                 }
                 MessageBox.Show("Sửa thông tin thành công.", "Thông tin", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 ToggleModifyCustomerButton(true);
@@ -435,6 +435,12 @@ namespace OOP_Logistics
             GetDeliveryFee();
             GetTotalFee();
             GetTemporaryWarehouse();
+        }
+
+        private void cboLoaiXe_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            GetDistanceFee(DiaDiem.Distance(DiemDau, DiemCuoi));
+            GetTotalFee();
         }
 
         private void btnTaoDon_Click(object sender, EventArgs e)

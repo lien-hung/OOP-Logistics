@@ -36,14 +36,21 @@ namespace OOP_Logistics.Nhân_Viên
         {
             int totalStars = 0;
             List<DonHang> donHangDaNhan = new(LayDonHangDaNhan());
-            foreach (DonHang dh in donHangDaNhan)
+            if (donHangDaNhan.Count > 0)
             {
-                if (dh.TrangThaiDonHang == TrangThaiDonHang.GiaoThanhCong)
+                foreach (DonHang dh in donHangDaNhan)
                 {
-                    totalStars += dh.DanhGia;
+                    if (dh.TrangThaiDonHang == TrangThaiDonHang.GiaoThanhCong)
+                    {
+                        totalStars += dh.DanhGia;
+                    }
                 }
+                return totalStars / donHangDaNhan.Count;
             }
-            return totalStars / donHangDaNhan.Count;
+            else
+            {
+                return 0;
+            }
         }
     }
 }

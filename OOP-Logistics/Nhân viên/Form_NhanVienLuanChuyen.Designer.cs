@@ -577,7 +577,6 @@
             // 
             // txtKhoiLuong
             // 
-            txtKhoiLuong.Enabled = false;
             txtKhoiLuong.Font = new Font("Segoe UI", 12F);
             txtKhoiLuong.Location = new Point(408, 502);
             txtKhoiLuong.Name = "txtKhoiLuong";
@@ -645,11 +644,14 @@
             ClientSize = new Size(909, 566);
             Controls.Add(panelNhanVien);
             Controls.Add(navbarNhanVien);
+            Controls.Add(panelXepHang);
             Controls.Add(panelThongTin);
             Controls.Add(panelLichSuLuongThuong);
-            Controls.Add(panelXepHang);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
             Icon = (Icon)resources.GetObject("$this.Icon");
             IsMdiContainer = true;
+            MaximizeBox = false;
+            MinimizeBox = false;
             Name = "Form_NhanVienLuanChuyen";
             Text = "Nhân viên luân chuyển";
             Load += Form_NhanVienLuanChuyen_Load;

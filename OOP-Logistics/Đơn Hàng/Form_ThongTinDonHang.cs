@@ -142,6 +142,21 @@ namespace OOP_Logistics
             }
         }
 
+        private int GetVehicleIndex()
+        {
+            switch (DonDangSua.LoaiPhuongTien)
+            {
+                case LoaiXe.XeTai:
+                    return 0;
+                case LoaiXe.XeBanTai:
+                    return 1;
+                case LoaiXe.XeMay:
+                    return 2;
+                default:
+                    return -1;
+            }
+        }
+
         private void LoadLocations()
         {
             cboDiemDau.Items.AddRange(Util.GetAddresses().ToArray());
@@ -159,6 +174,7 @@ namespace OOP_Logistics
             txtThoiDiemCapNhat.Text = DonDangSua.CapNhatCuoiCung.ToString();
             cboDiemDau.Text = DiemDau?.Address;
             cboDiemCuoi.Text = DiemCuoi?.Address;
+            cboLoaiXe.SelectedIndex = GetVehicleIndex();
         }
 
         public Form_ThongTinDonHang(DonHang dh)
@@ -230,6 +246,12 @@ namespace OOP_Logistics
             GetTemporaryWarehouse();
         }
 
+        private void cboLoaiXe_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            GetDistanceFee(DiaDiem.Distance(DiemDau, DiemCuoi));
+            GetTotalFee();
+        }
+
         private void btnHuy_Click(object sender, EventArgs e)
         {
             Close();
@@ -241,11 +263,11 @@ namespace OOP_Logistics
             {
                 if (cboLoaiVanChuyen.SelectedIndex == 1)
                 {
-                    DonDangSua.SuaThongTin(null, GetVehicleType());
+                    DonDangSua.SuaThongTin(null, GetVehicleType(), int.Parse(lblThanhTien.Text, System.Globalization.NumberStyles.AllowThousands));
                 }
                 else
                 {
-                    DonDangSua.SuaThongTin(DiemDau.GetNearestWarehouse(), GetVehicleType());
+                    DonDangSua.SuaThongTin(DiemDau.GetNearestWarehouse(), GetVehicleType(), int.Parse(lblThanhTien.Text, System.Globalization.NumberStyles.AllowThousands));
                 }
                 ChiTiet?.SuaThongTin(DiemDau, DiemCuoi, txtMoTaDon.Text, int.Parse(txtGiaTriDon.Text), GetTypeProduct(), GetDeliveryType());
                 MessageBox.Show("Sửa thông tin thành công.", "Thông tin", MessageBoxButtons.OK, MessageBoxIcon.Information);

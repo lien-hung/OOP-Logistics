@@ -110,7 +110,7 @@ namespace OOP_Logistics
                 }
                 if (cboLoaiNhanVien.SelectedIndex == 1)
                 {
-                    PhuongTien vehicle = new(txtBienSo.Text, ChosenVehicleType(), TinhTrangXe.OnDinh);
+                    PhuongTien vehicle = new(txtBienSo.Text, ChosenVehicleType());
                     Data.DanhSachPhuongTien?.Add(vehicle);
                     Data.DanhSachNhanVien?.Add(new TaiXeCoHuu(newEmployeeId, txtHoVaTen.Text, txtSoDienThoai.Text, txtSoCCCD.Text, vehicle));
                 }

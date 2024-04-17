@@ -31,6 +31,11 @@ namespace OOP_Logistics.Nhân_Viên
                     return string.Empty;
             }
         }
+        public void ThayChucVu(ChucVu chucVu)
+        {
+            ChucVu = chucVu;
+            LayChucVuVaHeSoLuong();
+        }
         public double TinhThuNhap()
         {
             return 1_800_000 * HeSoLuong;

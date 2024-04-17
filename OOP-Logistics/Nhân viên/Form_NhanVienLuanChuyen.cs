@@ -115,11 +115,27 @@ namespace OOP_Logistics
             }
         }
 
-        public void RefreshPanelCreatePackage()
+        private void RefreshPanelCreatePackage()
         {
             txtMaBuuKien.Text = BuuKien.MaTiepTheo().ToString();
             txtKhoiLuong.Text = string.Empty;
             dgvTaoBuuKien.DataSource = new List<DonHang>(DonHang.LayDonLuuChuaXep(NhanVienHienTai!.KhoLamViec));
+        }
+
+        private static bool AreOrdersSameVehicleType(List<DonHang> orders)
+        {
+            if (orders.Count == 0)
+            {
+                return false;
+            }
+            foreach (DonHang order in orders)
+            {
+                if (order.LoaiPhuongTien != orders[0].LoaiPhuongTien)
+                {
+                    return false;
+                }
+            }
+            return true;
         }
 
         public Form_NhanVienLuanChuyen(TaiKhoanNV? tk)
@@ -221,7 +237,15 @@ namespace OOP_Logistics
                         MessageBox.Show("Đơn không tồn tại.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
-                Data.DanhSachBuuKien?.Add(new BuuKien(Convert.ToInt32(txtMaBuuKien.Text), donHangSeXep, khoiLuong));
+                if (AreOrdersSameVehicleType(donHangSeXep))
+                {
+                    Data.DanhSachBuuKien?.Add(new BuuKien(Convert.ToInt32(txtMaBuuKien.Text), donHangSeXep, khoiLuong));
+                    MessageBox.Show("Đã xếp vào bưu kiện.", "Thông tin", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show("Không thể xếp các đơn hàng có loại phương tiện chở hàng khác nhau vào cùng một bưu kiện.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
                 RefreshPanelCreatePackage();
             }
             else

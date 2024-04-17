@@ -1,5 +1,4 @@
-﻿using OOP_Logistics.Nhân_Viên;
-using OOP_Logistics.Quản_Trị_Viên;
+﻿using OOP_Logistics.Quản_Trị_Viên;
 
 namespace OOP_Logistics.Khách_Hàng
 {
@@ -35,11 +34,12 @@ namespace OOP_Logistics.Khách_Hàng
         public TrangThaiDonHang TrangThaiDonHang { get; set; } = TrangThaiDonHang.DaTao;
         public int CuocPhi { get; set; } = cuocPhi;
         public int DanhGia { get; set; } = 0;
-        public void SuaThongTin(KhoGiaoNhan? khoLuu, LoaiXe loaiPhuongTien)
+        public void SuaThongTin(KhoGiaoNhan? khoLuu, LoaiXe loaiPhuongTien, int cuocPhi)
         {
             KhoLuu = khoLuu;
             LoaiPhuongTien = loaiPhuongTien;
             CapNhatCuoiCung = DateTime.Now;
+            CuocPhi = cuocPhi;
         }
         public void ChoDanhGia(int diem)
         {

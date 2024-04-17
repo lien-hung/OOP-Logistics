@@ -464,6 +464,7 @@
             cboLoaiXe.Name = "cboLoaiXe";
             cboLoaiXe.Size = new Size(230, 29);
             cboLoaiXe.TabIndex = 57;
+            cboLoaiXe.SelectedIndexChanged += cboLoaiXe_SelectedIndexChanged;
             // 
             // lblLoaiXe
             // 
@@ -505,7 +506,10 @@
             Controls.Add(lblDiemCuoi);
             Controls.Add(lblDiemDau);
             Controls.Add(lblTieuDe);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
             Icon = (Icon)resources.GetObject("$this.Icon");
+            MaximizeBox = false;
+            MinimizeBox = false;
             Name = "Form_ThongTinDonHang";
             Text = "Thông tin đơn hàng";
             Load += Form_ThongTinDonHang_Load;

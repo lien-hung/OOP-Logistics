@@ -193,13 +193,24 @@ namespace OOP_Logistics
             {
                 if (dgvNhanDon.SelectedRows[0].DataBoundItem is BuuKien buuKienDaChon)
                 {
-                    buuKienDaChon.NhanBuuKien(TaiXeHienTai);
-                    foreach (DonHang dh in buuKienDaChon.DanhSachDon!)
+                    if (buuKienDaChon.DanhSachDon?[0].LoaiPhuongTien == TaiXeHienTai?.PhuongTienGiaoHang?.LoaiXe && buuKienDaChon.KhoiLuong <= TaiXeHienTai?.PhuongTienGiaoHang?.TaiTrong)
                     {
-                        dh.NhanDon();
+                        buuKienDaChon.NhanBuuKien(TaiXeHienTai);
+                        foreach (DonHang dh in buuKienDaChon.DanhSachDon!)
+                        {
+                            dh.NhanDon();
+                        }
+                        MessageBox.Show("Nhận bưu kiện thành công.", "Thông tin", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        dgvNhanDon.DataSource = new List<BuuKien>(BuuKien.LayBuuKienChoNhan());
                     }
-                    MessageBox.Show("Nhận bưu kiện thành công.", "Thông tin", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    dgvNhanDon.DataSource = new List<BuuKien>(BuuKien.LayBuuKienChoNhan());
+                    else if (buuKienDaChon.DanhSachDon?[0].LoaiPhuongTien != TaiXeHienTai?.PhuongTienGiaoHang?.LoaiXe)
+                    {
+                        MessageBox.Show("Loại xe của bạn không khớp với loại phương tiện mà bưu kiện được chuyên chở.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Khối lượng bưu kiện vượt quá tải trọng cho phép.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
                 else
                 {

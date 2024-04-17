@@ -57,6 +57,7 @@
             // 
             // txtBienSo
             // 
+            txtBienSo.Enabled = false;
             txtBienSo.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             txtBienSo.Location = new Point(82, 89);
             txtBienSo.Name = "txtBienSo";
@@ -75,6 +76,7 @@
             // 
             // txtLoaiPhuongTien
             // 
+            txtLoaiPhuongTien.Enabled = false;
             txtLoaiPhuongTien.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             txtLoaiPhuongTien.Location = new Point(82, 147);
             txtLoaiPhuongTien.Name = "txtLoaiPhuongTien";
@@ -93,6 +95,7 @@
             // 
             // txtTrongTai
             // 
+            txtTrongTai.Enabled = false;
             txtTrongTai.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             txtTrongTai.Location = new Point(82, 206);
             txtTrongTai.Name = "txtTrongTai";
@@ -111,6 +114,7 @@
             // 
             // txtSoChuyenDaCho
             // 
+            txtSoChuyenDaCho.Enabled = false;
             txtSoChuyenDaCho.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             txtSoChuyenDaCho.Location = new Point(82, 265);
             txtSoChuyenDaCho.Name = "txtSoChuyenDaCho";
@@ -129,6 +133,7 @@
             // 
             // txtTinhTrangPhuongTien
             // 
+            txtTinhTrangPhuongTien.Enabled = false;
             txtTinhTrangPhuongTien.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             txtTinhTrangPhuongTien.Location = new Point(82, 324);
             txtTinhTrangPhuongTien.Name = "txtTinhTrangPhuongTien";
@@ -157,6 +162,7 @@
             btnThoat.TabIndex = 81;
             btnThoat.Text = "Thoát";
             btnThoat.UseVisualStyleBackColor = false;
+            btnThoat.Click += btnThoat_Click;
             // 
             // btnBaoDuong
             // 
@@ -171,6 +177,7 @@
             btnBaoDuong.TabIndex = 80;
             btnBaoDuong.Text = "Bảo dưỡng";
             btnBaoDuong.UseVisualStyleBackColor = false;
+            btnBaoDuong.Click += btnBaoDuong_Click;
             // 
             // Form_ThongTinPhuongTien
             // 
@@ -191,9 +198,13 @@
             Controls.Add(txtLoaiPhuongTien);
             Controls.Add(lblLoaiPhuongTien);
             Controls.Add(lblTieuDe);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
             Icon = (Icon)resources.GetObject("$this.Icon");
+            MaximizeBox = false;
+            MinimizeBox = false;
             Name = "Form_ThongTinPhuongTien";
             Text = "Thông tin phương tiện";
+            Load += Form_ThongTinPhuongTien_Load;
             ResumeLayout(false);
             PerformLayout();
         }

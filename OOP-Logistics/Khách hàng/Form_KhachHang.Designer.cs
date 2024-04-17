@@ -722,6 +722,7 @@
             cboLoaiXe.Name = "cboLoaiXe";
             cboLoaiXe.Size = new Size(137, 29);
             cboLoaiXe.TabIndex = 45;
+            cboLoaiXe.SelectedIndexChanged += cboLoaiXe_SelectedIndexChanged;
             // 
             // lblLoaiXe
             // 

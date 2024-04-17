@@ -72,6 +72,7 @@
             // 
             // cboLoaiKhachHang
             // 
+            cboLoaiKhachHang.Enabled = false;
             cboLoaiKhachHang.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             cboLoaiKhachHang.FormattingEnabled = true;
             cboLoaiKhachHang.Items.AddRange(new object[] { "Khách hàng cá nhân", "Khách hàng doanh nghiệp" });
@@ -82,6 +83,7 @@
             // 
             // txtLinhVuc
             // 
+            txtLinhVuc.Enabled = false;
             txtLinhVuc.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             txtLinhVuc.Location = new Point(19, 261);
             txtLinhVuc.Name = "txtLinhVuc";
@@ -100,6 +102,7 @@
             // 
             // txtTenCongTy
             // 
+            txtTenCongTy.Enabled = false;
             txtTenCongTy.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             txtTenCongTy.Location = new Point(235, 205);
             txtTenCongTy.Name = "txtTenCongTy";
@@ -118,6 +121,7 @@
             // 
             // txtSoCCCD
             // 
+            txtSoCCCD.Enabled = false;
             txtSoCCCD.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             txtSoCCCD.Location = new Point(235, 149);
             txtSoCCCD.Name = "txtSoCCCD";
@@ -136,6 +140,7 @@
             // 
             // txtEmail
             // 
+            txtEmail.Enabled = false;
             txtEmail.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             txtEmail.Location = new Point(19, 205);
             txtEmail.Name = "txtEmail";
@@ -154,6 +159,7 @@
             // 
             // txtSoDienThoai
             // 
+            txtSoDienThoai.Enabled = false;
             txtSoDienThoai.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             txtSoDienThoai.Location = new Point(19, 149);
             txtSoDienThoai.Name = "txtSoDienThoai";
@@ -172,6 +178,7 @@
             // 
             // txtHoVaTen
             // 
+            txtHoVaTen.Enabled = false;
             txtHoVaTen.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             txtHoVaTen.Location = new Point(235, 93);
             txtHoVaTen.Name = "txtHoVaTen";
@@ -190,6 +197,7 @@
             // 
             // txtDiaChi
             // 
+            txtDiaChi.Enabled = false;
             txtDiaChi.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             txtDiaChi.Location = new Point(235, 261);
             txtDiaChi.Name = "txtDiaChi";
@@ -218,6 +226,7 @@
             btnThoat.TabIndex = 54;
             btnThoat.Text = "Thoát";
             btnThoat.UseVisualStyleBackColor = false;
+            btnThoat.Click += btnThoat_Click;
             // 
             // Form_ThongTinKhachHang
             // 
@@ -243,9 +252,13 @@
             Controls.Add(cboLoaiKhachHang);
             Controls.Add(lblLoaiKhachHang);
             Controls.Add(lblTieuDe);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
             Icon = (Icon)resources.GetObject("$this.Icon");
+            MaximizeBox = false;
+            MinimizeBox = false;
             Name = "Form_ThongTinKhachHang";
             Text = "Thông tin khách hàng";
+            Load += Form_ThongTinKhachHang_Load;
             ResumeLayout(false);
             PerformLayout();
         }

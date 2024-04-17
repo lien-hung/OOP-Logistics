@@ -41,6 +41,10 @@
             cboLoaiNhanVien = new ComboBox();
             lblLoaiNhanVien = new Label();
             lblTieuDe = new Label();
+            btnChiTraLuong = new Button();
+            cboChucVu = new ComboBox();
+            lblChucVu = new Label();
+            btnLuu = new Button();
             SuspendLayout();
             // 
             // btnThoat
@@ -49,15 +53,17 @@
             btnThoat.FlatStyle = FlatStyle.Flat;
             btnThoat.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnThoat.ForeColor = Color.FromArgb(255, 128, 0);
-            btnThoat.Location = new Point(126, 245);
+            btnThoat.Location = new Point(19, 249);
             btnThoat.Name = "btnThoat";
-            btnThoat.Size = new Size(212, 40);
+            btnThoat.Size = new Size(133, 40);
             btnThoat.TabIndex = 73;
             btnThoat.Text = "Thoát";
             btnThoat.UseVisualStyleBackColor = false;
+            btnThoat.Click += btnThoat_Click;
             // 
             // txtSoCCCD
             // 
+            txtSoCCCD.Enabled = false;
             txtSoCCCD.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             txtSoCCCD.Location = new Point(19, 200);
             txtSoCCCD.Name = "txtSoCCCD";
@@ -76,6 +82,7 @@
             // 
             // txtNoiLamViec
             // 
+            txtNoiLamViec.Enabled = false;
             txtNoiLamViec.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             txtNoiLamViec.Location = new Point(235, 200);
             txtNoiLamViec.Name = "txtNoiLamViec";
@@ -94,6 +101,7 @@
             // 
             // txtSoDienThoai
             // 
+            txtSoDienThoai.Enabled = false;
             txtSoDienThoai.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             txtSoDienThoai.Location = new Point(235, 144);
             txtSoDienThoai.Name = "txtSoDienThoai";
@@ -112,6 +120,7 @@
             // 
             // txtHoVaTen
             // 
+            txtHoVaTen.Enabled = false;
             txtHoVaTen.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             txtHoVaTen.Location = new Point(19, 144);
             txtHoVaTen.Name = "txtHoVaTen";
@@ -130,6 +139,7 @@
             // 
             // cboLoaiNhanVien
             // 
+            cboLoaiNhanVien.Enabled = false;
             cboLoaiNhanVien.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             cboLoaiNhanVien.FormattingEnabled = true;
             cboLoaiNhanVien.Items.AddRange(new object[] { "Nhân viên trung chuyển", "Tài xế cơ hữu" });
@@ -159,12 +169,67 @@
             lblTieuDe.TabIndex = 55;
             lblTieuDe.Text = "THÔNG TIN NHÂN VIÊN";
             // 
+            // btnChiTraLuong
+            // 
+            btnChiTraLuong.BackColor = Color.FromArgb(255, 128, 0);
+            btnChiTraLuong.FlatAppearance.BorderColor = Color.FromArgb(255, 128, 0);
+            btnChiTraLuong.FlatStyle = FlatStyle.Flat;
+            btnChiTraLuong.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnChiTraLuong.ForeColor = Color.White;
+            btnChiTraLuong.Location = new Point(166, 249);
+            btnChiTraLuong.Name = "btnChiTraLuong";
+            btnChiTraLuong.Size = new Size(133, 40);
+            btnChiTraLuong.TabIndex = 74;
+            btnChiTraLuong.Text = "Chi trả lương";
+            btnChiTraLuong.UseVisualStyleBackColor = false;
+            btnChiTraLuong.Click += btnChiTraLuong_Click;
+            // 
+            // cboChucVu
+            // 
+            cboChucVu.Enabled = false;
+            cboChucVu.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            cboChucVu.FormattingEnabled = true;
+            cboChucVu.Items.AddRange(new object[] { "Trưởng kho", "Quản lý", "Nhân viên thường" });
+            cboChucVu.Location = new Point(235, 88);
+            cboChucVu.Name = "cboChucVu";
+            cboChucVu.Size = new Size(212, 29);
+            cboChucVu.TabIndex = 76;
+            // 
+            // lblChucVu
+            // 
+            lblChucVu.AutoSize = true;
+            lblChucVu.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblChucVu.Location = new Point(235, 64);
+            lblChucVu.Name = "lblChucVu";
+            lblChucVu.Size = new Size(72, 21);
+            lblChucVu.TabIndex = 75;
+            lblChucVu.Text = "Chức vụ:";
+            // 
+            // btnLuu
+            // 
+            btnLuu.BackColor = Color.FromArgb(255, 128, 0);
+            btnLuu.FlatAppearance.BorderColor = Color.FromArgb(255, 128, 0);
+            btnLuu.FlatStyle = FlatStyle.Flat;
+            btnLuu.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnLuu.ForeColor = Color.White;
+            btnLuu.Location = new Point(314, 249);
+            btnLuu.Name = "btnLuu";
+            btnLuu.Size = new Size(133, 40);
+            btnLuu.TabIndex = 77;
+            btnLuu.Text = "Lưu";
+            btnLuu.UseVisualStyleBackColor = false;
+            btnLuu.Click += btnLuu_Click;
+            // 
             // Form_ThongTinNhanVien
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
             ClientSize = new Size(467, 301);
+            Controls.Add(btnLuu);
+            Controls.Add(cboChucVu);
+            Controls.Add(lblChucVu);
+            Controls.Add(btnChiTraLuong);
             Controls.Add(btnThoat);
             Controls.Add(txtSoCCCD);
             Controls.Add(lblSoCCCD);
@@ -177,9 +242,13 @@
             Controls.Add(cboLoaiNhanVien);
             Controls.Add(lblLoaiNhanVien);
             Controls.Add(lblTieuDe);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
             Icon = (Icon)resources.GetObject("$this.Icon");
+            MaximizeBox = false;
+            MinimizeBox = false;
             Name = "Form_ThongTinNhanVien";
             Text = "Thông tin nhân viên";
+            Load += Form_ThongTinNhanVien_Load;
             ResumeLayout(false);
             PerformLayout();
         }
@@ -198,5 +267,9 @@
         private ComboBox cboLoaiNhanVien;
         private Label lblLoaiNhanVien;
         private Label lblTieuDe;
+        private Button btnChiTraLuong;
+        private ComboBox cboChucVu;
+        private Label lblChucVu;
+        private Button btnLuu;
     }
 }

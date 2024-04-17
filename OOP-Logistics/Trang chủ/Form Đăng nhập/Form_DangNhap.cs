@@ -1,4 +1,6 @@
 ﻿using OOP_Logistics.Khách_Hàng;
+using OOP_Logistics.Nhân_Viên;
+using OOP_Logistics.Quản_Trị_Viên;
 
 namespace OOP_Logistics
 {
@@ -52,9 +54,28 @@ namespace OOP_Logistics
             TaiKhoan? tk = TaiKhoan.SearchByUsername(txtTenDangNhap.Text);
             if (tk != null && tk.Login(txtTenDangNhap.Text, txtMatKhau.Text))
             {
-                if (tk is TaiKhoanKH)
+                if (tk is TaiKhoanKH kh)
                 {
-                    new Form_KhachHang(tk as TaiKhoanKH).Show();
+                    new Form_KhachHang(kh).Show();
+                    Close();
+                }
+                if (tk is TaiKhoanNV tknv)
+                {
+                    NhanVien? nv = tknv.GetEmployee();
+                    if (nv is NhanVienLuanChuyen)
+                    {
+                        new Form_NhanVienLuanChuyen(tknv).Show();
+                        Close();
+                    }
+                    if (nv is TaiXeCoHuu)
+                    {
+                        new Form_TaiXe(tknv).Show();
+                        Close();
+                    }
+                }
+                if (tk is TaiKhoanQuanTriVien qtv)
+                {
+                    new Form_QuanTriVien(qtv).Show();
                     Close();
                 }
             }

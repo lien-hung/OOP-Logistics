@@ -8,7 +8,7 @@
         public string? EmailCongTy { get; set; } = EmailCTy;
         public void ChinhSuaThongTin(int MaKhachHang, string HoTen, string SoDienThoai, string SoCCCD, string TenCTy, string LinhVuc, string DiaChiTruSo, string EmailCTy)
         {
-            base.ChinhSuaThongTin(MaKhachHang, HoTen, SoDienThoai, SoCCCD);
+            base.SuaThongTin(MaKhachHang, HoTen, SoDienThoai, SoCCCD);
             TenCongTy = TenCTy;
             LinhVucHoatDong = LinhVuc;
             NoiDongTruSo = DiaChiTruSo;

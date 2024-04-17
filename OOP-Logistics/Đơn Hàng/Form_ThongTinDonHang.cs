@@ -5,14 +5,25 @@ namespace OOP_Logistics
 {
     public partial class Form_ThongTinDonHang : Form
     {
-        private DonHang DonDangSua;
-        private ChiTietDonHang? ChiTiet;
+        private readonly DonHang DonDangSua;
+        private readonly ChiTietDonHang? ChiTiet;
         private DiaDiem DiemDau, DiemCuoi;
 
         private void GetDistanceFee(double distance)
         {
             lblKhoangCach.Text = $"{distance:N3} km";
-            lblCuocCoSo.Text = $"{(distance > 2 ? 5000 + (distance - 2) * 3000 : 5000):N0}";
+            switch (cboLoaiXe.SelectedIndex)
+            {
+                case 0:
+                    lblCuocCoSo.Text = $"{(distance > 2 ? 180000 + (distance - 2) * 30000 : 180000):N0}";
+                    break;
+                case 1:
+                    lblCuocCoSo.Text = $"{(distance > 2 ? 75000 + (distance - 2) * 12000 : 75000):N0}";
+                    break;
+                case 2:
+                    lblCuocCoSo.Text = $"{(distance > 2 ? 20000 + (distance - 2) * 4000 : 20000):N0}";
+                    break;
+            }
         }
 
         private void GetHighValueFee()
@@ -118,6 +129,19 @@ namespace OOP_Logistics
             }
         }
 
+        private LoaiXe GetVehicleType()
+        {
+            switch (cboLoaiXe.SelectedIndex)
+            {
+                case 1:
+                    return LoaiXe.XeBanTai;
+                case 2:
+                    return LoaiXe.XeMay;
+                default:
+                    return LoaiXe.XeTai;
+            }
+        }
+
         private void LoadLocations()
         {
             cboDiemDau.Items.AddRange(Util.GetAddresses().ToArray());
@@ -217,11 +241,11 @@ namespace OOP_Logistics
             {
                 if (cboLoaiVanChuyen.SelectedIndex == 1)
                 {
-                    DonDangSua.SuaThongTin(null);
+                    DonDangSua.SuaThongTin(null, GetVehicleType());
                 }
                 else
                 {
-                    DonDangSua.SuaThongTin(DiemDau.GetNearestWarehouse());
+                    DonDangSua.SuaThongTin(DiemDau.GetNearestWarehouse(), GetVehicleType());
                 }
                 ChiTiet?.SuaThongTin(DiemDau, DiemCuoi, txtMoTaDon.Text, int.Parse(txtGiaTriDon.Text), GetTypeProduct(), GetDeliveryType());
                 MessageBox.Show("Sửa thông tin thành công.", "Thông tin", MessageBoxButtons.OK, MessageBoxIcon.Information);

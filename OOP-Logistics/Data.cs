@@ -11,6 +11,7 @@ namespace OOP_Logistics
         public static List<ChiTietDonHang>? DanhSachChiTietDon { get; set; }
         public static List<NhanVien>? DanhSachNhanVien { get; set; }
         public static List<BuuKien>? DanhSachBuuKien { get; set; }
+        public static List<LichSuLuongThuong>? DanhSachLichSuLuong { get; set; }
         public static List<PhuongTien>? DanhSachPhuongTien { get; set; }
         public static List<KhoGiaoNhan>? DanhSachKhoGiaoNhan { get; set; }
         public static List<DiaDiem>? DanhSachDiaDiem { get; set; }
@@ -36,6 +37,8 @@ namespace OOP_Logistics
             DanhSachNhanVien = serializedNhanVien != default ? serializedNhanVien : [];
             List<BuuKien>? serializedBuuKien = Serializer.DeserializeJsonFromFile<List<BuuKien>>("BuuKien.json");
             DanhSachBuuKien = serializedBuuKien != default ? serializedBuuKien : [];
+            List<LichSuLuongThuong>? serializedLichSuLuong = Serializer.DeserializeJsonFromFile<List<LichSuLuongThuong>>("LichSuLuongThuong.json");
+            DanhSachLichSuLuong = serializedLichSuLuong != default ? serializedLichSuLuong : [];
             List<PhuongTien>? serializedPhuongTien = Serializer.DeserializeJsonFromFile<List<PhuongTien>>("PhuongTien.json");
             DanhSachPhuongTien = serializedPhuongTien != default ? serializedPhuongTien : [];
             List<DiaDiem>? serializedDiaDiem = Serializer.DeserializeJsonFromFile<List<DiaDiem>>("DiaDiem.json");
@@ -48,9 +51,12 @@ namespace OOP_Logistics
         {
             Serializer.WriteJsonToFile("KhachHang.json", DanhSachKhachHang);
             Serializer.WriteJsonToFile("DonHang.json", DanhSachDonHang);
+            Serializer.WriteJsonToFile("ChiTietDonHang.json", DanhSachChiTietDon);
             Serializer.WriteJsonToFile("NhanVien.json", DanhSachNhanVien);
             Serializer.WriteJsonToFile("BuuKien.json", DanhSachBuuKien);
+            Serializer.WriteJsonToFile("LichSuLuongThuong.json", DanhSachLichSuLuong);
             Serializer.WriteJsonToFile("PhuongTien.json", DanhSachPhuongTien);
+            Serializer.WriteJsonToFile("DiaDiem.json", DanhSachDiaDiem);
             Serializer.WriteJsonToFile("TaiKhoan.json", DanhSachTaiKhoan);
         }
     }

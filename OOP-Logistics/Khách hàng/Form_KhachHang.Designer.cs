@@ -80,6 +80,8 @@
             btnLuuThongTin = new Button();
             btnLuuTaiKhoan = new Button();
             panelDatHang = new Panel();
+            cboLoaiXe = new ComboBox();
+            lblLoaiXe = new Label();
             cboDiemCuoi = new ComboBox();
             cboDiemDau = new ComboBox();
             cboLoaiHang = new ComboBox();
@@ -689,6 +691,8 @@
             // panelDatHang
             // 
             panelDatHang.BackColor = Color.FromArgb(255, 224, 192);
+            panelDatHang.Controls.Add(cboLoaiXe);
+            panelDatHang.Controls.Add(lblLoaiXe);
             panelDatHang.Controls.Add(cboDiemCuoi);
             panelDatHang.Controls.Add(cboDiemDau);
             panelDatHang.Controls.Add(cboLoaiHang);
@@ -708,6 +712,26 @@
             panelDatHang.Name = "panelDatHang";
             panelDatHang.Size = new Size(681, 566);
             panelDatHang.TabIndex = 20;
+            // 
+            // cboLoaiXe
+            // 
+            cboLoaiXe.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            cboLoaiXe.FormattingEnabled = true;
+            cboLoaiXe.Items.AddRange(new object[] { "Xe tải", "Xe bán tải", "Xe máy" });
+            cboLoaiXe.Location = new Point(509, 162);
+            cboLoaiXe.Name = "cboLoaiXe";
+            cboLoaiXe.Size = new Size(137, 29);
+            cboLoaiXe.TabIndex = 45;
+            // 
+            // lblLoaiXe
+            // 
+            lblLoaiXe.AutoSize = true;
+            lblLoaiXe.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblLoaiXe.Location = new Point(445, 165);
+            lblLoaiXe.Name = "lblLoaiXe";
+            lblLoaiXe.Size = new Size(58, 21);
+            lblLoaiXe.TabIndex = 44;
+            lblLoaiXe.Text = "Loại xe";
             // 
             // cboDiemCuoi
             // 
@@ -740,7 +764,7 @@
             cboLoaiHang.Items.AddRange(new object[] { "Không có", "Giấy chứng nhận, hồ sơ", "Hàng dễ vỡ", "Hàng nguyên khối, quá khổ", "Chất lỏng" });
             cboLoaiHang.Location = new Point(117, 162);
             cboLoaiHang.Name = "cboLoaiHang";
-            cboLoaiHang.Size = new Size(205, 29);
+            cboLoaiHang.Size = new Size(131, 29);
             cboLoaiHang.TabIndex = 41;
             cboLoaiHang.SelectedIndexChanged += cboLoaiHang_SelectedIndexChanged;
             // 
@@ -759,9 +783,9 @@
             cboLoaiVanChuyen.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             cboLoaiVanChuyen.FormattingEnabled = true;
             cboLoaiVanChuyen.Items.AddRange(new object[] { "Giao thường", "Giao hỏa tốc", "Giao tiết kiệm" });
-            cboLoaiVanChuyen.Location = new Point(409, 162);
+            cboLoaiVanChuyen.Location = new Point(334, 162);
             cboLoaiVanChuyen.Name = "cboLoaiVanChuyen";
-            cboLoaiVanChuyen.Size = new Size(237, 29);
+            cboLoaiVanChuyen.Size = new Size(105, 29);
             cboLoaiVanChuyen.TabIndex = 38;
             cboLoaiVanChuyen.SelectedIndexChanged += cboLoaiVanChuyen_SelectedIndexChanged;
             // 
@@ -769,7 +793,7 @@
             // 
             lblLoaiVanChuyen.AutoSize = true;
             lblLoaiVanChuyen.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblLoaiVanChuyen.Location = new Point(328, 165);
+            lblLoaiVanChuyen.Location = new Point(254, 165);
             lblLoaiVanChuyen.Name = "lblLoaiVanChuyen";
             lblLoaiVanChuyen.Size = new Size(74, 21);
             lblLoaiVanChuyen.TabIndex = 37;
@@ -891,8 +915,11 @@
             // 
             // dgvLichSuDatHang
             // 
+            dgvLichSuDatHang.AllowUserToAddRows = false;
+            dgvLichSuDatHang.AllowUserToDeleteRows = false;
             dgvLichSuDatHang.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvLichSuDatHang.Location = new Point(32, 69);
+            dgvLichSuDatHang.MultiSelect = false;
             dgvLichSuDatHang.Name = "dgvLichSuDatHang";
             dgvLichSuDatHang.Size = new Size(622, 409);
             dgvLichSuDatHang.TabIndex = 20;
@@ -969,9 +996,9 @@
             ClientSize = new Size(909, 566);
             Controls.Add(panelKhachHang);
             Controls.Add(navbarKhachHang);
-            Controls.Add(panelLichSuDatHang);
             Controls.Add(panelDatHang);
             Controls.Add(panelThongTin);
+            Controls.Add(panelLichSuDatHang);
             FormBorderStyle = FormBorderStyle.FixedSingle;
             Icon = (Icon)resources.GetObject("$this.Icon");
             MaximizeBox = false;
@@ -1072,5 +1099,7 @@
         private Button btnLuuTaiKhoan;
         private ComboBox cboDiemCuoi;
         private ComboBox cboDiemDau;
+        private ComboBox cboLoaiXe;
+        private Label lblLoaiXe;
     }
 }

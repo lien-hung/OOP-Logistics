@@ -17,5 +17,23 @@
         public LoaiXe LoaiXe { get; set; } = loaiXe;
         public double TaiTrong { get; set; } = (double)loaiXe;
         public TinhTrangXe TinhTrangXe { get; set; } = tinhTrangXe;
+        public string LayLoaiXe()
+        {
+            switch (LoaiXe)
+            {
+                case LoaiXe.XeTai:
+                    return "Xe tải";
+                case LoaiXe.XeBanTai:
+                    return "Xe bán tải";
+                case LoaiXe.XeMay:
+                    return "Xe máy";
+                default:
+                    return string.Empty;
+            }
+        }
+        public void SuaThongTin(string bienSo)
+        {
+            BienSoXe = bienSo;
+        }
     }
 }

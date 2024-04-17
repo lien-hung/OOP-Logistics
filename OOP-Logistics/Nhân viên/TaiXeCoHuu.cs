@@ -1,25 +1,49 @@
-﻿using OOP_Logistics.Quản_Trị_Viên;
+﻿using OOP_Logistics.Khách_Hàng;
+using OOP_Logistics.Quản_Trị_Viên;
 
 namespace OOP_Logistics.Nhân_Viên
 {
     public class TaiXeCoHuu(int MaNhanVien, string HoTen, string SoDienThoai, string SoCCCD, PhuongTien phuongTien) : NhanVien(MaNhanVien, HoTen, SoDienThoai, SoCCCD)
     {
         public PhuongTien? PhuongTienGiaoHang { get; set; } = phuongTien;
-        public int DiemDanhGia { get; set; } = 0;
-
-        public void NhanDon(BuuKien buuKien)
+        public IEnumerable<DonHang> LayDonHangDaNhan()
         {
-            Console.WriteLine($"Đã nhận đơn {buuKien}. Đang vận chuyển...");
-        }
-
-        public decimal TinhThuNhap(List<BuuKien> danhSachDonHang)
-        {
-            decimal tongThuNhap = 0;
-            foreach (var buuKien in danhSachDonHang)
+            foreach (BuuKien bk in Data.DanhSachBuuKien!)
             {
-                // tongThuNhap += buuKien.CuocPhi;
+                if (bk.ChuyenHang?.ID == ID)
+                {
+                    foreach (DonHang dh in bk.DanhSachDon!)
+                    {
+                        yield return dh;
+                    }
+                }
             }
-            return tongThuNhap;
+        }
+        public int LayTongThuNhap()
+        {
+            int totalIncome = 0;
+            List<DonHang> donHangDaNhan = new(LayDonHangDaNhan());
+            foreach (DonHang dh in donHangDaNhan)
+            {
+                if (dh.TrangThaiDonHang == TrangThaiDonHang.GiaoThanhCong)
+                {
+                    totalIncome += dh.CuocPhi;
+                }
+            }
+            return totalIncome;
+        }
+        public double LayDiemDanhGia()
+        {
+            int totalStars = 0;
+            List<DonHang> donHangDaNhan = new(LayDonHangDaNhan());
+            foreach (DonHang dh in donHangDaNhan)
+            {
+                if (dh.TrangThaiDonHang == TrangThaiDonHang.GiaoThanhCong)
+                {
+                    totalStars += dh.DanhGia;
+                }
+            }
+            return totalStars / donHangDaNhan.Count;
         }
     }
 }

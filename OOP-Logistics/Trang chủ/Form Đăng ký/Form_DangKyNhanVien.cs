@@ -106,7 +106,7 @@ namespace OOP_Logistics
                 int newEmployeeId = NhanVien.MaTiepTheo();
                 if (cboLoaiNhanVien.SelectedIndex == 0)
                 {
-                    Data.DanhSachNhanVien?.Add(new NhanVienLuanChuyen(newEmployeeId, txtHoVaTen.Text, txtSoDienThoai.Text, txtSoCCCD.Text, ChucVu.NhanVienThuong, Data.DanhSachKhoGiaoNhan![cboNoiLamViec.SelectedIndex], 2));
+                    Data.DanhSachNhanVien?.Add(new NhanVienLuanChuyen(newEmployeeId, txtHoVaTen.Text, txtSoDienThoai.Text, txtSoCCCD.Text, ChucVu.NhanVienThuong, Data.DanhSachKhoGiaoNhan![cboNoiLamViec.SelectedIndex]));
                 }
                 if (cboLoaiNhanVien.SelectedIndex == 1)
                 {

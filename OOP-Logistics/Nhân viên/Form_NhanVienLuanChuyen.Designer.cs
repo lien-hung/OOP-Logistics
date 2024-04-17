@@ -31,8 +31,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_NhanVienLuanChuyen));
             panelNhanVien = new Panel();
             lblTenNhanVien = new Label();
-            btnSuaTaiKhoan = new Button();
-            btnSuaThongTin = new Button();
             grpThongTinTaiKhoan = new GroupBox();
             txtXacNhanMatKhau = new TextBox();
             lblXacNhanMatKhau = new Label();
@@ -59,7 +57,7 @@
             txtMaNhanVien = new TextBox();
             btnXoaTaiKhoan = new Button();
             lblTieuDeThongTin = new Label();
-            panelLichSuDatHang = new Panel();
+            panelLichSuLuongThuong = new Panel();
             dgvLichSuLuongThuong = new DataGridView();
             lblLichSuLuongThuong = new Label();
             btnDangXuat = new Button();
@@ -67,18 +65,22 @@
             btnLichSuLuongThuong = new Button();
             btnXepHang = new Button();
             panelThongTin = new Panel();
+            btnSuaTaiKhoan = new Button();
+            btnSuaThongTin = new Button();
+            btnLuuThongTin = new Button();
+            btnLuuTaiKhoan = new Button();
             panelXepHang = new Panel();
             lblKhoiLuong = new Label();
             txtKhoiLuong = new TextBox();
             lblMaBuuKien = new Label();
             txtMaBuuKien = new TextBox();
-            btnTaoDon = new Button();
+            btnTaoBuuKien = new Button();
             dgvTaoBuuKien = new DataGridView();
             lblTieuDeXepHang = new Label();
             panelNhanVien.SuspendLayout();
             grpThongTinTaiKhoan.SuspendLayout();
             grpThongTinChung.SuspendLayout();
-            panelLichSuDatHang.SuspendLayout();
+            panelLichSuLuongThuong.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvLichSuLuongThuong).BeginInit();
             navbarNhanVien.SuspendLayout();
             panelThongTin.SuspendLayout();
@@ -96,6 +98,7 @@
             panelNhanVien.Name = "panelNhanVien";
             panelNhanVien.Size = new Size(229, 93);
             panelNhanVien.TabIndex = 5;
+            panelNhanVien.Click += panelNhanVien_Click;
             // 
             // lblTenNhanVien
             // 
@@ -106,36 +109,6 @@
             lblTenNhanVien.Size = new Size(134, 78);
             lblTenNhanVien.TabIndex = 1;
             lblTenNhanVien.Text = "NGUYỄN VĂN A";
-            // 
-            // btnSuaTaiKhoan
-            // 
-            btnSuaTaiKhoan.BackColor = Color.Black;
-            btnSuaTaiKhoan.FlatAppearance.BorderColor = Color.Black;
-            btnSuaTaiKhoan.FlatStyle = FlatStyle.Flat;
-            btnSuaTaiKhoan.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnSuaTaiKhoan.ForeColor = Color.White;
-            btnSuaTaiKhoan.Location = new Point(358, 459);
-            btnSuaTaiKhoan.Margin = new Padding(0);
-            btnSuaTaiKhoan.Name = "btnSuaTaiKhoan";
-            btnSuaTaiKhoan.Size = new Size(135, 43);
-            btnSuaTaiKhoan.TabIndex = 18;
-            btnSuaTaiKhoan.Text = "Sửa tài khoản";
-            btnSuaTaiKhoan.UseVisualStyleBackColor = false;
-            // 
-            // btnSuaThongTin
-            // 
-            btnSuaThongTin.BackColor = Color.Black;
-            btnSuaThongTin.FlatAppearance.BorderColor = Color.Black;
-            btnSuaThongTin.FlatStyle = FlatStyle.Flat;
-            btnSuaThongTin.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnSuaThongTin.ForeColor = Color.White;
-            btnSuaThongTin.Location = new Point(174, 459);
-            btnSuaThongTin.Margin = new Padding(0);
-            btnSuaThongTin.Name = "btnSuaThongTin";
-            btnSuaThongTin.Size = new Size(148, 43);
-            btnSuaThongTin.TabIndex = 17;
-            btnSuaThongTin.Text = "Sửa thông tin";
-            btnSuaThongTin.UseVisualStyleBackColor = false;
             // 
             // grpThongTinTaiKhoan
             // 
@@ -314,6 +287,7 @@
             txtSoCCCD.Name = "txtSoCCCD";
             txtSoCCCD.Size = new Size(179, 29);
             txtSoCCCD.TabIndex = 7;
+            txtSoCCCD.KeyPress += txtSoCCCD_KeyPress;
             // 
             // lblSoCCCD
             // 
@@ -332,6 +306,7 @@
             txtSoDienThoai.Name = "txtSoDienThoai";
             txtSoDienThoai.Size = new Size(179, 29);
             txtSoDienThoai.TabIndex = 5;
+            txtSoDienThoai.KeyPress += txtSoDienThoai_KeyPress;
             // 
             // lblSoDienThoai
             // 
@@ -393,6 +368,7 @@
             btnXoaTaiKhoan.TabIndex = 19;
             btnXoaTaiKhoan.Text = "Xóa tài khoản";
             btnXoaTaiKhoan.UseVisualStyleBackColor = false;
+            btnXoaTaiKhoan.Click += btnXoaTaiKhoan_Click;
             // 
             // lblTieuDeThongTin
             // 
@@ -405,18 +381,20 @@
             lblTieuDeThongTin.TabIndex = 1;
             lblTieuDeThongTin.Text = "THÔNG TIN NHÂN VIÊN";
             // 
-            // panelLichSuDatHang
+            // panelLichSuLuongThuong
             // 
-            panelLichSuDatHang.BackColor = Color.FromArgb(255, 224, 192);
-            panelLichSuDatHang.Controls.Add(dgvLichSuLuongThuong);
-            panelLichSuDatHang.Controls.Add(lblLichSuLuongThuong);
-            panelLichSuDatHang.Location = new Point(0, 0);
-            panelLichSuDatHang.Name = "panelLichSuDatHang";
-            panelLichSuDatHang.Size = new Size(681, 566);
-            panelLichSuDatHang.TabIndex = 42;
+            panelLichSuLuongThuong.BackColor = Color.FromArgb(255, 224, 192);
+            panelLichSuLuongThuong.Controls.Add(dgvLichSuLuongThuong);
+            panelLichSuLuongThuong.Controls.Add(lblLichSuLuongThuong);
+            panelLichSuLuongThuong.Location = new Point(228, 0);
+            panelLichSuLuongThuong.Name = "panelLichSuLuongThuong";
+            panelLichSuLuongThuong.Size = new Size(681, 566);
+            panelLichSuLuongThuong.TabIndex = 42;
             // 
             // dgvLichSuLuongThuong
             // 
+            dgvLichSuLuongThuong.AllowUserToAddRows = false;
+            dgvLichSuLuongThuong.AllowUserToDeleteRows = false;
             dgvLichSuLuongThuong.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvLichSuLuongThuong.Location = new Point(32, 69);
             dgvLichSuLuongThuong.Name = "dgvLichSuLuongThuong";
@@ -447,6 +425,7 @@
             btnDangXuat.TabIndex = 2;
             btnDangXuat.Text = "Đăng xuất";
             btnDangXuat.UseVisualStyleBackColor = true;
+            btnDangXuat.Click += btnDangXuat_Click;
             // 
             // navbarNhanVien
             // 
@@ -472,6 +451,7 @@
             btnLichSuLuongThuong.TabIndex = 1;
             btnLichSuLuongThuong.Text = "Lịch sử lương, thưởng";
             btnLichSuLuongThuong.UseVisualStyleBackColor = true;
+            btnLichSuLuongThuong.Click += btnLichSuLuongThuong_Click;
             // 
             // btnXepHang
             // 
@@ -486,14 +466,16 @@
             btnXepHang.TabIndex = 0;
             btnXepHang.Text = "Xếp hàng";
             btnXepHang.UseVisualStyleBackColor = true;
+            btnXepHang.Click += btnXepHang_Click;
             // 
             // panelThongTin
             // 
             panelThongTin.BackColor = Color.FromArgb(255, 224, 192);
-            panelThongTin.Controls.Add(panelXepHang);
-            panelThongTin.Controls.Add(btnXoaTaiKhoan);
             panelThongTin.Controls.Add(btnSuaTaiKhoan);
             panelThongTin.Controls.Add(btnSuaThongTin);
+            panelThongTin.Controls.Add(btnLuuThongTin);
+            panelThongTin.Controls.Add(btnLuuTaiKhoan);
+            panelThongTin.Controls.Add(btnXoaTaiKhoan);
             panelThongTin.Controls.Add(grpThongTinTaiKhoan);
             panelThongTin.Controls.Add(grpThongTinChung);
             panelThongTin.Controls.Add(lblTieuDeThongTin);
@@ -502,18 +484,83 @@
             panelThongTin.Size = new Size(681, 566);
             panelThongTin.TabIndex = 4;
             // 
+            // btnSuaTaiKhoan
+            // 
+            btnSuaTaiKhoan.BackColor = Color.Black;
+            btnSuaTaiKhoan.FlatAppearance.BorderColor = Color.Black;
+            btnSuaTaiKhoan.FlatStyle = FlatStyle.Flat;
+            btnSuaTaiKhoan.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnSuaTaiKhoan.ForeColor = Color.White;
+            btnSuaTaiKhoan.Location = new Point(358, 459);
+            btnSuaTaiKhoan.Margin = new Padding(0);
+            btnSuaTaiKhoan.Name = "btnSuaTaiKhoan";
+            btnSuaTaiKhoan.Size = new Size(63, 43);
+            btnSuaTaiKhoan.TabIndex = 24;
+            btnSuaTaiKhoan.Text = "Sửa";
+            btnSuaTaiKhoan.UseVisualStyleBackColor = false;
+            btnSuaTaiKhoan.Click += btnSuaTaiKhoan_Click;
+            // 
+            // btnSuaThongTin
+            // 
+            btnSuaThongTin.BackColor = Color.Black;
+            btnSuaThongTin.FlatAppearance.BorderColor = Color.Black;
+            btnSuaThongTin.FlatStyle = FlatStyle.Flat;
+            btnSuaThongTin.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnSuaThongTin.ForeColor = Color.White;
+            btnSuaThongTin.Location = new Point(26, 459);
+            btnSuaThongTin.Margin = new Padding(0);
+            btnSuaThongTin.Name = "btnSuaThongTin";
+            btnSuaThongTin.Size = new Size(63, 43);
+            btnSuaThongTin.TabIndex = 23;
+            btnSuaThongTin.Text = "Sửa";
+            btnSuaThongTin.UseVisualStyleBackColor = false;
+            btnSuaThongTin.Click += btnSuaThongTin_Click;
+            // 
+            // btnLuuThongTin
+            // 
+            btnLuuThongTin.BackColor = Color.Black;
+            btnLuuThongTin.Enabled = false;
+            btnLuuThongTin.FlatAppearance.BorderColor = Color.Black;
+            btnLuuThongTin.FlatStyle = FlatStyle.Flat;
+            btnLuuThongTin.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnLuuThongTin.ForeColor = Color.White;
+            btnLuuThongTin.Location = new Point(98, 459);
+            btnLuuThongTin.Margin = new Padding(0);
+            btnLuuThongTin.Name = "btnLuuThongTin";
+            btnLuuThongTin.Size = new Size(63, 43);
+            btnLuuThongTin.TabIndex = 25;
+            btnLuuThongTin.Text = "Lưu";
+            btnLuuThongTin.UseVisualStyleBackColor = false;
+            btnLuuThongTin.Click += btnLuuThongTin_Click;
+            // 
+            // btnLuuTaiKhoan
+            // 
+            btnLuuTaiKhoan.BackColor = Color.Black;
+            btnLuuTaiKhoan.Enabled = false;
+            btnLuuTaiKhoan.FlatAppearance.BorderColor = Color.Black;
+            btnLuuTaiKhoan.FlatStyle = FlatStyle.Flat;
+            btnLuuTaiKhoan.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnLuuTaiKhoan.ForeColor = Color.White;
+            btnLuuTaiKhoan.Location = new Point(430, 459);
+            btnLuuTaiKhoan.Margin = new Padding(0);
+            btnLuuTaiKhoan.Name = "btnLuuTaiKhoan";
+            btnLuuTaiKhoan.Size = new Size(63, 43);
+            btnLuuTaiKhoan.TabIndex = 26;
+            btnLuuTaiKhoan.Text = "Lưu";
+            btnLuuTaiKhoan.UseVisualStyleBackColor = false;
+            btnLuuTaiKhoan.Click += btnLuuTaiKhoan_Click;
+            // 
             // panelXepHang
             // 
             panelXepHang.BackColor = Color.FromArgb(255, 224, 192);
-            panelXepHang.Controls.Add(panelLichSuDatHang);
             panelXepHang.Controls.Add(lblKhoiLuong);
             panelXepHang.Controls.Add(txtKhoiLuong);
             panelXepHang.Controls.Add(lblMaBuuKien);
             panelXepHang.Controls.Add(txtMaBuuKien);
-            panelXepHang.Controls.Add(btnTaoDon);
+            panelXepHang.Controls.Add(btnTaoBuuKien);
             panelXepHang.Controls.Add(dgvTaoBuuKien);
             panelXepHang.Controls.Add(lblTieuDeXepHang);
-            panelXepHang.Location = new Point(0, 0);
+            panelXepHang.Location = new Point(228, 0);
             panelXepHang.Name = "panelXepHang";
             panelXepHang.Size = new Size(681, 566);
             panelXepHang.TabIndex = 20;
@@ -556,27 +603,28 @@
             txtMaBuuKien.Size = new Size(135, 29);
             txtMaBuuKien.TabIndex = 18;
             // 
-            // btnTaoDon
+            // btnTaoBuuKien
             // 
-            btnTaoDon.BackColor = Color.Black;
-            btnTaoDon.FlatAppearance.BorderColor = Color.Black;
-            btnTaoDon.FlatStyle = FlatStyle.Flat;
-            btnTaoDon.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnTaoDon.ForeColor = Color.White;
-            btnTaoDon.Location = new Point(546, 494);
-            btnTaoDon.Margin = new Padding(0);
-            btnTaoDon.Name = "btnTaoDon";
-            btnTaoDon.Size = new Size(100, 43);
-            btnTaoDon.TabIndex = 17;
-            btnTaoDon.Text = "Tạo mới";
-            btnTaoDon.UseVisualStyleBackColor = false;
+            btnTaoBuuKien.BackColor = Color.Black;
+            btnTaoBuuKien.FlatAppearance.BorderColor = Color.Black;
+            btnTaoBuuKien.FlatStyle = FlatStyle.Flat;
+            btnTaoBuuKien.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnTaoBuuKien.ForeColor = Color.White;
+            btnTaoBuuKien.Location = new Point(554, 494);
+            btnTaoBuuKien.Margin = new Padding(0);
+            btnTaoBuuKien.Name = "btnTaoBuuKien";
+            btnTaoBuuKien.Size = new Size(100, 43);
+            btnTaoBuuKien.TabIndex = 17;
+            btnTaoBuuKien.Text = "Tạo mới";
+            btnTaoBuuKien.UseVisualStyleBackColor = false;
+            btnTaoBuuKien.Click += btnTaoBuuKien_Click;
             // 
             // dgvTaoBuuKien
             // 
             dgvTaoBuuKien.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvTaoBuuKien.Location = new Point(32, 76);
+            dgvTaoBuuKien.Location = new Point(32, 69);
             dgvTaoBuuKien.Name = "dgvTaoBuuKien";
-            dgvTaoBuuKien.Size = new Size(622, 409);
+            dgvTaoBuuKien.Size = new Size(622, 422);
             dgvTaoBuuKien.TabIndex = 45;
             // 
             // lblTieuDeXepHang
@@ -595,20 +643,23 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(909, 566);
-            Controls.Add(panelThongTin);
             Controls.Add(panelNhanVien);
             Controls.Add(navbarNhanVien);
+            Controls.Add(panelThongTin);
+            Controls.Add(panelLichSuLuongThuong);
+            Controls.Add(panelXepHang);
             Icon = (Icon)resources.GetObject("$this.Icon");
             IsMdiContainer = true;
             Name = "Form_NhanVienLuanChuyen";
             Text = "Nhân viên luân chuyển";
+            Load += Form_NhanVienLuanChuyen_Load;
             panelNhanVien.ResumeLayout(false);
             grpThongTinTaiKhoan.ResumeLayout(false);
             grpThongTinTaiKhoan.PerformLayout();
             grpThongTinChung.ResumeLayout(false);
             grpThongTinChung.PerformLayout();
-            panelLichSuDatHang.ResumeLayout(false);
-            panelLichSuDatHang.PerformLayout();
+            panelLichSuLuongThuong.ResumeLayout(false);
+            panelLichSuLuongThuong.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dgvLichSuLuongThuong).EndInit();
             navbarNhanVien.ResumeLayout(false);
             panelThongTin.ResumeLayout(false);
@@ -623,8 +674,6 @@
 
         private Panel panelNhanVien;
         private Label lblTenNhanVien;
-        private Button btnSuaTaiKhoan;
-        private Button btnSuaThongTin;
         private GroupBox grpThongTinTaiKhoan;
         private TextBox txtXacNhanMatKhau;
         private Label lblXacNhanMatKhau;
@@ -651,7 +700,7 @@
         private TextBox txtMaNhanVien;
         private Button btnXoaTaiKhoan;
         private Label lblTieuDeThongTin;
-        private Panel panelLichSuDatHang;
+        private Panel panelLichSuLuongThuong;
         private DataGridView dgvLichSuLuongThuong;
         private Label lblLichSuLuongThuong;
         private Button btnDangXuat;
@@ -662,10 +711,14 @@
         private Panel panelXepHang;
         private Label lblMaBuuKien;
         private TextBox txtMaBuuKien;
-        private Button btnTaoDon;
+        private Button btnTaoBuuKien;
         private Label lblTieuDeXepHang;
         private Label lblKhoiLuong;
         private TextBox txtKhoiLuong;
         private DataGridView dgvTaoBuuKien;
+        private Button btnSuaTaiKhoan;
+        private Button btnSuaThongTin;
+        private Button btnLuuThongTin;
+        private Button btnLuuTaiKhoan;
     }
 }

@@ -16,7 +16,7 @@
                 }
             }
         }
-        public virtual void ChinhSuaThongTin(int MaKhachHang, string HoTen, string SoDienThoai, string SoCCCD)
+        public virtual void SuaThongTin(int MaKhachHang, string HoTen, string SoDienThoai, string SoCCCD)
         {
             ID = MaKhachHang;
             Name = HoTen;

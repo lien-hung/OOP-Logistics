@@ -51,7 +51,18 @@ namespace OOP_Logistics
         private void GetDistanceFee(double distance)
         {
             lblKhoangCach.Text = $"{distance:N3} km";
-            lblCuocCoSo.Text = $"{(distance > 2 ? 5000 + (distance - 2) * 3000 : 5000):N0}";
+            switch (cboLoaiXe.SelectedIndex)
+            {
+                case 0:
+                    lblCuocCoSo.Text = $"{(distance > 2 ? 180000 + (distance - 2) * 30000 : 180000):N0}";
+                    break;
+                case 1:
+                    lblCuocCoSo.Text = $"{(distance > 2 ? 75000 + (distance - 2) * 12000 : 75000):N0}";
+                    break;
+                case 2:
+                    lblCuocCoSo.Text = $"{(distance > 2 ? 20000 + (distance - 2) * 4000 : 20000):N0}";
+                    break;
+            }
         }
 
         private void GetTypeFee()
@@ -143,6 +154,19 @@ namespace OOP_Logistics
                     return LoaiVanChuyen.TietKiem;
                 default:
                     return LoaiVanChuyen.Thuong;
+            }
+        }
+
+        private LoaiXe GetVehicleType()
+        {
+            switch (cboLoaiXe.SelectedIndex)
+            {
+                case 1:
+                    return LoaiXe.XeBanTai;
+                case 2:
+                    return LoaiXe.XeMay;
+                default:
+                    return LoaiXe.XeTai;
             }
         }
 
@@ -251,11 +275,11 @@ namespace OOP_Logistics
                 int nextOrderId = DonHang.MaTiepTheo();
                 if (cboLoaiVanChuyen.SelectedIndex == 1)
                 {
-                    Data.DanhSachDonHang?.Add(new DonHang(nextOrderId, KhachHangHienTai!.ID, null));
+                    Data.DanhSachDonHang?.Add(new DonHang(nextOrderId, KhachHangHienTai!.ID, null, GetVehicleType(), int.Parse(lblThanhTien.Text, System.Globalization.NumberStyles.AllowThousands)));
                 }
                 else
                 {
-                    Data.DanhSachDonHang?.Add(new DonHang(nextOrderId, KhachHangHienTai!.ID, DiemDau.GetNearestWarehouse()));
+                    Data.DanhSachDonHang?.Add(new DonHang(nextOrderId, KhachHangHienTai!.ID, DiemDau.GetNearestWarehouse(), GetVehicleType(), int.Parse(lblThanhTien.Text, System.Globalization.NumberStyles.AllowThousands)));
                 }
                 Data.DanhSachChiTietDon?.Add(new ChiTietDonHang(nextOrderId, DiemDau, DiemCuoi, txtMoTaDon.Text, int.Parse(txtGiaTriDon.Text), GetTypeProduct(), GetDeliveryType()));
                 MessageBox.Show("Tạo đơn thành công.", "Thông tin", MessageBoxButtons.OK, MessageBoxIcon.Information);

@@ -1,4 +1,5 @@
-﻿using OOP_Logistics.Quản_Trị_Viên;
+﻿using OOP_Logistics.Nhân_Viên;
+using OOP_Logistics.Quản_Trị_Viên;
 
 namespace OOP_Logistics.Khách_Hàng
 {
@@ -22,19 +23,23 @@ namespace OOP_Logistics.Khách_Hàng
         DangXuLy,
         GiaoThanhCong
     }
-    public class DonHang(int maDonHang, int maKhachHang, KhoGiaoNhan? khoLuu)
+    public class DonHang(int maDonHang, int maKhachHang, KhoGiaoNhan? khoLuu, LoaiXe loaiPhuongTien, int cuocPhi)
     {
         public int MaDonHang { get; set; } = maDonHang;
         public DateTime ThoiDiemDatHang { get; set; } = DateTime.Now;
         public int MaKhachHang { get; set; } = maKhachHang;
         public KhoGiaoNhan? KhoLuu { get; set; } = khoLuu;
         public int MaBuuKien { get; set; } = 0;
+        public LoaiXe LoaiPhuongTien { get; set; } = loaiPhuongTien;
         public DateTime CapNhatCuoiCung { get; set; } = DateTime.Now;
         public TrangThaiDonHang TrangThaiDonHang { get; set; } = TrangThaiDonHang.DaTao;
+        public int CuocPhi { get; set; } = cuocPhi;
         public int DanhGia { get; set; } = 0;
-        public void SuaThongTin(KhoGiaoNhan? khoLuu)
+        public void SuaThongTin(KhoGiaoNhan? khoLuu, LoaiXe loaiPhuongTien)
         {
             KhoLuu = khoLuu;
+            LoaiPhuongTien = loaiPhuongTien;
+            CapNhatCuoiCung = DateTime.Now;
         }
         public void ChoDanhGia(int diem)
         {
@@ -50,6 +55,30 @@ namespace OOP_Logistics.Khách_Hàng
                 }
             }
             return null!;
+        }
+        public void XepVaoBuuKien(int maBuuKien)
+        {
+            MaBuuKien = maBuuKien;
+        }
+        public void NhanDon()
+        {
+            TrangThaiDonHang = TrangThaiDonHang.DangXuLy;
+            CapNhatCuoiCung = DateTime.Now;
+        }
+        public void DanhDauGiaoThanhCong()
+        {
+            TrangThaiDonHang = TrangThaiDonHang.GiaoThanhCong;
+            CapNhatCuoiCung = DateTime.Now;
+        }
+        public static IEnumerable<DonHang> LayDonLuuChuaXep(KhoGiaoNhan kgn)
+        {
+            foreach (DonHang dh in Data.DanhSachDonHang!)
+            {
+                if (dh.TrangThaiDonHang == TrangThaiDonHang.DaTao && dh.KhoLuu == kgn && dh.MaBuuKien == 0)
+                {
+                    yield return dh;
+                }
+            }
         }
         public static int MaTiepTheo()
         {

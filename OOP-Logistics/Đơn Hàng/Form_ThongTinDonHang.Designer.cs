@@ -65,6 +65,8 @@
             lblThoiDiemTaoDon = new Label();
             cboDiemDau = new ComboBox();
             cboDiemCuoi = new ComboBox();
+            cboLoaiXe = new ComboBox();
+            lblLoaiXe = new Label();
             grpCuocPhiDon = new GroupBox();
             grpCuocPhiDon.SuspendLayout();
             SuspendLayout();
@@ -86,7 +88,7 @@
             grpCuocPhiDon.Controls.Add(lblCuocCoSo);
             grpCuocPhiDon.Controls.Add(lblCuocCoSoText);
             grpCuocPhiDon.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            grpCuocPhiDon.Location = new Point(38, 337);
+            grpCuocPhiDon.Location = new Point(38, 393);
             grpCuocPhiDon.Name = "grpCuocPhiDon";
             grpCuocPhiDon.Size = new Size(474, 320);
             grpCuocPhiDon.TabIndex = 49;
@@ -368,7 +370,7 @@
             btnHuy.FlatStyle = FlatStyle.Flat;
             btnHuy.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnHuy.ForeColor = Color.FromArgb(255, 128, 0);
-            btnHuy.Location = new Point(38, 663);
+            btnHuy.Location = new Point(38, 719);
             btnHuy.Name = "btnHuy";
             btnHuy.Size = new Size(231, 40);
             btnHuy.TabIndex = 51;
@@ -383,7 +385,7 @@
             btnLuuThongTin.FlatStyle = FlatStyle.Flat;
             btnLuuThongTin.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnLuuThongTin.ForeColor = Color.White;
-            btnLuuThongTin.Location = new Point(281, 663);
+            btnLuuThongTin.Location = new Point(281, 719);
             btnLuuThongTin.Name = "btnLuuThongTin";
             btnLuuThongTin.Size = new Size(231, 40);
             btnLuuThongTin.TabIndex = 50;
@@ -453,12 +455,34 @@
             cboDiemCuoi.TabIndex = 39;
             cboDiemCuoi.Leave += cboDiemCuoi_Leave;
             // 
+            // cboLoaiXe
+            // 
+            cboLoaiXe.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            cboLoaiXe.FormattingEnabled = true;
+            cboLoaiXe.Items.AddRange(new object[] { "Xe tải", "Xe bán tải", "Xe máy" });
+            cboLoaiXe.Location = new Point(39, 353);
+            cboLoaiXe.Name = "cboLoaiXe";
+            cboLoaiXe.Size = new Size(230, 29);
+            cboLoaiXe.TabIndex = 57;
+            // 
+            // lblLoaiXe
+            // 
+            lblLoaiXe.AutoSize = true;
+            lblLoaiXe.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblLoaiXe.Location = new Point(39, 329);
+            lblLoaiXe.Name = "lblLoaiXe";
+            lblLoaiXe.Size = new Size(58, 21);
+            lblLoaiXe.TabIndex = 56;
+            lblLoaiXe.Text = "Loại xe";
+            // 
             // Form_ThongTinDonHang
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
-            ClientSize = new Size(554, 725);
+            ClientSize = new Size(554, 787);
+            Controls.Add(cboLoaiXe);
+            Controls.Add(lblLoaiXe);
             Controls.Add(cboDiemCuoi);
             Controls.Add(cboDiemDau);
             Controls.Add(txtThoiDiemCapNhat);
@@ -528,5 +552,7 @@
         private Label lblThoiDiemTaoDon;
         private ComboBox cboDiemDau;
         private ComboBox cboDiemCuoi;
+        private ComboBox cboLoaiXe;
+        private Label lblLoaiXe;
     }
 }

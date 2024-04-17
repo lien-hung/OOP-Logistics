@@ -1,27 +1,53 @@
-﻿namespace OOP_Logistics.Nhân_Viên
+﻿using OOP_Logistics.Khách_Hàng;
+
+namespace OOP_Logistics.Nhân_Viên
 {
-    public class BuuKien
+    public enum TrangThaiBuuKien
     {
-        public string? BuuKienID { get; set; }
-        public TaiXeCoHuu? ChuyenHang { get; set; }
-        public string? DiaChiKho { get; set; }
-        public string? DiaChiGiaoNhan { get; set; }
-        public string? KichThuoc { get; set; }
-        public string? LoaiBuuKien { get; set; }
-
-        public double TinhKhoangCach(string batdau, string kethuc)
+        DaNhan,
+        ChuaNhan
+    }
+    public class BuuKien(int id, List<DonHang> danhSachDon, double khoiLuong)
+    {
+        public int BuuKienID { get; set; } = id;
+        public List<DonHang>? DanhSachDon { get; set; } = danhSachDon;
+        public TaiXeCoHuu? ChuyenHang { get; set; } = null;
+        public double KhoiLuong { get; set; } = khoiLuong;
+        public TrangThaiBuuKien TrangThai { get; set; } = TrangThaiBuuKien.ChuaNhan;
+        public void NhanBuuKien(TaiXeCoHuu? taiXe)
         {
-            return 0;
+            ChuyenHang = taiXe;
+            TrangThai = TrangThaiBuuKien.DaNhan;
         }
-
-        public double TinhTrongLuong(string size)
+        public static IEnumerable<BuuKien> LayBuuKienChoNhan()
         {
-            return 0;
+            foreach (BuuKien bk in Data.DanhSachBuuKien!)
+            {
+                if (bk.TrangThai == TrangThaiBuuKien.ChuaNhan)
+                {
+                    yield return bk;
+                }
+            }
         }
-
-        public double TinhCuocPhi(double weight, double distance, string loaibuukien)
+        public static int MaTiepTheo()
         {
-            return 0;
+            int i = 1;
+            if (Data.DanhSachBuuKien!.Count != 0)
+            {
+                foreach (BuuKien bk in Data.DanhSachBuuKien)
+                {
+                    if (bk.BuuKienID != i)
+                    {
+                        return i;
+                    }
+                    else
+                    {
+                        i++;
+                    }
+                }
+                return i;
+            }
+            return 1;
         }
     }
 }

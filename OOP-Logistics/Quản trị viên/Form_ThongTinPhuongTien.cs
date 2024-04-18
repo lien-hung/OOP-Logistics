@@ -17,7 +17,7 @@ namespace OOP_Logistics
             txtLoaiPhuongTien.Text = PhuongTienHienTai?.LayLoaiXe();
             txtTrongTai.Text = PhuongTienHienTai?.TaiTrong.ToString();
             txtSoChuyenDaCho.Text = PhuongTienHienTai?.DemSoChuyenDaCho().ToString();
-            txtTinhTrangPhuongTien.Text = PhuongTienHienTai?.LayTinhTrang();
+            txtTinhTrangPhuongTien.Text = PhuongTienHienTai?.KiemTraBaoDuong();
             if (PhuongTienHienTai?.TinhTrangXe == TinhTrangXe.OnDinh)
             {
                 btnBaoDuong.Enabled = false;

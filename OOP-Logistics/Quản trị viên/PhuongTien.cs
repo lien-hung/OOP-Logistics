@@ -77,6 +77,18 @@ namespace OOP_Logistics.Quản_Trị_Viên
             }
             return soChuyen;
         }
+        public string KiemTraBaoDuong()
+        {
+            if ((LoaiXe == LoaiXe.XeTai && DemSoChuyenDaCho() >= 400) || (LoaiXe == LoaiXe.XeBanTai && DemSoChuyenDaCho() >= 800) || (LoaiXe == LoaiXe.XeMay && DemSoChuyenDaCho() >= 1500))
+            {
+                TinhTrangXe = TinhTrangXe.CanBaoDuong;
+            }
+            else
+            {
+                TinhTrangXe = TinhTrangXe.OnDinh;
+            }
+            return LayTinhTrang();
+        }
         public void BaoDuong()
         {
             TinhTrangXe = TinhTrangXe.OnDinh;

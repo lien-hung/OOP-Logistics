@@ -159,8 +159,8 @@ namespace OOP_Logistics
 
         private void LoadLocations()
         {
-            cboDiemDau.Items.AddRange(Util.GetAddresses().ToArray());
-            cboDiemCuoi.Items.AddRange(Util.GetAddresses().ToArray());
+            cboDiemDau.Items.AddRange(DiaDiem.GetAddresses().ToArray());
+            cboDiemCuoi.Items.AddRange(DiaDiem.GetAddresses().ToArray());
         }
 
         private void LoadOrderInformation()

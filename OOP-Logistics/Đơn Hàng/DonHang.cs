@@ -1,4 +1,5 @@
-﻿using OOP_Logistics.Quản_Trị_Viên;
+﻿using OOP_Logistics.Nhân_Viên;
+using OOP_Logistics.Quản_Trị_Viên;
 
 namespace OOP_Logistics.Khách_Hàng
 {
@@ -34,6 +35,7 @@ namespace OOP_Logistics.Khách_Hàng
         public TrangThaiDonHang TrangThaiDonHang { get; set; } = TrangThaiDonHang.DaTao;
         public int CuocPhi { get; set; } = cuocPhi;
         public int DanhGia { get; set; } = 0;
+        public TaiXeCoHuu? TaiXeGiaoGap { get; set; } = null;
         public void SuaThongTin(KhoGiaoNhan? khoLuu, LoaiXe loaiPhuongTien, int cuocPhi)
         {
             KhoLuu = khoLuu;
@@ -65,6 +67,10 @@ namespace OOP_Logistics.Khách_Hàng
             TrangThaiDonHang = TrangThaiDonHang.DangXuLy;
             CapNhatCuoiCung = DateTime.Now;
         }
+        public void NhanGiaoGap(TaiXeCoHuu? taiXe)
+        {
+            TaiXeGiaoGap = taiXe;
+        }
         public void DanhDauGiaoThanhCong()
         {
             TrangThaiDonHang = TrangThaiDonHang.GiaoThanhCong;
@@ -75,6 +81,16 @@ namespace OOP_Logistics.Khách_Hàng
             foreach (DonHang dh in Data.DanhSachDonHang!)
             {
                 if (dh.TrangThaiDonHang == TrangThaiDonHang.DaTao && dh.KhoLuu == kgn && dh.MaBuuKien == 0)
+                {
+                    yield return dh;
+                }
+            }
+        }
+        public static IEnumerable<DonHang> LayDonHoaToc()
+        {
+            foreach (DonHang dh in Data.DanhSachDonHang!)
+            {
+                if (dh.TrangThaiDonHang == TrangThaiDonHang.DaTao && dh.LayChiTiet().LoaiVanChuyen == LoaiVanChuyen.HoaToc)
                 {
                     yield return dh;
                 }

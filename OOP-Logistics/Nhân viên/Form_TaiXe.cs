@@ -117,7 +117,7 @@ namespace OOP_Logistics
         public void ResetDeliveryHistory()
         {
             dgvLichSuGiaoHang.DataSource = new List<DonHang>(TaiXeHienTai?.LayDonHangDaNhan()!);
-            lblTongThuNhap.Text = $"{TaiXeHienTai?.LayTongThuNhap():N0}";
+            lblTongThuNhap.Text = $"{TaiXeHienTai?.TinhThuNhap():N0}";
             lblDiemDanhGia.Text = $"{TaiXeHienTai?.LayDiemDanhGia():N2}";
         }
 
@@ -184,14 +184,35 @@ namespace OOP_Logistics
         {
             HideAllPanels();
             panelNhanDon.Visible = true;
-            dgvNhanDon.DataSource = new List<BuuKien>(BuuKien.LayBuuKienChoNhan());
+            dgvNhanDonGap.DataSource = new List<DonHang>(DonHang.LayDonHoaToc());
+            dgvNhanBuuKien.DataSource = new List<BuuKien>(BuuKien.LayBuuKienChoNhan());
         }
 
         private void btnNhanGiao_Click(object sender, EventArgs e)
         {
-            if (dgvNhanDon.SelectedRows.Count > 0)
+            if (dgvNhanDonGap.SelectedRows.Count > 0)
             {
-                if (dgvNhanDon.SelectedRows[0].DataBoundItem is BuuKien buuKienDaChon)
+                if (dgvNhanDonGap.SelectedRows[0].DataBoundItem is DonHang donDaChon)
+                {
+                    if (donDaChon.LoaiPhuongTien == TaiXeHienTai?.PhuongTienGiaoHang?.LoaiXe)
+                    {
+                        donDaChon.NhanGiaoGap(TaiXeHienTai);
+                        MessageBox.Show("Nhận đơn thành công.", "Thông tin", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        dgvNhanDonGap.DataSource = new List<DonHang>(DonHang.LayDonHoaToc());
+                    }
+                    else
+                    {
+                        MessageBox.Show("Loại xe của bạn không khớp với loại phương tiện mà bưu kiện được chuyên chở.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Đơn không tồn tại.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            if (dgvNhanBuuKien.SelectedRows.Count > 0)
+            {
+                if (dgvNhanBuuKien.SelectedRows[0].DataBoundItem is BuuKien buuKienDaChon)
                 {
                     if (buuKienDaChon.DanhSachDon?[0].LoaiPhuongTien == TaiXeHienTai?.PhuongTienGiaoHang?.LoaiXe && buuKienDaChon.KhoiLuong <= TaiXeHienTai?.PhuongTienGiaoHang?.TaiTrong)
                     {
@@ -201,7 +222,7 @@ namespace OOP_Logistics
                             dh.NhanDon();
                         }
                         MessageBox.Show("Nhận bưu kiện thành công.", "Thông tin", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        dgvNhanDon.DataSource = new List<BuuKien>(BuuKien.LayBuuKienChoNhan());
+                        dgvNhanBuuKien.DataSource = new List<BuuKien>(BuuKien.LayBuuKienChoNhan());
                     }
                     else if (buuKienDaChon.DanhSachDon?[0].LoaiPhuongTien != TaiXeHienTai?.PhuongTienGiaoHang?.LoaiXe)
                     {

@@ -1,6 +1,4 @@
-﻿using OOP_Logistics.Khách_Hàng;
-using OOP_Logistics.Nhân_Viên;
-using OOP_Logistics.Quản_Trị_Viên;
+﻿using OOP_Logistics.Quản_Trị_Viên;
 
 namespace OOP_Logistics
 {
@@ -49,13 +47,6 @@ namespace OOP_Logistics
                 }
             }
             return false;
-        }
-        public static IEnumerable<string> GetAddresses()
-        {
-            foreach (DiaDiem loc in Data.DanhSachDiaDiem!)
-            {
-                yield return loc.Address!;
-            }
         }
     }
 }

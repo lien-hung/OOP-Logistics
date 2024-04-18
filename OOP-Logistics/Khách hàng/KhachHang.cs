@@ -1,5 +1,9 @@
-﻿namespace OOP_Logistics.Khách_Hàng
+﻿using System.Text.Json.Serialization;
+
+namespace OOP_Logistics.Khách_Hàng
 {
+    [JsonDerivedType(typeof(KhachHangCaNhan), nameof(KhachHangCaNhan))]
+    [JsonDerivedType(typeof(KhachHangDoanhNghiep), nameof(KhachHangDoanhNghiep))]
     public abstract class KhachHang(int MaKhachHang, string HoTen, string SoDienThoai, string SoCCCD) : IHuman
     {
         public int ID { get; set; } = MaKhachHang;

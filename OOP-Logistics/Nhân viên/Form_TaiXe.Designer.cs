@@ -63,8 +63,9 @@
             lblMaTaiXe = new Label();
             txtMaTaiXe = new TextBox();
             panelNhanDon = new Panel();
+            dgvNhanDonGap = new DataGridView();
             btnNhanGiao = new Button();
-            dgvNhanDon = new DataGridView();
+            dgvNhanBuuKien = new DataGridView();
             lblTieuDeNhanDon = new Label();
             panelLichSuGiaoHang = new Panel();
             btnDanhDauDaGiao = new Button();
@@ -80,7 +81,8 @@
             grpThongTinTaiKhoan.SuspendLayout();
             grpThongTinChung.SuspendLayout();
             panelNhanDon.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dgvNhanDon).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dgvNhanDonGap).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dgvNhanBuuKien).BeginInit();
             panelLichSuGiaoHang.SuspendLayout();
             panelTaiXe.SuspendLayout();
             SuspendLayout();
@@ -195,7 +197,7 @@
             btnDangXuat.FlatStyle = FlatStyle.Flat;
             btnDangXuat.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnDangXuat.ForeColor = Color.White;
-            btnDangXuat.Location = new Point(0, 85);
+            btnDangXuat.Location = new Point(0, 84);
             btnDangXuat.Margin = new Padding(0);
             btnDangXuat.Name = "btnDangXuat";
             btnDangXuat.Size = new Size(230, 43);
@@ -210,7 +212,7 @@
             btnLichSuGiaoHang.FlatStyle = FlatStyle.Flat;
             btnLichSuGiaoHang.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnLichSuGiaoHang.ForeColor = Color.White;
-            btnLichSuGiaoHang.Location = new Point(0, 43);
+            btnLichSuGiaoHang.Location = new Point(0, 42);
             btnLichSuGiaoHang.Margin = new Padding(0);
             btnLichSuGiaoHang.Name = "btnLichSuGiaoHang";
             btnLichSuGiaoHang.Size = new Size(230, 43);
@@ -225,7 +227,7 @@
             btnNhanDon.FlatStyle = FlatStyle.Flat;
             btnNhanDon.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnNhanDon.ForeColor = Color.White;
-            btnNhanDon.Location = new Point(0, 1);
+            btnNhanDon.Location = new Point(0, 0);
             btnNhanDon.Margin = new Padding(0);
             btnNhanDon.Name = "btnNhanDon";
             btnNhanDon.Size = new Size(230, 43);
@@ -477,13 +479,25 @@
             // panelNhanDon
             // 
             panelNhanDon.BackColor = Color.FromArgb(255, 224, 192);
+            panelNhanDon.Controls.Add(dgvNhanDonGap);
             panelNhanDon.Controls.Add(btnNhanGiao);
-            panelNhanDon.Controls.Add(dgvNhanDon);
+            panelNhanDon.Controls.Add(dgvNhanBuuKien);
             panelNhanDon.Controls.Add(lblTieuDeNhanDon);
             panelNhanDon.Location = new Point(228, 0);
             panelNhanDon.Name = "panelNhanDon";
             panelNhanDon.Size = new Size(681, 566);
             panelNhanDon.TabIndex = 20;
+            // 
+            // dgvNhanDonGap
+            // 
+            dgvNhanDonGap.AllowUserToAddRows = false;
+            dgvNhanDonGap.AllowUserToDeleteRows = false;
+            dgvNhanDonGap.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvNhanDonGap.Location = new Point(32, 69);
+            dgvNhanDonGap.MultiSelect = false;
+            dgvNhanDonGap.Name = "dgvNhanDonGap";
+            dgvNhanDonGap.Size = new Size(622, 203);
+            dgvNhanDonGap.TabIndex = 46;
             // 
             // btnNhanGiao
             // 
@@ -501,16 +515,16 @@
             btnNhanGiao.UseVisualStyleBackColor = false;
             btnNhanGiao.Click += btnNhanGiao_Click;
             // 
-            // dgvNhanDon
+            // dgvNhanBuuKien
             // 
-            dgvNhanDon.AllowUserToAddRows = false;
-            dgvNhanDon.AllowUserToDeleteRows = false;
-            dgvNhanDon.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvNhanDon.Location = new Point(32, 69);
-            dgvNhanDon.MultiSelect = false;
-            dgvNhanDon.Name = "dgvNhanDon";
-            dgvNhanDon.Size = new Size(622, 416);
-            dgvNhanDon.TabIndex = 45;
+            dgvNhanBuuKien.AllowUserToAddRows = false;
+            dgvNhanBuuKien.AllowUserToDeleteRows = false;
+            dgvNhanBuuKien.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvNhanBuuKien.Location = new Point(32, 282);
+            dgvNhanBuuKien.MultiSelect = false;
+            dgvNhanBuuKien.Name = "dgvNhanBuuKien";
+            dgvNhanBuuKien.Size = new Size(622, 203);
+            dgvNhanBuuKien.TabIndex = 45;
             // 
             // lblTieuDeNhanDon
             // 
@@ -623,9 +637,9 @@
             ClientSize = new Size(909, 566);
             Controls.Add(navbarTaiXe);
             Controls.Add(panelTaiXe);
-            Controls.Add(panelThongTin);
             Controls.Add(panelLichSuGiaoHang);
             Controls.Add(panelNhanDon);
+            Controls.Add(panelThongTin);
             FormBorderStyle = FormBorderStyle.FixedSingle;
             Icon = (Icon)resources.GetObject("$this.Icon");
             MaximizeBox = false;
@@ -643,7 +657,8 @@
             grpThongTinChung.PerformLayout();
             panelNhanDon.ResumeLayout(false);
             panelNhanDon.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)dgvNhanDon).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dgvNhanDonGap).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dgvNhanBuuKien).EndInit();
             panelLichSuGiaoHang.ResumeLayout(false);
             panelLichSuGiaoHang.PerformLayout();
             panelTaiXe.ResumeLayout(false);
@@ -677,7 +692,7 @@
         private Label lblMaBuuKien;
         private TextBox txtMaBuuKien;
         private Button btnNhanGiao;
-        private DataGridView dgvNhanDon;
+        private DataGridView dgvNhanBuuKien;
         private Label lblTieuDeNhanDon;
         private GroupBox grpThongTinTaiKhoan;
         private TextBox txtXacNhanMatKhau;
@@ -705,5 +720,6 @@
         private Button btnSuaThongTin;
         private Button btnLuuThongTin;
         private Button btnLuuTaiKhoan;
+        private DataGridView dgvNhanDonGap;
     }
 }

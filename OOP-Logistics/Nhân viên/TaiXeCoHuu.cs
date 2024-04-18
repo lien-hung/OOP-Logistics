@@ -18,10 +18,17 @@ namespace OOP_Logistics.Nhân_Viên
                     }
                 }
             }
+            foreach (DonHang dh in Data.DanhSachDonHang!)
+            {
+                if (dh.TaiXeGiaoGap?.ID == ID)
+                {
+                    yield return dh;
+                }
+            }
         }
-        public int LayTongThuNhap()
+        public override double TinhThuNhap()
         {
-            int totalIncome = 0;
+            double totalIncome = 0;
             List<DonHang> donHangDaNhan = new(LayDonHangDaNhan());
             foreach (DonHang dh in donHangDaNhan)
             {

@@ -2,7 +2,6 @@
 
 namespace OOP_Logistics.Quản_Trị_Viên
 {
-    [Serializable]
     public class DiaDiem(string? address, double latitude, double longitude)
     {
         public string? Address { get; set; } = address;
@@ -21,6 +20,13 @@ namespace OOP_Logistics.Quản_Trị_Viên
             double latA = pointA.Latitude, lonA = pointA.Longitude;
             double latB = pointB.Latitude, lonB = pointB.Longitude;
             return 12745.6 * Asin(Sqrt(Havf(latB - latA) + Cos(Rad(latA)) * Cos(Rad(latB)) * Havf(lonB - lonA))); // (in kilometers; 12745.6 = 2 * Earth's radius)
+        }
+        public static IEnumerable<string> GetAddresses()
+        {
+            foreach (DiaDiem loc in Data.DanhSachDiaDiem!)
+            {
+                yield return loc.Address!;
+            }
         }
         public static DiaDiem? GetLocation(string address)
         {

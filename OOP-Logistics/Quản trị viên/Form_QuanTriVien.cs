@@ -31,6 +31,13 @@ namespace OOP_Logistics
             }
         }
 
+        private void LoadAccountData()
+        {
+            ToggleAccountInfoTextboxes(false);
+            txtTenDangNhap.Text = TaiKhoanHienTai?.Username;
+            txtMatKhau.Text = txtXacNhanMatKhau.Text = TaiKhoanHienTai?.Password;
+        }
+
         private void AllowModifyAccountInfo()
         {
             ToggleModifyAccountButton(false);
@@ -188,6 +195,7 @@ namespace OOP_Logistics
         {
             HideAllPanels();
             panelThongTin.Visible = true;
+            LoadAccountData();
             lblTenQuanTriVien.Text = "ADMIN";
         }
 
@@ -339,14 +347,14 @@ namespace OOP_Logistics
             panelThongKe.Visible = true;
             lblSoKhachHang.Text = Data.DanhSachKhachHang?.Count.ToString();
             lblSoDonHang.Text = Data.DanhSachDonHang?.Count.ToString();
-            lblSoDonTrungBinh.Text = $"{Data.DanhSachDonHang?.Count / Data.DanhSachKhachHang?.Count:N2}";
+            lblSoDonTrungBinh.Text = Data.DanhSachKhachHang?.Count > 0 ? $"{Data.DanhSachDonHang?.Count / Data.DanhSachKhachHang?.Count:N2}" : $"{0:N2}";
             lblTongCuocPhi.Text = $"{TinhTongCuocPhi():N0}";
-            lblCuocPhiTrungBinh.Text = $"{TinhTongCuocPhi() / DemSoDonThanhCong():N2}";
+            lblCuocPhiTrungBinh.Text = DemSoDonThanhCong() > 0 ? $"{TinhTongCuocPhi() / DemSoDonThanhCong():N2}" : $"{0:N2}";
             lblSoNhanVien.Text = Data.DanhSachNhanVien?.Count.ToString();
             lblSoDonThanhCong.Text = DemSoDonThanhCong().ToString();
-            lblSoDonGiaoTrungBinh.Text = $"{DemSoDonThanhCong() / Data.DanhSachNhanVien?.Count:N2}";
-            lblThuNhapTrungBinh.Text = $"{TinhTongCuocPhi() / DemSoTaiXe():N2}";
-            lblDanhGiaTrungBinh.Text = $"{LayTongDanhGia() / DemSoTaiXe():N2}";
+            lblSoDonGiaoTrungBinh.Text = Data.DanhSachNhanVien?.Count > 0 ? $"{DemSoDonThanhCong() / Data.DanhSachNhanVien?.Count:N2}" : $"{0:N2}";
+            lblThuNhapTrungBinh.Text = DemSoTaiXe() > 0 ? $"{TinhTongCuocPhi() / DemSoTaiXe():N2}" : $"{0:N2}";
+            lblDanhGiaTrungBinh.Text = DemSoTaiXe() > 0 ? $"{LayTongDanhGia() / DemSoTaiXe():N2}" : $"{0:N2}";
         }
     }
 }

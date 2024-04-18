@@ -172,8 +172,8 @@ namespace OOP_Logistics
 
         private void LoadLocations()
         {
-            cboDiemDau.Items.AddRange(Util.GetAddresses().ToArray());
-            cboDiemCuoi.Items.AddRange(Util.GetAddresses().ToArray());
+            cboDiemDau.Items.AddRange(DiaDiem.GetAddresses().ToArray());
+            cboDiemCuoi.Items.AddRange(DiaDiem.GetAddresses().ToArray());
         }
 
         private void LoadCustomerData()
@@ -215,11 +215,11 @@ namespace OOP_Logistics
             {
                 if (KhachHangHienTai is KhachHangCaNhan khcn)
                 {
-                    khcn.ChinhSuaThongTin(Convert.ToInt32(txtMaKhachHang.Text), txtHoVaTen.Text, txtSoDienThoai.Text, txtSoCCCD.Text, txtEmail.Text, txtDiaChi.Text);
+                    khcn.SuaThongTin(Convert.ToInt32(txtMaKhachHang.Text), txtHoVaTen.Text, txtSoDienThoai.Text, txtSoCCCD.Text, txtEmail.Text, txtDiaChi.Text);
                 }
                 if (KhachHangHienTai is KhachHangDoanhNghiep khdn)
                 {
-                    khdn.ChinhSuaThongTin(Convert.ToInt32(txtMaKhachHang.Text), txtHoVaTen.Text, txtSoDienThoai.Text, txtSoCCCD.Text, txtTenCongTy.Text, txtLinhVuc.Text, txtDiaChi.Text, txtEmail.Text);
+                    khdn.SuaThongTin(Convert.ToInt32(txtMaKhachHang.Text), txtHoVaTen.Text, txtSoDienThoai.Text, txtSoCCCD.Text, txtTenCongTy.Text, txtLinhVuc.Text, txtDiaChi.Text, txtEmail.Text);
                 }
                 MessageBox.Show("Sửa thông tin thành công.", "Thông tin", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 ToggleModifyCustomerButton(true);

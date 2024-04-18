@@ -36,7 +36,7 @@ namespace OOP_Logistics.Nhân_Viên
             ChucVu = chucVu;
             LayChucVuVaHeSoLuong();
         }
-        public double TinhThuNhap()
+        public override double TinhThuNhap()
         {
             return 1_800_000 * HeSoLuong;
         }

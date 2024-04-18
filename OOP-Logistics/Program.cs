@@ -14,7 +14,7 @@ namespace OOP_Logistics
             Data.Initialize();
             MyApplication app = new();
             app.Run(Environment.GetCommandLineArgs());
-            // Data.Serialize();
+            Data.Serialize();
         }
     }
 }

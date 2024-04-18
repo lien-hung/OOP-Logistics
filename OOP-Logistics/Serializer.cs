@@ -1,4 +1,5 @@
-﻿using System.Text.Encodings.Web;
+﻿using System.Text;
+using System.Text.Encodings.Web;
 using System.Text.Json;
 
 namespace OOP_Logistics
@@ -19,7 +20,7 @@ namespace OOP_Logistics
         {
             try
             {
-                string newJson = File.ReadAllText(path);
+                string newJson = File.ReadAllText(path, Encoding.UTF8);
                 return JsonSerializer.Deserialize<T>(newJson, readOptions)!;
             }
             catch

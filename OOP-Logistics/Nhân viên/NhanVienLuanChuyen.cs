@@ -1,4 +1,5 @@
 ﻿using OOP_Logistics.Quản_Trị_Viên;
+using System.Text.Json.Serialization;
 
 namespace OOP_Logistics.Nhân_Viên
 {
@@ -8,37 +9,45 @@ namespace OOP_Logistics.Nhân_Viên
         QuanLy,
         NhanVienThuong
     }
-    public class NhanVienLuanChuyen(int MaNhanVien, string HoTen, string SoDienThoai, string SoCCCD, ChucVu chucVu, KhoGiaoNhan khoLamViec) : NhanVien(MaNhanVien, HoTen, SoDienThoai, SoCCCD)
+    public class NhanVienLuanChuyen(int id, string name, string phoneNumber, string citizenID, ChucVu chucVu, KhoGiaoNhan khoLamViec) : NhanVien(id, name, phoneNumber, citizenID)
     {
         public ChucVu ChucVu { get; set; } = chucVu;
         public KhoGiaoNhan KhoLamViec { get; set; } = khoLamViec;
-        public double HeSoLuong { get; set; }
-        public string LayChucVuVaHeSoLuong()
+        public string LayChucVu()
         {
             switch (ChucVu)
             {
                 case ChucVu.TruongKho:
-                    HeSoLuong = 3.5;
                     return "Trưởng kho";
                 case ChucVu.QuanLy:
-                    HeSoLuong = 2.4;
                     return "Quản lý";
                 case ChucVu.NhanVienThuong:
-                    HeSoLuong = 1.6;
                     return "Nhân viên thường";
                 default:
-                    HeSoLuong = 0;
                     return string.Empty;
             }
         }
-        public void ThayChucVu(ChucVu chucVu)
+        public double LayHeSoLuong()
+        {
+            switch (ChucVu)
+            {
+                case ChucVu.TruongKho:
+                    return 3.5;
+                case ChucVu.QuanLy:
+                    return 2.4;
+                case ChucVu.NhanVienThuong:
+                    return 1.6;
+                default:
+                    return 0;
+            }
+        }
+        public void ThayDoiChucVu(ChucVu chucVu)
         {
             ChucVu = chucVu;
-            LayChucVuVaHeSoLuong();
         }
         public override double TinhThuNhap()
         {
-            return 1_800_000 * HeSoLuong;
+            return 1_800_000 * LayHeSoLuong();
         }
         public IEnumerable<LichSuLuongThuong> LayLichSuLuong()
         {

@@ -1,4 +1,5 @@
 ﻿using OOP_Logistics.Nhân_Viên;
+using System.Text.Json.Serialization;
 
 namespace OOP_Logistics.Quản_Trị_Viên
 {
@@ -13,12 +14,27 @@ namespace OOP_Logistics.Quản_Trị_Viên
         OnDinh,
         CanBaoDuong
     }
-    public class PhuongTien(string bienSo, LoaiXe loaiXe)
+    public class PhuongTien
     {
-        public string? BienSoXe { get; set; } = bienSo;
-        public LoaiXe LoaiXe { get; set; } = loaiXe;
-        public double TaiTrong { get; set; } = (double)loaiXe;
-        public TinhTrangXe TinhTrangXe { get; set; } = TinhTrangXe.OnDinh;
+        public string BienSoXe { get; set; }
+        public LoaiXe LoaiXe { get; set; }
+        public double TaiTrong { get; set; }
+        public TinhTrangXe TinhTrangXe { get; set; }
+        public PhuongTien(string bienSoXe, LoaiXe loaiXe)
+        {
+            BienSoXe = bienSoXe;
+            LoaiXe = loaiXe;
+            TaiTrong = (double)loaiXe;
+            TinhTrangXe = TinhTrangXe.OnDinh;
+        }
+        [JsonConstructor]
+        public PhuongTien(string bienSoXe, LoaiXe loaiXe, double taiTrong, TinhTrangXe tinhTrangXe)
+        {
+            BienSoXe = bienSoXe;
+            LoaiXe = loaiXe;
+            TaiTrong = taiTrong;
+            TinhTrangXe = tinhTrangXe;
+        }
         public string LayLoaiXe()
         {
             switch (LoaiXe)

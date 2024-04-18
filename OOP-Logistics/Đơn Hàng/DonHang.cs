@@ -80,7 +80,7 @@ namespace OOP_Logistics.Khách_Hàng
         {
             foreach (DonHang dh in Data.DanhSachDonHang!)
             {
-                if (dh.TrangThaiDonHang == TrangThaiDonHang.DaTao && dh.KhoLuu == kgn && dh.MaBuuKien == 0)
+                if (dh.TrangThaiDonHang == TrangThaiDonHang.DaTao && dh.KhoLuu?.DiaDiemKho?.Address == kgn.DiaDiemKho?.Address && dh.MaBuuKien == 0)
                 {
                     yield return dh;
                 }
@@ -90,7 +90,7 @@ namespace OOP_Logistics.Khách_Hàng
         {
             foreach (DonHang dh in Data.DanhSachDonHang!)
             {
-                if (dh.TrangThaiDonHang == TrangThaiDonHang.DaTao && dh.LayChiTiet().LoaiVanChuyen == LoaiVanChuyen.HoaToc)
+                if (dh.TrangThaiDonHang == TrangThaiDonHang.DaTao && dh.LayChiTiet().LoaiVanChuyen == LoaiVanChuyen.HoaToc && dh.TaiXeGiaoGap == null)
                 {
                     yield return dh;
                 }

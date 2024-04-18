@@ -53,13 +53,13 @@ namespace OOP_Logistics
                 switch (cboChucVu.SelectedIndex)
                 {
                     case 0:
-                        nvlc.ThayChucVu(ChucVu.TruongKho);
+                        nvlc.ThayDoiChucVu(ChucVu.TruongKho);
                         break;
                     case 1:
-                        nvlc.ThayChucVu(ChucVu.QuanLy);
+                        nvlc.ThayDoiChucVu(ChucVu.QuanLy);
                         break;
                     case 2:
-                        nvlc.ThayChucVu(ChucVu.NhanVienThuong);
+                        nvlc.ThayDoiChucVu(ChucVu.NhanVienThuong);
                         break;
                 }
             }

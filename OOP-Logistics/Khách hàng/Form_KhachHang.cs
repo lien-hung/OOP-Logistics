@@ -390,6 +390,7 @@ namespace OOP_Logistics
                 DiemDau = DiaDiem.GetLocation(cboDiemDau.Text)!;
             }
             GetDistanceFee(DiaDiem.Distance(DiemDau, DiemCuoi));
+            GetDeliveryFee();
             GetTotalFee();
             GetTemporaryWarehouse();
         }
@@ -401,6 +402,7 @@ namespace OOP_Logistics
                 DiemCuoi = DiaDiem.GetLocation(cboDiemCuoi.Text)!;
             }
             GetDistanceFee(DiaDiem.Distance(DiemDau, DiemCuoi));
+            GetDeliveryFee();
             GetTotalFee();
         }
 
@@ -421,12 +423,14 @@ namespace OOP_Logistics
                     lblPhuThuGiaTriCao.Text = $"{giaTriDon * 0.001:N0}";
                 }
             }
+            GetDeliveryFee();
             GetTotalFee();
         }
 
         private void cboLoaiHang_SelectedIndexChanged(object sender, EventArgs e)
         {
             GetTypeFee();
+            GetDeliveryFee();
             GetTotalFee();
         }
 
@@ -440,6 +444,7 @@ namespace OOP_Logistics
         private void cboLoaiXe_SelectedIndexChanged(object sender, EventArgs e)
         {
             GetDistanceFee(DiaDiem.Distance(DiemDau, DiemCuoi));
+            GetDeliveryFee();
             GetTotalFee();
         }
 

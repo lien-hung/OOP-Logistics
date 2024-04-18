@@ -4,12 +4,12 @@ namespace OOP_Logistics.Nhân_Viên
 {
     [JsonDerivedType(typeof(NhanVienLuanChuyen), nameof(NhanVienLuanChuyen))]
     [JsonDerivedType(typeof(TaiXeCoHuu), nameof(TaiXeCoHuu))]
-    public abstract class NhanVien(int MaNhanVien, string HoTen, string SoDienThoai, string SoCCCD) : IHuman
+    public abstract class NhanVien(int id, string name, string phoneNumber, string citizenID) : IHuman
     {
-        public int ID { get; set; } = MaNhanVien;
-        public string? Name { get; set; } = HoTen;
-        public string? PhoneNumber { get; set; } = SoDienThoai;
-        public string? CitizenID { get; set; } = SoCCCD;
+        public int ID { get; set; } = id;
+        public string Name { get; set; } = name;
+        public string PhoneNumber { get; set; } = phoneNumber;
+        public string CitizenID { get; set; } = citizenID;
         public void SuaThongTin(int MaNhanVien, string HoTen, string SoDienThoai, string SoCCCD)
         {
             ID = MaNhanVien;

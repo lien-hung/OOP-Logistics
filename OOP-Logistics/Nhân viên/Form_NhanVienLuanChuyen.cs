@@ -55,8 +55,8 @@ namespace OOP_Logistics
             txtSoDienThoai.Text = NhanVienHienTai?.PhoneNumber;
             txtSoCCCD.Text = NhanVienHienTai?.CitizenID;
             txtKhoLamViec.Text = NhanVienHienTai?.KhoLamViec.DiaDiemKho?.Address;
-            txtChucVu.Text = NhanVienHienTai?.LayChucVuVaHeSoLuong();
-            txtHeSoLuong.Text = NhanVienHienTai?.HeSoLuong.ToString();
+            txtChucVu.Text = NhanVienHienTai?.LayChucVu();
+            txtHeSoLuong.Text = NhanVienHienTai?.LayHeSoLuong().ToString();
             txtLuongThang.Text = NhanVienHienTai?.TinhThuNhap().ToString();
         }
 

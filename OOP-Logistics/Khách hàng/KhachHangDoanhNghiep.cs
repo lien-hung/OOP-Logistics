@@ -1,11 +1,11 @@
 ﻿namespace OOP_Logistics.Khách_Hàng
 {
-    class KhachHangDoanhNghiep(int MaKhachHang, string HoTen, string SoDienThoai, string SoCCCD, string TenCTy, string LinhVuc, string DiaChiTruSo, string EmailCTy) : KhachHang(MaKhachHang, HoTen, SoDienThoai, SoCCCD)
+    class KhachHangDoanhNghiep(int id, string name, string phoneNumber, string citizenID, string tenCongTy, string linhVucHoatDong, string noiDongTruSo, string emailCongTy) : KhachHang(id, name, phoneNumber, citizenID)
     {
-        public string? TenCongTy { get; set; } = TenCTy;
-        public string? LinhVucHoatDong { get; set; } = LinhVuc;
-        public string? NoiDongTruSo { get; set; } = DiaChiTruSo;
-        public string? EmailCongTy { get; set; } = EmailCTy;
+        public string TenCongTy { get; set; } = tenCongTy;
+        public string LinhVucHoatDong { get; set; } = linhVucHoatDong;
+        public string NoiDongTruSo { get; set; } = noiDongTruSo;
+        public string EmailCongTy { get; set; } = emailCongTy;
         public void SuaThongTin(int MaKhachHang, string HoTen, string SoDienThoai, string SoCCCD, string TenCTy, string LinhVuc, string DiaChiTruSo, string EmailCTy)
         {
             base.SuaThongTin(MaKhachHang, HoTen, SoDienThoai, SoCCCD);

@@ -9,6 +9,17 @@ namespace OOP_Logistics
         private readonly ChiTietDonHang? ChiTiet;
         private DiaDiem DiemDau, DiemCuoi;
 
+        private void ToggleEditableFields(bool enabled)
+        {
+            foreach (Control ctrl in Controls)
+            {
+                if (ctrl is TextBox || ctrl is ComboBox)
+                {
+                    ctrl.Enabled = enabled;
+                }
+            }
+        }
+
         private void GetDistanceFee(double distance)
         {
             lblKhoangCach.Text = $"{distance:N3} km";
@@ -196,6 +207,16 @@ namespace OOP_Logistics
             GetDeliveryFee();
             GetTotalFee();
             GetTemporaryWarehouse();
+            if (DonDangSua.TrangThaiDonHang == TrangThaiDonHang.DaTao)
+            {
+                btnLuuThongTin.Enabled = true;
+                ToggleEditableFields(true);
+            }
+            else
+            {
+                btnLuuThongTin.Enabled = false;
+                ToggleEditableFields(false);
+            }
         }
 
         private void cboDiemDau_Leave(object sender, EventArgs e)
@@ -205,6 +226,7 @@ namespace OOP_Logistics
                 DiemDau = DiaDiem.GetLocation(cboDiemDau.Text)!;
             }
             GetDistanceFee(DiaDiem.Distance(DiemDau, DiemCuoi));
+            GetDeliveryFee();
             GetTotalFee();
             GetTemporaryWarehouse();
         }
@@ -216,6 +238,7 @@ namespace OOP_Logistics
                 DiemCuoi = DiaDiem.GetLocation(cboDiemCuoi.Text)!;
             }
             GetDistanceFee(DiaDiem.Distance(DiemDau, DiemCuoi));
+            GetDeliveryFee();
             GetTotalFee();
         }
 
@@ -230,12 +253,14 @@ namespace OOP_Logistics
         private void txtGiaTriDon_TextChanged(object sender, EventArgs e)
         {
             GetHighValueFee();
+            GetDeliveryFee();
             GetTotalFee();
         }
 
         private void cboLoaiHang_SelectedIndexChanged(object sender, EventArgs e)
         {
             GetTypeFee();
+            GetDeliveryFee();
             GetTotalFee();
         }
 
@@ -249,6 +274,7 @@ namespace OOP_Logistics
         private void cboLoaiXe_SelectedIndexChanged(object sender, EventArgs e)
         {
             GetDistanceFee(DiaDiem.Distance(DiemDau, DiemCuoi));
+            GetDeliveryFee();
             GetTotalFee();
         }
 

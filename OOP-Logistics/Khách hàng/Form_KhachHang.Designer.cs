@@ -718,7 +718,7 @@
             cboLoaiXe.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             cboLoaiXe.FormattingEnabled = true;
             cboLoaiXe.Items.AddRange(new object[] { "Xe tải", "Xe bán tải", "Xe máy" });
-            cboLoaiXe.Location = new Point(509, 162);
+            cboLoaiXe.Location = new Point(318, 162);
             cboLoaiXe.Name = "cboLoaiXe";
             cboLoaiXe.Size = new Size(137, 29);
             cboLoaiXe.TabIndex = 45;
@@ -728,7 +728,7 @@
             // 
             lblLoaiXe.AutoSize = true;
             lblLoaiXe.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblLoaiXe.Location = new Point(445, 165);
+            lblLoaiXe.Location = new Point(254, 165);
             lblLoaiXe.Name = "lblLoaiXe";
             lblLoaiXe.Size = new Size(58, 21);
             lblLoaiXe.TabIndex = 44;
@@ -784,7 +784,7 @@
             cboLoaiVanChuyen.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             cboLoaiVanChuyen.FormattingEnabled = true;
             cboLoaiVanChuyen.Items.AddRange(new object[] { "Giao thường", "Giao hỏa tốc", "Giao tiết kiệm" });
-            cboLoaiVanChuyen.Location = new Point(334, 162);
+            cboLoaiVanChuyen.Location = new Point(541, 162);
             cboLoaiVanChuyen.Name = "cboLoaiVanChuyen";
             cboLoaiVanChuyen.Size = new Size(105, 29);
             cboLoaiVanChuyen.TabIndex = 38;
@@ -794,7 +794,7 @@
             // 
             lblLoaiVanChuyen.AutoSize = true;
             lblLoaiVanChuyen.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblLoaiVanChuyen.Location = new Point(254, 165);
+            lblLoaiVanChuyen.Location = new Point(461, 165);
             lblLoaiVanChuyen.Name = "lblLoaiVanChuyen";
             lblLoaiVanChuyen.Size = new Size(74, 21);
             lblLoaiVanChuyen.TabIndex = 37;

@@ -3,9 +3,9 @@ using OOP_Logistics.Quản_Trị_Viên;
 
 namespace OOP_Logistics.Nhân_Viên
 {
-    public class TaiXeCoHuu(int MaNhanVien, string HoTen, string SoDienThoai, string SoCCCD, PhuongTien phuongTien) : NhanVien(MaNhanVien, HoTen, SoDienThoai, SoCCCD)
+    public class TaiXeCoHuu(int id, string name, string phoneNumber, string citizenID, PhuongTien phuongTienGiaoHang) : NhanVien(id, name, phoneNumber, citizenID)
     {
-        public PhuongTien? PhuongTienGiaoHang { get; set; } = phuongTien;
+        public PhuongTien PhuongTienGiaoHang { get; set; } = phuongTienGiaoHang;
         public IEnumerable<DonHang> LayDonHangDaNhan()
         {
             foreach (BuuKien bk in Data.DanhSachBuuKien!)

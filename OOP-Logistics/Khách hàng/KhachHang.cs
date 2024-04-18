@@ -4,12 +4,12 @@ namespace OOP_Logistics.Khách_Hàng
 {
     [JsonDerivedType(typeof(KhachHangCaNhan), nameof(KhachHangCaNhan))]
     [JsonDerivedType(typeof(KhachHangDoanhNghiep), nameof(KhachHangDoanhNghiep))]
-    public abstract class KhachHang(int MaKhachHang, string HoTen, string SoDienThoai, string SoCCCD) : IHuman
+    public abstract class KhachHang(int id, string name, string phoneNumber, string citizenID) : IHuman
     {
-        public int ID { get; set; } = MaKhachHang;
-        public string? Name { get; set; } = HoTen;
-        public string? PhoneNumber { get; set; } = SoDienThoai;
-        public string? CitizenID { get; set; } = SoCCCD;
+        public int ID { get; set; } = id;
+        public string Name { get; set; } = name;
+        public string PhoneNumber { get; set; } = phoneNumber;
+        public string CitizenID { get; set; } = citizenID;
         public IEnumerable<DonHang> LayLichSuDatHang()
         {
             foreach (DonHang dh in Data.DanhSachDonHang!)

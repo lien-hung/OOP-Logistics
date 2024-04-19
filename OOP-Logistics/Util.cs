@@ -1,6 +1,4 @@
-﻿using OOP_Logistics.Quản_Trị_Viên;
-
-namespace OOP_Logistics
+﻿namespace OOP_Logistics
 {
     public class Util
     {

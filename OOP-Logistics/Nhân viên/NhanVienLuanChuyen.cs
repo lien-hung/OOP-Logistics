@@ -1,5 +1,4 @@
 ﻿using OOP_Logistics.Quản_Trị_Viên;
-using System.Text.Json.Serialization;
 
 namespace OOP_Logistics.Nhân_Viên
 {
